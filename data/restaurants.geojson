@@ -1,0 +1,49 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Spruce Goose Caf\u00e9 (placeholder pin)",
+        "type": "on-airport",
+        "region": "PNW",
+        "source": "Package placeholder",
+        "airport_ident": "0S9",
+        "airport_name": "Jefferson County Intl",
+        "city": "Port Townsend",
+        "state": "WA",
+        "website": "",
+        "substack_post": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.777,
+          48.093
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Flo\u2019s Airport Caf\u00e9 (placeholder pin)",
+        "type": "on-airport",
+        "region": "SoCal",
+        "source": "Package placeholder",
+        "airport_ident": "KCNO",
+        "airport_name": "Chino",
+        "city": "Chino",
+        "state": "CA",
+        "website": "",
+        "substack_post": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.637,
+          33.974
+        ]
+      }
+    }
+  ]
+}

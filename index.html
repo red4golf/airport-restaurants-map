@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Airport Restaurants Map (Wargame)</title>
+
+  <!-- Leaflet -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="title">Airport Restaurants</div>
+      <div class="subtitle">Wargame map (GitHub Pages static)</div>
+    </div>
+
+    <div class="controls">
+      <label>
+        Type
+        <select id="typeFilter">
+          <option value="all">All</option>
+          <option value="on-airport">On-airport</option>
+          <option value="near-airport">Near-airport</option>
+        </select>
+      </label>
+
+      <label>
+        Region
+        <select id="regionFilter">
+          <option value="all">All</option>
+        </select>
+      </label>
+
+      <label class="search">
+        Search
+        <input id="searchInput" type="search" placeholder="Name, airport, city…" />
+      </label>
+
+      <button id="resetBtn" type="button">Reset</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="map"></div>
+
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">Results</div>
+        <div id="resultCount" class="sidebar-subtitle">—</div>
+      </div>
+      <div id="list" class="list"></div>
+      <div class="sidebar-footer">
+        <div class="hint">
+          Tip: Click a card to zoom to the pin. Your data lives in
+          <code>data/restaurants.geojson</code>.
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
