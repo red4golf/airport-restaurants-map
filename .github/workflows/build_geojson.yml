@@ -1,9 +1,9 @@
-name: Build GeoJSON
+name: Build GeoJSON + Sitemap
 
 on:
   workflow_dispatch:
   schedule:
-    # Every Sunday at 09:15 UTC (adjust as desired)
+    # Every Sunday at 09:15 UTC
     - cron: "15 9 * * 0"
 
 permissions:
@@ -21,13 +21,13 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Build GeoJSON
+      - name: Build GeoJSON + Sitemap
         run: python tools/build_geojson.py
 
       - name: Commit changes (if any)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/restaurants.geojson
-          git diff --staged --quiet || git commit -m "Update restaurants.geojson"
+          git add data/restaurants.geojson sitemap.xml
+          git diff --staged --quiet || git commit -m "Update restaurants.geojson + sitemap.xml [$(date -u +%Y-%m-%d)]"
           git push
