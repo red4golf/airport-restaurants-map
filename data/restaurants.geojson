@@ -4,44 +4,805 @@
     {
       "type": "Feature",
       "properties": {
-        "restaurant_name": "Spruce Goose Caf\u00e9 (placeholder pin)",
+        "restaurant_name": "Gaston’s Restaurant",
         "type": "on-airport",
-        "region": "PNW",
-        "source": "Package placeholder",
-        "airport_ident": "0S9",
-        "airport_name": "Jefferson County Intl",
-        "city": "Port Townsend",
-        "state": "WA",
+        "region": "South",
+        "source": "Seed list",
         "website": "",
-        "substack_post": ""
+        "substack_post": "",
+        "airport_ident": "3M0",
+        "airport_name": "Gaston’s Airport",
+        "city": "Lakeview",
+        "state": "AR",
+        "iso_region": "US-AR"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.777,
-          48.093
+          -92.557098,
+          36.348701
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "restaurant_name": "Flo\u2019s Airport Caf\u00e9 (placeholder pin)",
+        "restaurant_name": "Flo’s Airport Café",
         "type": "on-airport",
         "region": "SoCal",
-        "source": "Package placeholder",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
         "airport_ident": "KCNO",
         "airport_name": "Chino",
         "city": "Chino",
         "state": "CA",
-        "website": "",
-        "substack_post": ""
+        "iso_region": "US-CA"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.637,
-          33.974
+          -117.637001,
+          33.97470093
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Harris Ranch Restaurant",
+        "type": "on-airport",
+        "region": "CA",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "3O8",
+        "airport_name": "Harris Ranch",
+        "city": "Coalinga",
+        "state": "CA",
+        "iso_region": "US-CA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.238323,
+          36.247813
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "The Downwind Café",
+        "type": "on-airport",
+        "region": "FL",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "7FL6",
+        "airport_name": "Spruce Creek",
+        "city": "Port Orange",
+        "state": "FL",
+        "iso_region": "US-FL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.04669952392578,
+          29.0802001953125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "57th Fighter Group Restaurant",
+        "type": "near-airport",
+        "region": "GA",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KPDK",
+        "airport_name": "DeKalb-Peachtree",
+        "city": "Atlanta",
+        "state": "GA",
+        "iso_region": "US-GA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.30213,
+          33.87633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Rick’s Café Boatyard",
+        "type": "near-airport",
+        "region": "Midwest",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KEYE",
+        "airport_name": "Eagle Creek Airpark",
+        "city": "Indianapolis",
+        "state": "IN",
+        "iso_region": "US-IN"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.294403076172,
+          39.830699920654
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Bistro Le Relais",
+        "type": "on-airport",
+        "region": "South",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KLOU",
+        "airport_name": "Bowman Field",
+        "city": "Louisville",
+        "state": "KY",
+        "iso_region": "US-KY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.6636962891,
+          38.2280006409
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Jake’s Joint",
+        "type": "on-airport",
+        "region": "South",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KADM",
+        "airport_name": "Ardmore Municipal",
+        "city": "Ardmore",
+        "state": "OK",
+        "iso_region": "US-OK"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.0196342,
+          34.30301
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Holman’s Table",
+        "type": "on-airport",
+        "region": "Midwest",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KSTP",
+        "airport_name": "St. Paul Downtown",
+        "city": "St. Paul",
+        "state": "MN",
+        "iso_region": "US-MN"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.060036,
+          44.93479
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Hangar 6 Air Café",
+        "type": "on-airport",
+        "region": "TX",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KUVA",
+        "airport_name": "Garner Field",
+        "city": "Uvalde",
+        "state": "TX",
+        "iso_region": "US-TX"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.743598938,
+          29.2112998962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Flight Deck Diner",
+        "type": "on-airport",
+        "region": "Northeast",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KWWD",
+        "airport_name": "Cape May",
+        "city": "Cape May",
+        "state": "NJ",
+        "iso_region": "US-NJ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.9083023071,
+          39.008499145500004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Crosswinds Restaurant",
+        "type": "on-airport",
+        "region": "Northeast",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KACK",
+        "airport_name": "Nantucket Memorial",
+        "city": "Nantucket",
+        "state": "MA",
+        "iso_region": "US-MA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.06020355,
+          41.25310135
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Volanti",
+        "type": "on-airport",
+        "region": "AZ",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KSDL",
+        "airport_name": "Scottsdale",
+        "city": "Scottsdale",
+        "state": "AZ",
+        "iso_region": "US-AZ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.91100311279,
+          33.622898101807
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Waypoint Cafe",
+        "type": "on-airport",
+        "region": "SoCal",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KCMA",
+        "airport_name": "Camarillo",
+        "city": "Camarillo",
+        "state": "CA",
+        "iso_region": "US-CA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.094002,
+          34.213699
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "The Perfect Landing",
+        "type": "on-airport",
+        "region": "Mountain",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KAPA",
+        "airport_name": "Centennial",
+        "city": "Englewood",
+        "state": "CO",
+        "iso_region": "US-CO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.848999,
+          39.57009888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Mesa Grill",
+        "type": "on-airport",
+        "region": "AZ",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KSEZ",
+        "airport_name": "Sedona",
+        "city": "Sedona",
+        "state": "AZ",
+        "iso_region": "US-AZ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.78800201416,
+          34.848598480225
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Jet Runway Café",
+        "type": "on-airport",
+        "region": "FL",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KFXE",
+        "airport_name": "Fort Lauderdale Executive",
+        "city": "Fort Lauderdale",
+        "state": "FL",
+        "iso_region": "US-FL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.1707000732,
+          26.1972999573
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Nancy’s Air Field Café",
+        "type": "on-airport",
+        "region": "Northeast",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "6B6",
+        "airport_name": "Minute Man Air Field",
+        "city": "Stow",
+        "state": "MA",
+        "iso_region": "US-MA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.519031,
+          42.460298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Pik-N-Pig BBQ",
+        "type": "on-airport",
+        "region": "NC",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "5NC3",
+        "airport_name": "Gilliam-McConnell Airfield",
+        "city": "Carthage",
+        "state": "NC",
+        "iso_region": "US-NC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.436897,
+          35.341702
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Hard Eight BBQ",
+        "type": "near-airport",
+        "region": "TX",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KSEP",
+        "airport_name": "Stephenville Clark Regional",
+        "city": "Stephenville",
+        "state": "TX",
+        "iso_region": "US-TX"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.177696,
+          32.215302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Sky Galley",
+        "type": "on-airport",
+        "region": "Midwest",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KLUK",
+        "airport_name": "Cincinnati Municipal (Lunken)",
+        "city": "Cincinnati",
+        "state": "OH",
+        "iso_region": "US-OH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.418945,
+          39.102357
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Tin Goose Diner",
+        "type": "on-airport",
+        "region": "Midwest",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KPCW",
+        "airport_name": "Erie-Ottawa Intl",
+        "city": "Port Clinton",
+        "state": "OH",
+        "iso_region": "US-OH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.868328,
+          41.515647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "DeNunzio’s Italian Chophouse",
+        "type": "on-airport",
+        "region": "Northeast",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KLBE",
+        "airport_name": "Arnold Palmer Regional",
+        "city": "Latrobe",
+        "state": "PA",
+        "iso_region": "US-PA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.4048,
+          40.275902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "CJ Cannon’s",
+        "type": "on-airport",
+        "region": "FL",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KVRB",
+        "airport_name": "Vero Beach Regional",
+        "city": "Vero Beach",
+        "state": "FL",
+        "iso_region": "US-FL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.417901,
+          27.6556
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Flightline Café",
+        "type": "on-airport",
+        "region": "FL",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KGIF",
+        "airport_name": "Winter Haven Regional",
+        "city": "Winter Haven",
+        "state": "FL",
+        "iso_region": "US-FL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.753304,
+          28.062901
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Runways at Bartow",
+        "type": "on-airport",
+        "region": "FL",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KBOW",
+        "airport_name": "Bartow Municipal",
+        "city": "Bartow",
+        "state": "FL",
+        "iso_region": "US-FL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.783401,
+          27.943399
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Suncoast Café",
+        "type": "on-airport",
+        "region": "FL",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KVNC",
+        "airport_name": "Venice Municipal",
+        "city": "Venice",
+        "state": "FL",
+        "iso_region": "US-FL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.440815,
+          27.070541
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Tailwind Café",
+        "type": "on-airport",
+        "region": "FL",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KOCF",
+        "airport_name": "Ocala Intl (Jim Taylor Field)",
+        "city": "Ocala",
+        "state": "FL",
+        "iso_region": "US-FL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.22419739,
+          29.17259979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "The Hangar Restaurant & Flight Lounge",
+        "type": "on-airport",
+        "region": "FL",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KSPG",
+        "airport_name": "Albert Whitted",
+        "city": "St. Petersburg",
+        "state": "FL",
+        "iso_region": "US-FL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.626999,
+          27.7651
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Landing Strip Café",
+        "type": "on-airport",
+        "region": "FL",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KOBE",
+        "airport_name": "Okeechobee County",
+        "city": "Okeechobee",
+        "state": "FL",
+        "iso_region": "US-FL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.8498001099,
+          27.262800216699997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Restaurant 121",
+        "type": "on-airport",
+        "region": "Northeast",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KOXC",
+        "airport_name": "Waterbury-Oxford",
+        "city": "Oxford",
+        "state": "CT",
+        "iso_region": "US-CT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.135200500488,
+          41.47859954834
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "The Apron Cafe",
+        "type": "on-airport",
+        "region": "Northeast",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KFOK",
+        "airport_name": "Francis S. Gabreski",
+        "city": "Westhampton Beach",
+        "state": "NY",
+        "iso_region": "US-NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.6317977905,
+          40.8437004089
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Perfect Landing (alt listing)",
+        "type": "on-airport",
+        "region": "Mountain",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KAPA",
+        "airport_name": "Centennial",
+        "city": "Englewood",
+        "state": "CO",
+        "iso_region": "US-CO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.848999,
+          39.57009888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Aviator’s Grill",
+        "type": "on-airport",
+        "region": "TX",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KDWH",
+        "airport_name": "David Wayne Hooks Memorial",
+        "city": "Spring",
+        "state": "TX",
+        "iso_region": "US-TX"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.55280303960001,
+          30.0618000031
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Runway Café",
+        "type": "on-airport",
+        "region": "SC",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "airport_ident": "KGMU",
+        "airport_name": "Greenville Downtown",
+        "city": "Greenville",
+        "state": "SC",
+        "iso_region": "US-SC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.350217,
+          34.847903
         ]
       }
     }
