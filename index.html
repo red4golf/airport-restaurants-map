@@ -4,40 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Airport Restaurants — The Pilot's Dining Guide</title>
-  <meta name="description" content="The definitive directory of restaurants at general aviation airports across the United States. Find your next fly-in meal — on-field diners, pilot lounges, and hidden gems near GA airports." />
-  <meta name="keywords" content="airport restaurants, fly-in dining, GA airports, pilot dining, $100 hamburger, general aviation restaurants, airport cafe" />
-  <meta property="og:title" content="Airport Restaurants — The Pilot's Dining Guide" />
-  <meta property="og:description" content="The definitive directory of restaurants at general aviation airports. Find your next fly-in meal." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Structured data: WebSite + SearchAction for Google Sitelinks Searchbox -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Airport Restaurants",
-    "description": "The definitive directory of restaurants at general aviation airports across the United States.",
-    "url": "https://red4golf.github.io/airport-restaurants-map/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://red4golf.github.io/airport-restaurants-map/?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-
-  <!-- Structured data: FoodEstablishment list — populated dynamically by JS -->
-  <script type="application/ld+json" id="restaurant-schema">[]</script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
 
   <style>
     :root {
@@ -65,441 +35,688 @@
       overflow: hidden;
     }
 
+    /* ─── LAYOUT ─────────────────────────────────────────── */
     #app {
       display: grid;
-      grid-template-rows: 68px 1fr;
+      grid-template-rows: 70px 1fr;
       grid-template-columns: 360px 1fr;
       height: 100vh;
     }
 
-    /* ── HEADER ─────────────────────────────────────────────── */
+    /* ─── HEADER ─────────────────────────────────────────── */
     header {
       grid-column: 1 / -1;
       background: var(--navy);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 24px;
+      padding: 0 28px;
+      position: relative;
       z-index: 1000;
       border-bottom: 3px solid var(--amber);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
       gap: 16px;
     }
 
-    .header-left { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
-
+    /* Vintage compass rose SVG */
     .compass {
-      width: 40px; height: 40px;
-      animation: spin 25s linear infinite;
+      width: 42px;
+      height: 42px;
+      animation: rotate-slow 20s linear infinite;
       flex-shrink: 0;
     }
-    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @keyframes rotate-slow {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .brand { line-height: 1; }
 
     .brand-name {
       font-family: 'Playfair Display', serif;
-      font-size: 20px; font-weight: 900;
+      font-size: 22px;
+      font-weight: 900;
       color: var(--cream);
-      display: block; line-height: 1;
+      letter-spacing: 0.5px;
+      display: block;
     }
+
     .brand-sub {
       font-family: 'DM Mono', monospace;
-      font-size: 8px; letter-spacing: 4px;
+      font-size: 9px;
+      letter-spacing: 4px;
       text-transform: uppercase;
       color: var(--amber-lt);
-      display: block; margin-top: 3px;
+      display: block;
+      margin-top: 3px;
     }
 
-    .header-stats {
-      display: flex; gap: 28px;
-      margin: 0 auto;
+    .header-center {
+      display: flex;
+      gap: 40px;
+      align-items: center;
     }
-    .hstat { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+
+    .hstat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+    }
+
     .hstat-val {
       font-family: 'Playfair Display', serif;
-      font-size: 20px; font-weight: 700;
-      color: var(--amber-lt); line-height: 1;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--amber-lt);
+      line-height: 1;
     }
-    .hstat-lbl {
+
+    .hstat-label {
       font-family: 'DM Mono', monospace;
-      font-size: 8px; letter-spacing: 2px;
+      font-size: 8px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      color: rgba(245,240,232,0.45);
+      color: rgba(245,240,232,0.5);
     }
 
-    .header-right { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
-
-    .btn-submit {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px; letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--cream);
-      background: transparent;
-      border: 1px solid rgba(245,240,232,0.3);
-      padding: 7px 14px; border-radius: 2px;
-      cursor: pointer; transition: all 0.2s;
-      white-space: nowrap;
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    .btn-submit:hover { border-color: var(--amber-lt); color: var(--amber-lt); }
 
-    .btn-newsletter {
+    .substack-btn {
       font-family: 'DM Mono', monospace;
-      font-size: 9px; letter-spacing: 1.5px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
       color: var(--navy);
       background: var(--amber-lt);
       text-decoration: none;
-      padding: 8px 14px; border-radius: 2px;
-      transition: all 0.2s; white-space: nowrap;
+      padding: 8px 16px;
+      border-radius: 2px;
+      transition: all 0.2s;
+      font-weight: 500;
     }
-    .btn-newsletter:hover { background: var(--cream); }
 
-    /* ── SIDEBAR ─────────────────────────────────────────────── */
+    .substack-btn:hover { background: var(--cream); }
+
+    .submit-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: transparent;
+      border: 1px solid rgba(245,240,232,0.3);
+      padding: 7px 16px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .submit-btn:hover { border-color: var(--amber-lt); color: var(--amber-lt); }
+
+    /* ─── SIDEBAR ─────────────────────────────────────────── */
     #sidebar {
       background: var(--panel);
       border-right: 1px solid var(--border);
-      display: flex; flex-direction: column;
-      overflow: hidden; z-index: 500;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
 
-    .sb-top {
-      padding: 16px 18px 12px;
+    .sidebar-top {
+      padding: 18px 20px 14px;
       border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+      background: var(--parchment);
+    }
+
+    .sidebar-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 10px;
+    }
+
+    /* Search */
+    .search-wrap {
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 8px 12px 8px 32px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      background: var(--cream);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 13px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .search-input:focus { border-color: var(--amber); }
+    .search-input::placeholder { color: var(--ink-mid); opacity: 0.5; }
+
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 13px;
+      opacity: 0.4;
+    }
+
+    /* Filter pills */
+    .filter-row {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .fpill {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 9px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--ink-mid);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .fpill:hover { color: var(--navy); border-color: var(--navy); }
+    .fpill.active { background: var(--navy); color: var(--cream); border-color: var(--navy); }
+
+    .region-select {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 4px 9px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background-color: transparent;
+      color: var(--ink-mid);
+      cursor: pointer;
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23999'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      padding-right: 28px;
+      transition: all 0.15s;
+    }
+    .region-select:focus { outline: none; border-color: var(--navy); color: var(--navy); }
+
+    /* Airport list */
+    #airport-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 6px 0;
+    }
+
+    #airport-list::-webkit-scrollbar { width: 3px; }
+    #airport-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    .section-head {
+      font-family: 'DM Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--amber);
+      padding: 12px 20px 5px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2px;
+    }
+
+    .airport-row {
+      padding: 11px 20px;
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: all 0.15s;
+      border-bottom: 1px solid rgba(26,39,68,0.05);
+    }
+
+    .airport-row:hover { background: var(--parchment); }
+    .airport-row.active { border-left-color: var(--amber); background: rgba(200,130,26,0.06); }
+    .airport-row.hidden { display: none; }
+
+    .row-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3px;
+    }
+
+    .airport-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    .airport-id {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--amber);
+      background: rgba(200,130,26,0.1);
+      padding: 2px 6px;
+      border-radius: 2px;
+      flex-shrink: 0;
+      margin-left: 8px;
+    }
+
+    .rest-count {
+      font-size: 11px;
+      color: var(--ink-mid);
+      margin-bottom: 2px;
+    }
+
+    .rest-count strong { color: var(--rust); }
+
+    .airport-loc {
+      font-size: 11px;
+      color: var(--ink-mid);
+      opacity: 0.7;
+    }
+
+    /* ─── SIDEBAR FOOTER ──────────────────────────────────── */
+    .sidebar-footer {
+      padding: 12px 20px;
+      border-top: 1px solid var(--border);
       background: var(--parchment);
       flex-shrink: 0;
     }
 
-    .sb-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 8px; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--amber);
-      margin-bottom: 10px;
+    .footer-note {
+      font-size: 10px;
+      color: var(--ink-mid);
+      line-height: 1.5;
+      opacity: 0.7;
     }
 
-    .search-wrap { position: relative; margin-bottom: 10px; }
-    .search-icon {
-      position: absolute; left: 10px; top: 50%;
-      transform: translateY(-50%);
-      font-size: 12px; opacity: 0.4; pointer-events: none;
+    /* ─── MAP ─────────────────────────────────────────────── */
+    #map {
+      position: relative;
+      z-index: 1;
     }
-    #search {
-      width: 100%;
-      padding: 8px 12px 8px 30px;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      background: var(--cream);
+
+    .leaflet-container {
+      background: #d4cdb8;
       font-family: 'Source Sans 3', sans-serif;
-      font-size: 13px; color: var(--ink);
-      outline: none; transition: border-color 0.15s;
-    }
-    #search:focus { border-color: var(--amber); }
-    #search::placeholder { color: var(--ink-mid); opacity: 0.5; }
-
-    /* Filter pills row */
-    .filter-row { display: flex; gap: 5px; flex-wrap: wrap; }
-    .fpill {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px; letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 4px 9px; border-radius: 20px;
-      border: 1px solid var(--border);
-      background: transparent; color: var(--ink-mid);
-      cursor: pointer; transition: all 0.15s;
-    }
-    .fpill:hover { color: var(--navy); border-color: var(--navy); }
-    .fpill.active { background: var(--navy); color: var(--cream); border-color: var(--navy); }
-
-    /* Region select */
-    .region-row { margin-top: 8px; }
-    #regionSelect {
-      width: 100%;
-      padding: 7px 10px;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      background: var(--cream);
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 12px; color: var(--ink);
-      outline: none; cursor: pointer;
-    }
-    #regionSelect:focus { border-color: var(--amber); }
-
-    /* List */
-    #airport-list { flex: 1; overflow-y: auto; padding: 6px 0; }
-    #airport-list::-webkit-scrollbar { width: 3px; }
-    #airport-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
-    .list-empty {
-      padding: 32px 20px; text-align: center;
-      font-size: 13px; color: var(--ink-mid); opacity: 0.6;
     }
 
-    .airport-row {
-      padding: 11px 18px;
-      cursor: pointer;
-      border-left: 3px solid transparent;
-      border-bottom: 1px solid rgba(26,39,68,0.05);
-      transition: all 0.12s;
-    }
-    .airport-row:hover { background: var(--parchment); }
-    .airport-row.active { border-left-color: var(--amber); background: rgba(200,130,26,0.06); }
-
-    .row-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 3px; gap: 8px; }
-    .ap-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 13px; font-weight: 700;
-      color: var(--navy); line-height: 1.2;
-    }
-    .ap-id {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; color: var(--amber);
-      background: rgba(200,130,26,0.1);
-      padding: 1px 6px; border-radius: 2px; flex-shrink: 0;
-    }
-    .ap-rcount { font-size: 11px; color: var(--ink-mid); margin-bottom: 2px; }
-    .ap-rcount strong { color: var(--rust); }
-    .ap-loc { font-size: 11px; color: var(--ink-mid); opacity: 0.6; }
-
-    /* Sidebar footer */
-    .sb-footer {
-      padding: 12px 18px;
-      border-top: 1px solid var(--border);
-      background: var(--parchment); flex-shrink: 0;
-    }
-    .sb-footer-note { font-size: 10px; color: var(--ink-mid); line-height: 1.5; opacity: 0.8; }
-    .sb-footer-note strong { color: var(--amber); cursor: pointer; }
-
-    /* ── MAP ─────────────────────────────────────────────────── */
-    #map { position: relative; z-index: 1; }
-    .leaflet-container { background: #d4cdb8; font-family: 'Source Sans 3', sans-serif; }
-
-    /* Map toggle */
+    /* ─── MAP TOGGLE ──────────────────────────────────────── */
     #map-toggle {
-      position: absolute; top: 14px; left: 14px;
+      position: absolute;
+      top: 14px;
+      left: 14px;
       z-index: 900;
       display: flex;
       border: 1px solid rgba(26,39,68,0.2);
-      border-radius: 2px; overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
+
     .tog {
       font-family: 'DM Mono', monospace;
-      font-size: 9px; letter-spacing: 1px;
+      font-size: 9px;
+      letter-spacing: 1px;
       text-transform: uppercase;
       padding: 6px 11px;
-      background: var(--cream); color: var(--ink-mid);
-      border: none; border-right: 1px solid rgba(26,39,68,0.15);
-      cursor: pointer; transition: all 0.15s;
+      background: var(--cream);
+      color: var(--ink-mid);
+      border: none;
+      border-right: 1px solid rgba(26,39,68,0.15);
+      cursor: pointer;
+      transition: all 0.15s;
     }
+
     .tog:last-child { border-right: none; }
     .tog:hover { background: var(--parchment); color: var(--navy); }
     .tog.active { background: var(--navy); color: var(--cream); }
 
-    /* ── POPUP ───────────────────────────────────────────────── */
+    /* ─── POPUP ───────────────────────────────────────────── */
     .leaflet-popup-content-wrapper {
       background: var(--cream);
       border: 1px solid var(--border);
       border-radius: 3px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.14);
-      padding: 0; overflow: hidden;
-      min-width: 260px; max-width: 300px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      padding: 0;
+      overflow: hidden;
+      min-width: 260px;
+      max-width: 300px;
     }
+
     .leaflet-popup-content { margin: 0; }
     .leaflet-popup-tip { background: var(--cream); }
-    .leaflet-popup-close-button { color: var(--ink-mid) !important; top: 6px !important; right: 8px !important; z-index: 10; }
+    .leaflet-popup-close-button { color: var(--ink-mid) !important; top: 6px !important; right: 8px !important; }
 
-    .pu-header {
+    .popup-airport-header {
       background: var(--navy);
-      padding: 11px 16px;
-      display: flex; align-items: center;
-      justify-content: space-between; gap: 8px;
-    }
-    .pu-ap-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 14px; font-weight: 700;
-      color: var(--cream); line-height: 1.2;
-    }
-    .pu-ap-id {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; color: var(--amber-lt);
-      background: rgba(255,255,255,0.1);
-      padding: 2px 7px; border-radius: 2px; flex-shrink: 0;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .pu-rest {
+    .popup-airport-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .popup-airport-id {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--amber-lt);
+      background: rgba(255,255,255,0.1);
+      padding: 2px 7px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .popup-restaurants { padding: 10px 0; }
+
+    .popup-rest {
       padding: 10px 16px;
       border-bottom: 1px solid var(--border);
-      cursor: pointer; transition: background 0.1s;
+      cursor: pointer;
+      transition: background 0.12s;
     }
-    .pu-rest:last-child { border-bottom: none; }
-    .pu-rest:hover { background: var(--parchment); }
 
-    .pu-rname {
+    .popup-rest:last-child { border-bottom: none; }
+    .popup-rest:hover { background: var(--parchment); }
+
+    .pr-name {
       font-family: 'Playfair Display', serif;
-      font-size: 13px; font-weight: 700; color: var(--navy);
-      margin-bottom: 2px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 3px;
     }
-    .pu-type {
+
+    .pr-type {
       font-family: 'DM Mono', monospace;
-      font-size: 9px; letter-spacing: 1px;
-      text-transform: uppercase; color: var(--amber);
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--amber);
       margin-bottom: 5px;
     }
-    .pu-loc { font-size: 11px; color: var(--ink-mid); opacity: 0.75; }
 
-    /* ── DETAIL PANEL ────────────────────────────────────────── */
+    .pr-detail {
+      font-size: 11px;
+      color: var(--ink-mid);
+      line-height: 1.5;
+      margin-bottom: 5px;
+    }
+
+    .pr-meta {
+      display: flex;
+      gap: 10px;
+      font-size: 10px;
+      color: var(--ink-mid);
+      opacity: 0.7;
+    }
+
+    .pr-stars { color: var(--amber); font-size: 11px; }
+
+    /* ─── DETAIL PANEL ────────────────────────────────────── */
     #detail-panel {
-      position: absolute; bottom: 24px; right: 24px;
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
       z-index: 900;
       background: var(--cream);
       border: 1px solid var(--border);
       border-radius: 3px;
       box-shadow: 0 6px 24px rgba(0,0,0,0.12);
-      max-width: 290px; width: 290px;
-      opacity: 0; transform: translateY(10px);
+      max-width: 280px;
+      opacity: 0;
+      transform: translateY(10px);
       transition: opacity 0.25s, transform 0.25s;
-      pointer-events: none; overflow: hidden;
+      pointer-events: none;
+      overflow: hidden;
     }
-    #detail-panel.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 
-    .dp-head {
+    #detail-panel.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .dp-header {
       background: var(--navy);
       padding: 12px 16px;
-      display: flex; justify-content: space-between;
-      align-items: flex-start; gap: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
     }
+
     .dp-name {
       font-family: 'Playfair Display', serif;
-      font-size: 15px; font-weight: 700;
-      color: var(--cream); line-height: 1.2;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
     }
-    .dp-x {
-      background: none; border: none;
-      color: rgba(245,240,232,0.45);
-      font-size: 16px; cursor: pointer;
-      padding: 0; flex-shrink: 0; line-height: 1;
-    }
-    .dp-x:hover { color: var(--cream); }
 
-    .dp-body { padding: 13px 16px; }
+    .dp-close {
+      background: none;
+      border: none;
+      color: rgba(245,240,232,0.5);
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1;
+      flex-shrink: 0;
+      padding: 0;
+    }
+
+    .dp-close:hover { color: var(--cream); }
+
+    .dp-body { padding: 14px 16px; }
+
     .dp-type {
       font-family: 'DM Mono', monospace;
-      font-size: 9px; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--amber);
-      margin-bottom: 9px;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 8px;
     }
-    .dp-row {
-      display: flex; justify-content: space-between;
-      font-size: 11px; padding: 4px 0;
-      border-bottom: 1px solid rgba(26,39,68,0.06); gap: 10px;
-    }
-    .dp-row:last-of-type { border-bottom: none; }
-    .dp-k { color: var(--ink-mid); opacity: 0.7; flex-shrink: 0; }
-    .dp-v { color: var(--ink); font-weight: 600; text-align: right; }
 
-    .dp-links {
-      display: flex; gap: 8px; margin-top: 12px;
+    .dp-desc {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--ink-mid);
+      margin-bottom: 12px;
     }
-    .dp-link {
-      flex: 1; text-align: center;
+
+    .dp-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(26,39,68,0.06);
+      gap: 10px;
+    }
+
+    .dp-row:last-child { border-bottom: none; }
+    .dp-key { color: var(--ink-mid); opacity: 0.7; }
+    .dp-val { color: var(--ink); font-weight: 600; text-align: right; }
+
+    .dp-substack {
+      display: block;
+      margin-top: 12px;
+      text-align: center;
       font-family: 'DM Mono', monospace;
-      font-size: 9px; letter-spacing: 1.5px;
+      font-size: 9px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--navy);
       background: var(--parchment);
       border: 1px solid var(--border);
-      padding: 7px 6px; border-radius: 2px;
-      text-decoration: none; transition: all 0.15s;
-      cursor: pointer;
+      padding: 7px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.15s;
     }
-    .dp-link:hover { background: var(--navy); color: var(--cream); border-color: var(--navy); }
 
-    /* ── SUBMIT MODAL ────────────────────────────────────────── */
-    #overlay {
-      position: fixed; inset: 0;
+    .dp-substack:hover { background: var(--navy); color: var(--cream); }
+
+    /* ─── SUBMIT MODAL ────────────────────────────────────── */
+    #modal-overlay {
+      position: fixed;
+      inset: 0;
       background: rgba(26,39,68,0.6);
       z-index: 2000;
-      display: none; align-items: center; justify-content: center;
+      display: none;
+      align-items: center;
+      justify-content: center;
       backdrop-filter: blur(4px);
     }
-    #overlay.open { display: flex; }
+
+    #modal-overlay.open { display: flex; }
 
     .modal {
       background: var(--cream);
-      border-radius: 4px; width: 440px;
-      max-width: 92vw; overflow: hidden;
+      border-radius: 4px;
+      width: 420px;
+      max-width: 90vw;
+      overflow: hidden;
       box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     }
-    .modal-head {
+
+    .modal-header {
       background: var(--navy);
-      padding: 18px 22px;
-      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+
     .modal-title {
       font-family: 'Playfair Display', serif;
-      font-size: 18px; font-weight: 700; color: var(--cream);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
     }
-    .modal-x {
-      background: none; border: none;
-      color: rgba(245,240,232,0.45);
-      font-size: 20px; cursor: pointer;
-    }
-    .modal-x:hover { color: var(--cream); }
 
-    .modal-body { padding: 22px; }
+    .modal-close {
+      background: none;
+      border: none;
+      color: rgba(245,240,232,0.5);
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .modal-close:hover { color: var(--cream); }
+
+    .modal-body { padding: 24px; }
+
     .modal-intro {
-      font-size: 12px; color: var(--ink-mid); line-height: 1.6;
-      margin-bottom: 18px; padding-bottom: 14px;
+      font-size: 13px;
+      color: var(--ink-mid);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
       border-bottom: 1px solid var(--border);
     }
 
-    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .fg { margin-bottom: 12px; }
-    .flabel {
+    .form-group { margin-bottom: 14px; }
+
+    .form-label {
       font-family: 'DM Mono', monospace;
-      font-size: 8px; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--amber);
-      display: block; margin-bottom: 5px;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--amber);
+      display: block;
+      margin-bottom: 5px;
     }
-    .finput, .ftextarea, .fselect {
-      width: 100%; padding: 8px 11px;
-      border: 1px solid var(--border); border-radius: 2px;
+
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
       background: var(--parchment);
       font-family: 'Source Sans 3', sans-serif;
-      font-size: 13px; color: var(--ink);
-      outline: none; transition: border-color 0.15s;
+      font-size: 13px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.15s;
     }
-    .finput:focus, .ftextarea:focus, .fselect:focus { border-color: var(--amber); }
-    .ftextarea { resize: vertical; min-height: 75px; }
 
-    .fsub {
-      width: 100%; padding: 10px;
-      background: var(--navy); color: var(--cream);
-      border: none; border-radius: 2px;
+    .form-input:focus, .form-textarea:focus { border-color: var(--amber); }
+    .form-textarea { resize: vertical; min-height: 80px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    .form-submit {
+      width: 100%;
+      padding: 10px;
+      background: var(--navy);
+      color: var(--cream);
+      border: none;
+      border-radius: 2px;
       font-family: 'DM Mono', monospace;
-      font-size: 9px; letter-spacing: 2px;
-      text-transform: uppercase; cursor: pointer;
-      transition: background 0.15s; margin-top: 4px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.15s;
+      margin-top: 6px;
     }
-    .fsub:hover { background: var(--amber); }
 
-    /* ── MARKERS ─────────────────────────────────────────────── */
-    .ap-marker {
-      width: 26px; height: 26px;
+    .form-submit:hover { background: var(--amber); }
+
+    /* Custom markers */
+    .rest-marker {
+      width: 28px;
+      height: 28px;
       background: var(--navy);
       border: 2px solid var(--amber-lt);
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      cursor: pointer;
       transition: transform 0.15s;
     }
-    .ap-marker:hover { transform: scale(1.18); }
-    .ap-marker.multi { background: var(--amber); border-color: var(--navy); }
-    .ap-marker.has-review { border-color: var(--amber-lt); box-shadow: 0 0 0 2px rgba(232,160,64,0.3), 0 2px 8px rgba(0,0,0,0.22); }
 
-    /* ── RESPONSIVE ──────────────────────────────────────────── */
-    @media (max-width: 780px) {
-      #app { grid-template-columns: 1fr; }
+    .rest-marker:hover { transform: scale(1.15); }
+    .rest-marker.multi { background: var(--amber); border-color: var(--navy); }
+
+    @media (max-width: 768px) {
+      #app { grid-template-columns: 1fr; grid-template-rows: 60px 1fr; }
       #sidebar { display: none; }
-      .header-stats { display: none; }
+      .header-center { display: none; }
     }
   </style>
 </head>
@@ -507,17 +724,19 @@
 
 <div id="app">
 
+  <!-- HEADER -->
   <header>
     <div class="header-left">
-      <svg class="compass" viewBox="0 0 40 40" fill="none">
-        <circle cx="20" cy="20" r="19" stroke="#e8a040" stroke-width="0.8" opacity="0.35"/>
-        <circle cx="20" cy="20" r="13" stroke="#e8a040" stroke-width="0.5" opacity="0.2"/>
-        <polygon points="20,3 21.8,18 20,20 18.2,18" fill="#e8a040"/>
-        <polygon points="20,37 21.8,22 20,20 18.2,22" fill="rgba(232,160,64,0.35)"/>
-        <polygon points="3,20 18,21.8 20,20 18,18.2" fill="rgba(232,160,64,0.35)"/>
-        <polygon points="37,20 22,18.2 20,20 22,21.8" fill="rgba(232,160,64,0.35)"/>
-        <circle cx="20" cy="20" r="2.2" fill="#e8a040"/>
-        <text x="20" y="9.5" text-anchor="middle" fill="#e8a040" font-size="4.5" font-family="DM Mono,monospace" letter-spacing="0.5">N</text>
+      <!-- Compass rose SVG -->
+      <svg class="compass" viewBox="0 0 42 42" fill="none">
+        <circle cx="21" cy="21" r="20" stroke="#e8a040" stroke-width="1" opacity="0.4"/>
+        <circle cx="21" cy="21" r="15" stroke="#e8a040" stroke-width="0.5" opacity="0.3"/>
+        <polygon points="21,3 23,19 21,21 19,19" fill="#e8a040"/>
+        <polygon points="21,39 23,23 21,21 19,23" fill="rgba(232,160,64,0.4)"/>
+        <polygon points="3,21 19,23 21,21 19,19" fill="rgba(232,160,64,0.4)"/>
+        <polygon points="39,21 23,19 21,21 23,23" fill="rgba(232,160,64,0.4)"/>
+        <circle cx="21" cy="21" r="2.5" fill="#e8a040"/>
+        <text x="21" y="10" text-anchor="middle" fill="#e8a040" font-size="5" font-family="DM Mono" letter-spacing="1">N</text>
       </svg>
       <div class="brand">
         <span class="brand-name">Airport Restaurants</span>
@@ -525,49 +744,71 @@
       </div>
     </div>
 
-    <div class="header-stats">
-      <div class="hstat"><span class="hstat-val" id="stat-airports">—</span><span class="hstat-lbl">Airports</span></div>
-      <div class="hstat"><span class="hstat-val" id="stat-restaurants">—</span><span class="hstat-lbl">Restaurants</span></div>
-      <div class="hstat"><span class="hstat-val" id="stat-states">—</span><span class="hstat-lbl">States</span></div>
-      <div class="hstat"><span class="hstat-val" id="stat-reviews">—</span><span class="hstat-lbl">Reviewed</span></div>
+    <div class="header-center">
+      <div class="hstat">
+        <span class="hstat-val" id="stat-airports">—</span>
+        <span class="hstat-label">Airports</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-val" id="stat-restaurants">—</span>
+        <span class="hstat-label">Restaurants</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-val" id="stat-states">—</span>
+        <span class="hstat-label">States</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-val" id="stat-reviewed">—</span>
+        <span class="hstat-label">Reviewed</span>
+      </div>
     </div>
 
     <div class="header-right">
-      <button class="btn-submit" id="open-modal">+ Submit a Restaurant</button>
-      <a href="https://airportrestaurants.substack.com" target="_blank" class="btn-newsletter">✉ Newsletter</a>
+      <button class="submit-btn" id="open-submit">+ Submit a Restaurant</button>
+      <a href="https://airportrestaurants.substack.com" target="_blank" class="substack-btn">✉ Newsletter</a>
     </div>
   </header>
 
+  <!-- SIDEBAR -->
   <aside id="sidebar">
-    <div class="sb-top">
-      <div class="sb-label">Find Your Next Fly-In Meal</div>
+    <div class="sidebar-top">
+      <div class="sidebar-label">Find Your Next Fly-In Meal</div>
       <div class="search-wrap">
         <span class="search-icon">🔍</span>
-        <input id="search" type="text" placeholder="Restaurant, airport, or city…" autocomplete="off" />
+        <input type="text" class="search-input" id="search" placeholder="Airport, city, or restaurant..." />
       </div>
-      <div class="filter-row" id="type-filters">
-        <button class="fpill active" data-type="all">All</button>
-        <button class="fpill" data-type="on-airport">On Field</button>
-        <button class="fpill" data-type="near-airport">Near Airport</button>
-        <button class="fpill" data-type="reviewed">✉ Reviewed</button>
+      <div class="filter-row">
+        <button class="fpill active" data-f="all">All</button>
+        <button class="fpill" data-f="on-field">On Field</button>
+        <button class="fpill" data-f="breakfast">Breakfast</button>
+        <button class="fpill" data-f="lunch">Lunch</button>
+        <button class="fpill" data-f="dinner">Dinner</button>
       </div>
-      <div class="region-row">
-        <select id="regionSelect">
-          <option value="all">All Regions</option>
+      <div class="filter-row" style="margin-top:6px;">
+        <select id="region-select" class="region-select">
+          <option value="all">&#127758; All Regions</option>
+          <option value="PNW">&#127794; Pacific Northwest</option>
+          <option value="California">&#9728;&#65039; California</option>
+          <option value="Southwest">&#127797; Southwest</option>
+          <option value="Mountain">&#9968;&#65039; Mountain West</option>
+          <option value="Midwest">&#127806; Midwest</option>
+          <option value="Southeast">&#127796; Southeast</option>
+          <option value="Northeast">&#127961; Northeast</option>
         </select>
       </div>
     </div>
 
     <div id="airport-list"></div>
 
-    <div class="sb-footer">
-      <div class="sb-footer-note">
-        Know a great fly-in spot we're missing?<br/>
-        <strong id="footer-submit">Submit it here</strong> — best ones get featured in the newsletter.
+    <div class="sidebar-footer">
+      <div class="footer-note">
+        Know a great airport restaurant we're missing?<br/>
+        <strong style="color:var(--amber);cursor:pointer;" id="footer-submit">Submit it here</strong> — best ones get featured in the newsletter.
       </div>
     </div>
   </aside>
 
+  <!-- MAP -->
   <div id="map">
     <div id="map-toggle">
       <button class="tog active" data-s="road">🗺 Road</button>
@@ -578,62 +819,62 @@
 
 </div>
 
-<!-- Detail panel -->
+<!-- DETAIL PANEL -->
 <div id="detail-panel">
-  <div class="dp-head">
+  <div class="dp-header">
     <div class="dp-name" id="dp-name">—</div>
-    <button class="dp-x" id="dp-close">✕</button>
+    <button class="dp-close" id="dp-close">✕</button>
   </div>
   <div class="dp-body" id="dp-body"></div>
 </div>
 
-<!-- Submit modal -->
-<div id="overlay">
+<!-- SUBMIT MODAL -->
+<div id="modal-overlay">
   <div class="modal">
-    <div class="modal-head">
+    <div class="modal-header">
       <div class="modal-title">Submit a Restaurant</div>
-      <button class="modal-x" id="modal-close">✕</button>
+      <button class="modal-close" id="modal-close">✕</button>
     </div>
     <div class="modal-body">
-      <p class="modal-intro">Found a great fly-in restaurant? Tell us about it — the best ones get featured in the <em>Airport Restaurants</em> newsletter and added to the map.</p>
-      <div class="frow">
-        <div class="fg">
-          <label class="flabel">Restaurant Name *</label>
-          <input type="text" class="finput" id="f-name" placeholder="e.g. Spruce Goose Café" />
+      <p class="modal-intro">Found a great fly-in restaurant we should know about? Tell us about it — the best ones get featured in the <em>Airport Restaurants</em> newsletter and added to the map.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Restaurant Name *</label>
+          <input type="text" class="form-input" placeholder="e.g. Spruce Goose Cafe" />
         </div>
-        <div class="fg">
-          <label class="flabel">Airport Identifier</label>
-          <input type="text" class="finput" id="f-ident" placeholder="e.g. 0S9" />
+        <div class="form-group">
+          <label class="form-label">Airport ID</label>
+          <input type="text" class="form-input" placeholder="e.g. 0S9" />
         </div>
       </div>
-      <div class="frow">
-        <div class="fg">
-          <label class="flabel">City, State</label>
-          <input type="text" class="finput" id="f-loc" placeholder="Port Townsend, WA" />
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">City, State</label>
+          <input type="text" class="form-input" placeholder="Port Townsend, WA" />
         </div>
-        <div class="fg">
-          <label class="flabel">Location</label>
-          <select class="fselect" id="f-type">
-            <option value="on-airport">On airport / field</option>
-            <option value="near-airport">Near airport (&lt;5 mi)</option>
+        <div class="form-group">
+          <label class="form-label">On Field?</label>
+          <select class="form-input">
+            <option>Yes — on airport</option>
+            <option>Near airport (&lt;1 mile)</option>
+            <option>Short drive (&lt;5 miles)</option>
           </select>
         </div>
       </div>
-      <div class="fg">
-        <label class="flabel">What makes it worth the flight?</label>
-        <textarea class="ftextarea" id="f-notes" placeholder="Food, views, vibe, must-order dish — what should pilots know before they go?"></textarea>
+      <div class="form-group">
+        <label class="form-label">What makes it worth the flight?</label>
+        <textarea class="form-textarea" placeholder="Tell us about the food, the view, the vibe — what should pilots know before they go?"></textarea>
       </div>
-      <div class="fg">
-        <label class="flabel">Your Email (optional — we'll credit you when featured)</label>
-        <input type="email" class="finput" id="f-email" placeholder="pilot@example.com" />
+      <div class="form-group">
+        <label class="form-label">Your Email (optional)</label>
+        <input type="email" class="form-input" placeholder="We'll credit you when it's featured" />
       </div>
-      <button class="fsub" id="f-submit">Submit for Review ✈</button>
+      <button class="form-submit" id="form-submit">Submit for Review ✈</button>
     </div>
   </div>
 </div>
 
 <script>
-// ─── LEAFLET LOADER ───────────────────────────────────────────────────────────
 function loadScript(src, cb) {
   const s = document.createElement('script');
   s.src = src;
@@ -647,32 +888,116 @@ function loadScript(src, cb) {
   document.head.appendChild(s);
 }
 
-loadScript('https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', initApp);
+loadScript('https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', init);
 
-// ─── URL SEARCH PARAM SUPPORT ─────────────────────────────────────────────────
-// Allows ?q=searchterm from the SearchAction schema
-const urlParams = new URLSearchParams(window.location.search);
-const initialQuery = urlParams.get('q') || '';
+function init() {
 
-function initApp() {
+// ─── DATA ─────────────────────────────────────────────────────────────────────
+// Each airport has one or more restaurants
+const airports = [
+  {
+    id: "0S9",
+    name: "Jefferson County International",
+    loc: "Port Townsend, WA",
+    lat: 48.0539,
+    lng: -122.8108,
+    restaurants: [
+      {
+        name: "Spruce Goose Café",
+        type: "Diner · Breakfast & Lunch",
+        onField: true,
+        meals: ["breakfast","lunch"],
+        hours: "Wed–Sun 8AM–4PM",
+        phone: "(360) 385-3185",
+        website: "https://sprucegoosecafe.com",
+        stars: 4.6,
+        mustOrder: "Homemade pie — marionberry, rhubarb, or apple",
+        description: "A legendary fly-in destination since the 1960s. Watch planes taxi past while you eat. Aviation-themed décor, killer homemade pies, and one of the most social pilot lounges in the Pacific Northwest. Named a Top 10 Airport Restaurant by AOPA.",
+        substackUrl: "https://airportrestaurants.substack.com",
+        tags: ["on-field","breakfast","lunch"],
+      }
+    ]
+  },
+  {
+    id: "PWT",
+    name: "Bremerton National Airport",
+    loc: "Bremerton, WA",
+    lat: 47.4902,
+    lng: -122.7659,
+    restaurants: [
+      {
+        name: "Amelia's Hangar",
+        type: "American · Breakfast, Lunch & Dinner",
+        onField: true,
+        meals: ["breakfast","lunch","dinner"],
+        hours: "Tue–Sun 8AM–7:15PM (Fri–Sat until 8:15PM), Closed Mon",
+        phone: "(360) 525-2455",
+        website: "https://www.ameliashangarrestaurant.com",
+        stars: 4.3,
+        mustOrder: "Chicken fried steak with sausage gravy, or the Sunday brunch buffet",
+        description: "Amelia Earhart-themed restaurant right at Bremerton National. Generous portions, homemade desserts, and a runway view. The Sunday brunch buffet draws pilots and locals alike. A diamond in the rough that consistently surprises first-timers.",
+        substackUrl: "https://airportrestaurants.substack.com",
+        tags: ["on-field","breakfast","lunch","dinner"],
+      }
+    ]
+  },
+  {
+    id: "TIW",
+    name: "Tacoma Narrows Airport",
+    loc: "Gig Harbor, WA",
+    lat: 47.2679,
+    lng: -122.5779,
+    restaurants: [
+      {
+        name: "The Hub — Gig Harbor",
+        type: "American · Lunch & Dinner",
+        onField: true,
+        meals: ["lunch","dinner"],
+        hours: "Mon–Sun 11AM–8PM",
+        phone: null,
+        website: null,
+        stars: 3.8,
+        mustOrder: "Harmon craft beers on tap + burgers with runway views",
+        description: "Harmon Brewing Company's airport outpost, right on the Tacoma Narrows runway. Watch GA aircraft and business jets while enjoying local craft beer and American pub fare. Unique cycling and local art theme inside. Best for a post-flight lunch with a view.",
+        substackUrl: "https://airportrestaurants.substack.com/p/exploring-tacoma-narrows-airport",
+        tags: ["on-field","lunch","dinner"],
+      }
+    ]
+  }
+];
 
-// ─── MAP SETUP ────────────────────────────────────────────────────────────────
-const map = L.map('map', { center: [39.5, -98.35], zoom: 4, zoomControl: false });
+// ─── STARS RENDERER ───────────────────────────────────────────────────────────
+function renderStars(n) {
+  const full = Math.floor(n);
+  const half = n % 1 >= 0.5 ? 1 : 0;
+  return '★'.repeat(full) + (half ? '½' : '') + ` ${n.toFixed(1)}`;
+}
+
+// ─── MAP ──────────────────────────────────────────────────────────────────────
+const map = L.map('map', {
+  center: [39.5, -98.35],
+  zoom: 4,
+  zoomControl: false,
+  attributionControl: true,
+});
+
 L.control.zoom({ position: 'bottomleft' }).addTo(map);
 
 const tiles = {
   road: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+    attribution: '&copy; OpenStreetMap &copy; CARTO',
     subdomains: 'abcd', maxZoom: 19,
   }),
   topo: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://opentopomap.org">OpenTopoMap</a>',
+    attribution: '&copy; OpenTopoMap &copy; OpenStreetMap',
     subdomains: 'abc', maxZoom: 17,
   }),
   satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    attribution: '&copy; Esri', maxZoom: 19,
+    attribution: '&copy; Esri',
+    maxZoom: 19,
   }),
 };
+
 const osmFallback = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap', maxZoom: 19,
 });
@@ -680,10 +1005,7 @@ const osmFallback = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png'
 let curTile = 'road';
 tiles.road.addTo(map);
 tiles.road.on('tileerror', () => {
-  if (curTile === 'road' && map.hasLayer(tiles.road)) {
-    map.removeLayer(tiles.road);
-    osmFallback.addTo(map);
-  }
+  if (curTile === 'road') { map.removeLayer(tiles.road); osmFallback.addTo(map); }
 });
 
 document.querySelectorAll('.tog').forEach(btn => {
@@ -699,237 +1021,178 @@ document.querySelectorAll('.tog').forEach(btn => {
   });
 });
 
-// ─── STATE ────────────────────────────────────────────────────────────────────
-let allFeatures = [];
-let airportGroups = {};  // keyed by airport_ident
-let markerMap = {};
-let activeFilter = 'all';
-let activeRegion = 'all';
-let searchTerm = initialQuery;
-
-// ─── LOAD GEOJSON ─────────────────────────────────────────────────────────────
-fetch('./data/restaurants.geojson', { cache: 'no-store' })
-  .then(r => r.json())
-  .then(geojson => {
-    allFeatures = geojson.features || [];
-    buildAirportGroups();
-    populateRegions();
-    buildMarkers();
-    buildList();
-    updateStats();
-    buildStructuredData();
-
-    // Apply URL search param if present
-    if (initialQuery) {
-      document.getElementById('search').value = initialQuery;
-      applyFilters();
-    }
-  })
-  .catch(() => {
-    document.getElementById('airport-list').innerHTML =
-      '<div class="list-empty">Could not load restaurant data.<br/>Run the build script or check data/restaurants.geojson.</div>';
-  });
-
-// ─── GROUP BY AIRPORT ─────────────────────────────────────────────────────────
-function buildAirportGroups() {
-  airportGroups = {};
-  allFeatures.forEach(f => {
-    const p = f.properties;
-    const key = p.airport_ident || 'UNKNOWN';
-    if (!airportGroups[key]) {
-      airportGroups[key] = {
-        ident: key,
-        name: p.airport_name || key,
-        city: p.city || '',
-        state: p.state || '',
-        region: p.region || '',
-        lat: f.geometry.coordinates[1],
-        lng: f.geometry.coordinates[0],
-        restaurants: [],
-      };
-    }
-    airportGroups[key].restaurants.push(p);
-  });
-}
-
-// ─── REGIONS ──────────────────────────────────────────────────────────────────
-function populateRegions() {
-  const regions = new Set();
-  allFeatures.forEach(f => { if (f.properties.region) regions.add(f.properties.region); });
-  const sel = document.getElementById('regionSelect');
-  [...regions].sort().forEach(r => {
-    const opt = document.createElement('option');
-    opt.value = r; opt.textContent = r;
-    sel.appendChild(opt);
-  });
-}
-
 // ─── MARKERS ──────────────────────────────────────────────────────────────────
-function buildMarkers() {
-  Object.values(airportGroups).forEach(ap => {
-    const count = ap.restaurants.length;
-    const hasReview = ap.restaurants.some(r => r.substack_post);
-    const emoji = count > 1 ? '🍽' : '✈';
-    const cls = `ap-marker${count > 1 ? ' multi' : ''}${hasReview ? ' has-review' : ''}`;
+const markerMap = {};
 
-    const icon = L.divIcon({
-      className: '',
-      html: `<div class="${cls}">${emoji}</div>`,
-      iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -15],
-    });
-
-    const marker = L.marker([ap.lat, ap.lng], { icon });
-
-    const restRows = ap.restaurants.map(r => `
-      <div class="pu-rest" data-ident="${ap.ident}" data-rname="${encodeURIComponent(r.restaurant_name)}">
-        <div class="pu-rname">${r.restaurant_name}</div>
-        <div class="pu-type">${r.type === 'on-airport' ? '✈ On Field' : '🚗 Near Airport'}</div>
-        <div class="pu-loc">${[r.city, r.state].filter(Boolean).join(', ')}</div>
-      </div>
-    `).join('');
-
-    marker.bindPopup(`
-      <div class="pu-header">
-        <div class="pu-ap-name">${ap.name}</div>
-        <div class="pu-ap-id">${ap.ident}</div>
-      </div>
-      ${restRows}
-    `, { maxWidth: 300 });
-
-    marker.on('click', () => selectAirport(ap.ident));
-    marker.addTo(map);
-    markerMap[ap.ident] = marker;
+function makeIcon(count) {
+  const emoji = count > 1 ? '🍽' : '✈';
+  return L.divIcon({
+    className: '',
+    html: `<div class="rest-marker ${count > 1 ? 'multi' : ''}">${emoji}</div>`,
+    iconSize: [28, 28],
+    iconAnchor: [14, 14],
+    popupAnchor: [0, -16],
   });
 }
 
-// Delegate popup restaurant clicks to detail panel
-document.addEventListener('click', e => {
-  const row = e.target.closest('.pu-rest');
-  if (!row) return;
-  const ident = row.dataset.ident;
-  const rname = decodeURIComponent(row.dataset.rname);
-  const ap = airportGroups[ident];
-  if (!ap) return;
-  const rest = ap.restaurants.find(r => r.restaurant_name === rname);
-  if (rest) showDetail(rest, ap);
+airports.forEach(a => {
+  const marker = L.marker([a.lat, a.lng], { icon: makeIcon(a.restaurants.length) });
+
+  const rHTML = a.restaurants.map(r => `
+    <div class="popup-rest" data-airport="${a.id}" data-rest="${r.name}">
+      <div class="pr-name">${r.name}</div>
+      <div class="pr-type">${r.type}</div>
+      <div class="pr-detail">${r.description.substring(0, 100)}…</div>
+      <div class="pr-meta">
+        <span class="pr-stars">${renderStars(r.stars)}</span>
+        <span>·</span>
+        <span>${r.hours.split(',')[0]}</span>
+      </div>
+    </div>
+  `).join('');
+
+  const popupHTML = `
+    <div class="popup-airport-header">
+      <div class="popup-airport-name">${a.name}</div>
+      <div class="popup-airport-id">${a.id}</div>
+    </div>
+    <div class="popup-restaurants">${rHTML}</div>
+  `;
+
+  marker.bindPopup(popupHTML, { maxWidth: 300 });
+  marker.on('click', () => selectAirport(a.id));
+  marker.addTo(map);
+  markerMap[a.id] = marker;
 });
 
+// Delegate click on popup restaurant rows
+document.addEventListener('click', e => {
+  const row = e.target.closest('.popup-rest');
+  if (!row) return;
+  const aid = row.dataset.airport;
+  const rname = row.dataset.rest;
+  const airport = airports.find(a => a.id === aid);
+  if (!airport) return;
+  const rest = airport.restaurants.find(r => r.name === rname);
+  if (!rest) return;
+  showDetail(rest, airport);
+});
+
+// ─── REGION BOUNDS ────────────────────────────────────────────────────────────
+const regionBounds = {
+  all:        { center: [39.5, -98.35], zoom: 4 },
+  PNW:        { center: [47.5, -121.5], zoom: 6 },
+  California: { center: [36.7, -119.5], zoom: 6 },
+  Southwest:  { center: [34.5, -111.0], zoom: 5 },
+  Mountain:   { center: [43.0, -109.0], zoom: 5 },
+  Midwest:    { center: [41.5, -93.0],  zoom: 5 },
+  Southeast:  { center: [32.5, -84.0],  zoom: 5 },
+  Northeast:  { center: [42.5, -73.5],  zoom: 6 },
+};
+
+// Map regions to state abbreviations for filtering
+const regionStates = {
+  all:        null,
+  PNW:        ['WA','OR','ID'],
+  California: ['CA'],
+  Southwest:  ['AZ','NV','NM','UT'],
+  Mountain:   ['CO','WY','MT'],
+  Midwest:    ['MN','WI','MI','IA','IL','IN','OH','MO','ND','SD','NE','KS'],
+  Southeast:  ['FL','GA','SC','NC','VA','AL','MS','TN','KY','AR','LA'],
+  Northeast:  ['ME','NH','VT','MA','RI','CT','NY','NJ','PA','DE','MD'],
+};
+
 // ─── SIDEBAR LIST ─────────────────────────────────────────────────────────────
+const listEl = document.getElementById('airport-list');
+let activeFilter = 'all';
+let activeRegion = 'all';
+let searchTerm = '';
+
+function getStateFromLoc(loc) {
+  // loc is "City, ST" format
+  const parts = loc.split(',');
+  return parts.length > 1 ? parts[parts.length - 1].trim() : '';
+}
+
 function buildList() {
-  const listEl = document.getElementById('airport-list');
-  const q = searchTerm.toLowerCase().trim();
-
-  const filtered = Object.values(airportGroups).filter(ap => {
-    // Type filter
-    if (activeFilter === 'on-airport')  return ap.restaurants.some(r => r.type === 'on-airport');
-    if (activeFilter === 'near-airport') return ap.restaurants.some(r => r.type === 'near-airport');
-    if (activeFilter === 'reviewed')    return ap.restaurants.some(r => r.substack_post);
-
-    // Region filter
-    if (activeRegion !== 'all' && ap.region !== activeRegion) return false;
-
-    // Search
-    if (q) {
-      const hay = [ap.ident, ap.name, ap.city, ap.state, ap.region,
-        ...ap.restaurants.map(r => r.restaurant_name)
-      ].join(' ').toLowerCase();
-      if (!hay.includes(q)) return false;
-    }
-    return true;
-  });
-
-  // Also apply region + search to type filters
-  const finalFiltered = filtered.filter(ap => {
-    if (activeRegion !== 'all' && ap.region !== activeRegion) return false;
-    if (q) {
-      const hay = [ap.ident, ap.name, ap.city, ap.state, ap.region,
-        ...ap.restaurants.map(r => r.restaurant_name)
-      ].join(' ').toLowerCase();
-      return hay.includes(q);
-    }
-    return true;
-  });
-
   listEl.innerHTML = '';
 
-  if (finalFiltered.length === 0) {
-    listEl.innerHTML = '<div class="list-empty">No results found.<br/>Try a different search or filter.</div>';
-    // Hide all markers
-    Object.values(markerMap).forEach(m => { if (map.hasLayer(m)) map.removeLayer(m); });
-    return;
-  }
+  let shownAirports = 0;
+  let shownRestaurants = 0;
+  const shownStates = new Set();
+  let shownReviewed = 0;
 
-  // Show/hide markers based on filter
-  const visibleIdents = new Set(finalFiltered.map(ap => ap.ident));
-  Object.entries(markerMap).forEach(([ident, marker]) => {
-    if (visibleIdents.has(ident)) {
-      if (!map.hasLayer(marker)) map.addLayer(marker);
-    } else {
-      if (map.hasLayer(marker)) map.removeLayer(marker);
-    }
-  });
+  const allowedStates = regionStates[activeRegion];
 
-  finalFiltered.forEach(ap => {
-    const hasReview = ap.restaurants.some(r => r.substack_post);
+  airports.forEach(a => {
+    const state = getStateFromLoc(a.loc);
+
+    const matchesRegion = !allowedStates || allowedStates.includes(state);
+
+    const matchesSearch = !searchTerm ||
+      a.name.toLowerCase().includes(searchTerm) ||
+      a.loc.toLowerCase().includes(searchTerm) ||
+      a.id.toLowerCase().includes(searchTerm) ||
+      a.restaurants.some(r => r.name.toLowerCase().includes(searchTerm));
+
+    const matchingRests = a.restaurants.filter(r =>
+      activeFilter === 'all' || r.tags.includes(activeFilter)
+    );
+
+    if (!matchesRegion || !matchesSearch || matchingRests.length === 0) return;
+
+    shownAirports++;
+    shownRestaurants += matchingRests.length;
+    if (state) shownStates.add(state);
+    shownReviewed += matchingRests.filter(r => r.substackUrl && !r.substackUrl.endsWith('substack.com')).length;
+
     const el = document.createElement('div');
     el.className = 'airport-row';
-    el.dataset.ident = ap.ident;
+    el.dataset.id = a.id;
+    const rCount = matchingRests.length;
     el.innerHTML = `
       <div class="row-top">
-        <div class="ap-name">${ap.name}</div>
-        <div class="ap-id">${ap.ident}</div>
+        <div class="airport-name">${a.name}</div>
+        <div class="airport-id">${a.id}</div>
       </div>
-      <div class="ap-rcount"><strong>${ap.restaurants.length}</strong> restaurant${ap.restaurants.length !== 1 ? 's' : ''} listed${hasReview ? ' · <span style="color:var(--amber)">✉ reviewed</span>' : ''}</div>
-      <div class="ap-loc">📍 ${[ap.city, ap.state].filter(Boolean).join(', ')}</div>
+      <div class="rest-count"><strong>${rCount}</strong> restaurant${rCount !== 1 ? 's' : ''} listed</div>
+      <div class="airport-loc">📍 ${a.loc}</div>
     `;
     el.addEventListener('click', () => {
-      map.setView([ap.lat, ap.lng], 12, { animate: true });
-      markerMap[ap.ident]?.openPopup();
-      selectAirport(ap.ident);
+      map.setView([a.lat, a.lng], 12, { animate: true });
+      markerMap[a.id].openPopup();
+      selectAirport(a.id);
     });
     listEl.appendChild(el);
   });
 
-  document.getElementById('stat-airports').textContent = finalFiltered.length;
+  document.getElementById('stat-airports').textContent = shownAirports;
+  document.getElementById('stat-restaurants').textContent = shownRestaurants;
+  document.getElementById('stat-states').textContent = shownStates.size || '—';
+  document.getElementById('stat-reviewed').textContent = shownReviewed;
 }
 
-// ─── STATS ────────────────────────────────────────────────────────────────────
-function updateStats() {
-  const airports = Object.keys(airportGroups).length;
-  const restaurants = allFeatures.length;
-  const states = new Set(allFeatures.map(f => f.properties.state).filter(Boolean)).size;
-  const reviewed = allFeatures.filter(f => f.properties.substack_post).length;
+buildList();
 
-  document.getElementById('stat-airports').textContent = airports;
-  document.getElementById('stat-restaurants').textContent = restaurants;
-  document.getElementById('stat-states').textContent = states;
-  document.getElementById('stat-reviews').textContent = reviewed;
-}
-
-// ─── SELECT AIRPORT ───────────────────────────────────────────────────────────
-function selectAirport(ident) {
+// ─── SELECT ───────────────────────────────────────────────────────────────────
+function selectAirport(id) {
   document.querySelectorAll('.airport-row').forEach(el => el.classList.remove('active'));
-  const el = document.querySelector(`.airport-row[data-ident="${ident}"]`);
+  const el = document.querySelector(`.airport-row[data-id="${id}"]`);
   if (el) { el.classList.add('active'); el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
 }
 
 // ─── DETAIL PANEL ─────────────────────────────────────────────────────────────
-function showDetail(rest, ap) {
-  document.getElementById('dp-name').textContent = rest.restaurant_name;
-  const typeLabel = rest.type === 'on-airport' ? '✈ On Field' : '🚗 Near Airport';
-  const loc = [ap.city, ap.state].filter(Boolean).join(', ');
-
+function showDetail(rest, airport) {
+  document.getElementById('dp-name').textContent = rest.name;
   document.getElementById('dp-body').innerHTML = `
-    <div class="dp-type">${typeLabel} · ${ap.ident} — ${loc}</div>
-    ${rest.notes ? `<div class="dp-row"><span class="dp-k">Notes</span><span class="dp-v" style="font-size:10px;font-weight:400">${rest.notes}</span></div>` : ''}
-    <div class="dp-row"><span class="dp-k">Airport</span><span class="dp-v">${ap.name}</span></div>
-    <div class="dp-row"><span class="dp-k">Region</span><span class="dp-v">${rest.region || '—'}</span></div>
-    <div class="dp-row"><span class="dp-k">Location</span><span class="dp-v">${rest.type === 'on-airport' ? '✅ On airport' : '🚗 Near airport'}</span></div>
-    <div class="dp-links">
-      ${rest.website ? `<a href="${rest.website}" target="_blank" class="dp-link">🌐 Website</a>` : ''}
-      ${rest.substack_post ? `<a href="${rest.substack_post}" target="_blank" class="dp-link">✉ Full Review</a>` : ''}
-      <a href="https://www.google.com/maps/search/${encodeURIComponent(rest.restaurant_name + ' ' + loc)}" target="_blank" class="dp-link">📍 Maps</a>
-    </div>
+    <div class="dp-type">${rest.type} · ${airport.id} — ${airport.loc}</div>
+    <div class="dp-desc">${rest.description}</div>
+    <div class="dp-row"><span class="dp-key">Rating</span><span class="dp-val pr-stars">${renderStars(rest.stars)}</span></div>
+    <div class="dp-row"><span class="dp-key">Hours</span><span class="dp-val">${rest.hours}</span></div>
+    ${rest.phone ? `<div class="dp-row"><span class="dp-key">Phone</span><span class="dp-val">${rest.phone}</span></div>` : ''}
+    <div class="dp-row"><span class="dp-key">Must Order</span><span class="dp-val">${rest.mustOrder}</span></div>
+    <div class="dp-row"><span class="dp-key">On Field</span><span class="dp-val">${rest.onField ? '✅ Yes' : '🚗 Short drive'}</span></div>
+    <a href="${rest.substackUrl}" target="_blank" class="dp-substack">✉ Read the Full Review →</a>
   `;
   document.getElementById('detail-panel').classList.add('visible');
 }
@@ -938,27 +1201,41 @@ document.getElementById('dp-close').addEventListener('click', () => {
   document.getElementById('detail-panel').classList.remove('visible');
 });
 
-// ─── FILTERS ──────────────────────────────────────────────────────────────────
-function applyFilters() { buildList(); }
+// ─── SEARCH ───────────────────────────────────────────────────────────────────
+document.getElementById('search').addEventListener('input', e => {
+  searchTerm = e.target.value.toLowerCase().trim();
+  buildList();
+});
 
+// ─── FILTERS ──────────────────────────────────────────────────────────────────
 document.querySelectorAll('.fpill').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.fpill').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    activeFilter = btn.dataset.type;
-    applyFilters();
+    activeFilter = btn.dataset.f;
+    buildList();
   });
 });
 
-document.getElementById('regionSelect').addEventListener('change', e => {
+// ─── REGION DROPDOWN ──────────────────────────────────────────────────────────
+document.getElementById('region-select').addEventListener('change', e => {
   activeRegion = e.target.value;
-  applyFilters();
+  const rb = regionBounds[activeRegion];
+  map.setView(rb.center, rb.zoom, { animate: true });
+  buildList();
 });
 
-document.getElementById('search').addEventListener('input', e => {
-  searchTerm = e.target.value;
-  clearTimeout(window._st);
-  window._st = setTimeout(applyFilters, 150);
+// ─── MODAL ────────────────────────────────────────────────────────────────────
+const overlay = document.getElementById('modal-overlay');
+document.getElementById('open-submit').addEventListener('click', () => overlay.classList.add('open'));
+document.getElementById('footer-submit').addEventListener('click', () => overlay.classList.add('open'));
+document.getElementById('modal-close').addEventListener('click', () => overlay.classList.remove('open'));
+overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
+
+document.getElementById('form-submit').addEventListener('click', () => {
+  // In production this would POST to a form backend (Formspree, Netlify Forms, etc.)
+  alert('Thanks for the submission! We\'ll review it and add it to the map. Best ones get featured in the newsletter. ✈');
+  overlay.classList.remove('open');
 });
 
 // ─── MAP CLICK ────────────────────────────────────────────────────────────────
@@ -967,64 +1244,7 @@ map.on('click', () => {
   document.querySelectorAll('.airport-row').forEach(el => el.classList.remove('active'));
 });
 
-// ─── MODAL ────────────────────────────────────────────────────────────────────
-const overlay = document.getElementById('overlay');
-document.getElementById('open-modal').addEventListener('click', () => overlay.classList.add('open'));
-document.getElementById('footer-submit').addEventListener('click', () => overlay.classList.add('open'));
-document.getElementById('modal-close').addEventListener('click', () => overlay.classList.remove('open'));
-overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
-
-document.getElementById('f-submit').addEventListener('click', () => {
-  const name = document.getElementById('f-name').value.trim();
-  if (!name) { alert('Please enter a restaurant name.'); return; }
-  // TODO: wire to Formspree — replace action URL below
-  // fetch('https://formspree.io/f/YOUR_FORM_ID', { method:'POST', body: new FormData(form) })
-  alert(`Thanks! "${name}" has been submitted for review. Best ones get featured in the newsletter. ✈`);
-  overlay.classList.remove('open');
-});
-
-// ─── JSON-LD STRUCTURED DATA ──────────────────────────────────────────────────
-function buildStructuredData() {
-  const items = allFeatures.map(f => {
-    const p = f.properties;
-    const [lng, lat] = f.geometry.coordinates;
-    const item = {
-      "@type": "FoodEstablishment",
-      "name": p.restaurant_name,
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": p.city || '',
-        "addressRegion": p.state || '',
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": lat,
-        "longitude": lng
-      },
-      "description": `Restaurant at ${p.airport_name || p.airport_ident} airport in ${p.city || ''}, ${p.state || ''}.`,
-    };
-    if (p.website) item.url = p.website;
-    return item;
-  });
-
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Airport Restaurants — The Pilot's Dining Guide",
-    "description": "Restaurants at and near general aviation airports across the United States",
-    "numberOfItems": items.length,
-    "itemListElement": items.map((item, i) => ({
-      "@type": "ListItem",
-      "position": i + 1,
-      "item": item
-    }))
-  };
-
-  document.getElementById('restaurant-schema').textContent = JSON.stringify(schema);
-}
-
-} // end initApp
+} // end init
 </script>
 </body>
 </html>
