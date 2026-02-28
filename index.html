@@ -687,7 +687,13 @@ function buildList() {
       <div class="airport-loc">📍 ${a.city}, ${a.state}</div>
     `;
     el.addEventListener('click', () => {
-      map.setView([a.lat, a.lng], 12, { animate: true });
+      const targetZoom = map.getZoom() < 12 ? 12 : map.getZoom();
+      map.setView([a.lat, a.lng], targetZoom, { animate: true });
+      // Shift the view so the pin sits in the left/upper portion,
+      // clear of the detail panel that appears in the bottom-right (~290x320px)
+      map.once('moveend', () => {
+        map.panBy([150, -80], { animate: true, duration: 0.25 });
+      });
       marker.openPopup();
       selectAirport(a.id);
     });
