@@ -18,7 +18,6 @@
       --amber:      #c8821a;
       --amber-lt:   #e8a040;
       --rust:       #b84c2a;
-      --sage:       #4a7c5a;
       --ink:        #2a2420;
       --ink-mid:    #5a4f48;
       --border:     rgba(26,39,68,0.15);
@@ -35,7 +34,6 @@
       overflow: hidden;
     }
 
-    /* ─── LAYOUT ─────────────────────────────────────────── */
     #app {
       display: grid;
       grid-template-rows: 70px 1fr;
@@ -43,7 +41,6 @@
       height: 100vh;
     }
 
-    /* ─── HEADER ─────────────────────────────────────────── */
     header {
       grid-column: 1 / -1;
       background: var(--navy);
@@ -56,16 +53,10 @@
       border-bottom: 3px solid var(--amber);
     }
 
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
+    .header-left { display: flex; align-items: center; gap: 16px; }
 
-    /* Vintage compass rose SVG */
     .compass {
-      width: 42px;
-      height: 42px;
+      width: 42px; height: 42px;
       animation: rotate-slow 20s linear infinite;
       flex-shrink: 0;
     }
@@ -76,640 +67,257 @@
     }
 
     .brand { line-height: 1; }
-
     .brand-name {
       font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 900;
-      color: var(--cream);
-      letter-spacing: 0.5px;
-      display: block;
+      font-size: 22px; font-weight: 900;
+      color: var(--cream); letter-spacing: 0.5px; display: block;
     }
-
     .brand-sub {
       font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--amber-lt);
-      display: block;
-      margin-top: 3px;
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--amber-lt); display: block; margin-top: 3px;
     }
 
-    .header-center {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .hstat {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1px;
-    }
-
+    .header-center { display: flex; gap: 40px; align-items: center; }
+    .hstat { display: flex; flex-direction: column; align-items: center; gap: 1px; }
     .hstat-val {
       font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--amber-lt);
-      line-height: 1;
+      font-size: 22px; font-weight: 700;
+      color: var(--amber-lt); line-height: 1;
     }
-
     .hstat-label {
       font-family: 'DM Mono', monospace;
-      font-size: 8px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
       color: rgba(245,240,232,0.5);
     }
 
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .header-right { display: flex; align-items: center; gap: 12px; }
 
     .substack-btn {
       font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--navy);
-      background: var(--amber-lt);
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 2px;
-      transition: all 0.2s;
-      font-weight: 500;
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--navy); background: var(--amber-lt);
+      text-decoration: none; padding: 8px 16px; border-radius: 2px;
+      transition: all 0.2s; font-weight: 500;
     }
-
     .substack-btn:hover { background: var(--cream); }
 
     .submit-btn {
       font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--cream);
-      background: transparent;
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--cream); background: transparent;
       border: 1px solid rgba(245,240,232,0.3);
-      padding: 7px 16px;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: all 0.2s;
+      padding: 7px 16px; border-radius: 2px; cursor: pointer; transition: all 0.2s;
     }
-
     .submit-btn:hover { border-color: var(--amber-lt); color: var(--amber-lt); }
 
-    /* ─── SIDEBAR ─────────────────────────────────────────── */
     #sidebar {
       background: var(--panel);
       border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+      display: flex; flex-direction: column; overflow: hidden;
     }
 
     .sidebar-top {
       padding: 18px 20px 14px;
       border-bottom: 1px solid var(--border);
-      flex-shrink: 0;
-      background: var(--parchment);
+      flex-shrink: 0; background: var(--parchment);
     }
 
     .sidebar-label {
       font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 10px;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 10px;
     }
 
-    /* Search */
-    .search-wrap {
-      position: relative;
-      margin-bottom: 10px;
-    }
-
+    .search-wrap { position: relative; margin-bottom: 10px; }
     .search-input {
-      width: 100%;
-      padding: 8px 12px 8px 32px;
-      border: 1px solid var(--border);
-      border-radius: 2px;
+      width: 100%; padding: 8px 12px 8px 32px;
+      border: 1px solid var(--border); border-radius: 2px;
       background: var(--cream);
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 13px;
-      color: var(--ink);
-      outline: none;
-      transition: border-color 0.15s;
+      font-family: 'Source Sans 3', sans-serif; font-size: 13px; color: var(--ink);
+      outline: none; transition: border-color 0.15s;
     }
-
     .search-input:focus { border-color: var(--amber); }
     .search-input::placeholder { color: var(--ink-mid); opacity: 0.5; }
-
     .search-icon {
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 13px;
-      opacity: 0.4;
+      position: absolute; left: 10px; top: 50%;
+      transform: translateY(-50%); font-size: 13px; opacity: 0.4;
     }
 
-    /* Filter pills */
-    .filter-row {
-      display: flex;
-      gap: 5px;
-      flex-wrap: wrap;
-    }
+    .filter-row { display: flex; gap: 5px; flex-wrap: wrap; }
 
     .fpill {
       font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 4px 9px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--ink-mid);
-      cursor: pointer;
-      transition: all 0.15s;
+      font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+      padding: 4px 9px; border-radius: 20px;
+      border: 1px solid var(--border); background: transparent;
+      color: var(--ink-mid); cursor: pointer; transition: all 0.15s;
     }
-
     .fpill:hover { color: var(--navy); border-color: var(--navy); }
     .fpill.active { background: var(--navy); color: var(--cream); border-color: var(--navy); }
 
     .region-select {
       font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      padding: 4px 9px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      background-color: transparent;
-      color: var(--ink-mid);
-      cursor: pointer;
-      width: 100%;
-      appearance: none;
-      -webkit-appearance: none;
+      font-size: 9px; letter-spacing: 0.5px; text-transform: uppercase;
+      padding: 4px 28px 4px 9px;
+      border-radius: 20px; border: 1px solid var(--border);
+      background-color: var(--cream);
+      color: var(--ink-mid); cursor: pointer; width: 100%;
+      appearance: none; -webkit-appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23999'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 10px center;
-      padding-right: 28px;
+      background-repeat: no-repeat; background-position: right 10px center;
       transition: all 0.15s;
     }
     .region-select:focus { outline: none; border-color: var(--navy); color: var(--navy); }
 
-    /* Airport list */
-    #airport-list {
-      flex: 1;
-      overflow-y: auto;
-      padding: 6px 0;
-    }
-
+    #airport-list { flex: 1; overflow-y: auto; padding: 6px 0; }
     #airport-list::-webkit-scrollbar { width: 3px; }
     #airport-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
-    .section-head {
-      font-family: 'DM Mono', monospace;
-      font-size: 8px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--amber);
-      padding: 12px 20px 5px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 2px;
-    }
-
     .airport-row {
-      padding: 11px 20px;
-      cursor: pointer;
-      border-left: 3px solid transparent;
-      transition: all 0.15s;
+      padding: 11px 20px; cursor: pointer;
+      border-left: 3px solid transparent; transition: all 0.15s;
       border-bottom: 1px solid rgba(26,39,68,0.05);
     }
-
     .airport-row:hover { background: var(--parchment); }
     .airport-row.active { border-left-color: var(--amber); background: rgba(200,130,26,0.06); }
-    .airport-row.hidden { display: none; }
 
-    .row-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 3px;
-    }
-
+    .row-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 3px; }
     .airport-name {
       font-family: 'Playfair Display', serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.2;
+      font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1.2;
     }
-
     .airport-id {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--amber);
-      background: rgba(200,130,26,0.1);
-      padding: 2px 6px;
-      border-radius: 2px;
-      flex-shrink: 0;
-      margin-left: 8px;
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      color: var(--amber); background: rgba(200,130,26,0.1);
+      padding: 2px 6px; border-radius: 2px; flex-shrink: 0; margin-left: 8px;
     }
-
-    .rest-count {
-      font-size: 11px;
-      color: var(--ink-mid);
-      margin-bottom: 2px;
-    }
-
+    .rest-count { font-size: 11px; color: var(--ink-mid); margin-bottom: 2px; }
     .rest-count strong { color: var(--rust); }
+    .airport-loc { font-size: 11px; color: var(--ink-mid); opacity: 0.7; }
 
-    .airport-loc {
-      font-size: 11px;
-      color: var(--ink-mid);
-      opacity: 0.7;
-    }
-
-    /* ─── SIDEBAR FOOTER ──────────────────────────────────── */
     .sidebar-footer {
-      padding: 12px 20px;
-      border-top: 1px solid var(--border);
-      background: var(--parchment);
-      flex-shrink: 0;
+      padding: 12px 20px; border-top: 1px solid var(--border);
+      background: var(--parchment); flex-shrink: 0;
     }
+    .footer-note { font-size: 10px; color: var(--ink-mid); line-height: 1.5; opacity: 0.7; }
 
-    .footer-note {
-      font-size: 10px;
-      color: var(--ink-mid);
-      line-height: 1.5;
-      opacity: 0.7;
-    }
+    #map { position: relative; z-index: 1; }
+    .leaflet-container { background: #d4cdb8; font-family: 'Source Sans 3', sans-serif; }
 
-    /* ─── MAP ─────────────────────────────────────────────── */
-    #map {
-      position: relative;
-      z-index: 1;
-    }
-
-    .leaflet-container {
-      background: #d4cdb8;
-      font-family: 'Source Sans 3', sans-serif;
-    }
-
-    /* ─── MAP TOGGLE ──────────────────────────────────────── */
     #map-toggle {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      z-index: 900;
-      display: flex;
-      border: 1px solid rgba(26,39,68,0.2);
-      border-radius: 2px;
-      overflow: hidden;
+      position: absolute; top: 14px; left: 14px; z-index: 900;
+      display: flex; border: 1px solid rgba(26,39,68,0.2);
+      border-radius: 2px; overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
-
     .tog {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 6px 11px;
-      background: var(--cream);
-      color: var(--ink-mid);
-      border: none;
-      border-right: 1px solid rgba(26,39,68,0.15);
-      cursor: pointer;
-      transition: all 0.15s;
+      font-family: 'DM Mono', monospace; font-size: 9px;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 6px 11px; background: var(--cream); color: var(--ink-mid);
+      border: none; border-right: 1px solid rgba(26,39,68,0.15);
+      cursor: pointer; transition: all 0.15s;
     }
-
     .tog:last-child { border-right: none; }
     .tog:hover { background: var(--parchment); color: var(--navy); }
     .tog.active { background: var(--navy); color: var(--cream); }
 
-    /* ─── POPUP ───────────────────────────────────────────── */
     .leaflet-popup-content-wrapper {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-      padding: 0;
-      overflow: hidden;
-      min-width: 260px;
-      max-width: 300px;
+      background: var(--cream); border: 1px solid var(--border);
+      border-radius: 3px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      padding: 0; overflow: hidden; min-width: 260px; max-width: 300px;
     }
-
     .leaflet-popup-content { margin: 0; }
     .leaflet-popup-tip { background: var(--cream); }
     .leaflet-popup-close-button { color: var(--ink-mid) !important; top: 6px !important; right: 8px !important; }
 
     .popup-airport-header {
-      background: var(--navy);
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      background: var(--navy); padding: 12px 16px;
+      display: flex; align-items: center; justify-content: space-between;
     }
-
     .popup-airport-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--cream);
-      line-height: 1.2;
+      font-family: 'Playfair Display', serif; font-size: 15px;
+      font-weight: 700; color: var(--cream); line-height: 1.2;
     }
-
     .popup-airport-id {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--amber-lt);
-      background: rgba(255,255,255,0.1);
-      padding: 2px 7px;
-      border-radius: 2px;
-      flex-shrink: 0;
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      color: var(--amber-lt); background: rgba(255,255,255,0.1);
+      padding: 2px 7px; border-radius: 2px; flex-shrink: 0;
     }
-
     .popup-restaurants { padding: 10px 0; }
-
     .popup-rest {
-      padding: 10px 16px;
-      border-bottom: 1px solid var(--border);
-      cursor: pointer;
-      transition: background 0.12s;
+      padding: 10px 16px; border-bottom: 1px solid var(--border);
+      cursor: pointer; transition: background 0.12s;
     }
-
     .popup-rest:last-child { border-bottom: none; }
     .popup-rest:hover { background: var(--parchment); }
+    .pr-name { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+    .pr-type { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--amber); margin-bottom: 5px; }
+    .pr-detail { font-size: 11px; color: var(--ink-mid); line-height: 1.5; margin-bottom: 5px; }
+    .pr-reviewed { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--amber); }
 
-    .pr-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 3px;
-    }
-
-    .pr-type {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 5px;
-    }
-
-    .pr-detail {
-      font-size: 11px;
-      color: var(--ink-mid);
-      line-height: 1.5;
-      margin-bottom: 5px;
-    }
-
-    .pr-meta {
-      display: flex;
-      gap: 10px;
-      font-size: 10px;
-      color: var(--ink-mid);
-      opacity: 0.7;
-    }
-
-    .pr-stars { color: var(--amber); font-size: 11px; }
-
-    /* ─── DETAIL PANEL ────────────────────────────────────── */
     #detail-panel {
-      position: absolute;
-      bottom: 24px;
-      right: 24px;
-      z-index: 900;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
-      max-width: 280px;
-      opacity: 0;
-      transform: translateY(10px);
+      position: absolute; bottom: 24px; right: 24px; z-index: 900;
+      background: var(--cream); border: 1px solid var(--border);
+      border-radius: 3px; box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+      max-width: 290px; opacity: 0; transform: translateY(10px);
       transition: opacity 0.25s, transform 0.25s;
-      pointer-events: none;
-      overflow: hidden;
+      pointer-events: none; overflow: hidden;
     }
-
-    #detail-panel.visible {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
+    #detail-panel.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 
     .dp-header {
-      background: var(--navy);
-      padding: 12px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 8px;
+      background: var(--navy); padding: 12px 16px;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;
     }
-
-    .dp-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--cream);
-      line-height: 1.2;
-    }
-
-    .dp-close {
-      background: none;
-      border: none;
-      color: rgba(245,240,232,0.5);
-      cursor: pointer;
-      font-size: 16px;
-      line-height: 1;
-      flex-shrink: 0;
-      padding: 0;
-    }
-
+    .dp-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--cream); line-height: 1.2; }
+    .dp-close { background: none; border: none; color: rgba(245,240,232,0.5); cursor: pointer; font-size: 16px; line-height: 1; flex-shrink: 0; padding: 0; }
     .dp-close:hover { color: var(--cream); }
-
     .dp-body { padding: 14px 16px; }
-
-    .dp-type {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 8px;
-    }
-
-    .dp-desc {
-      font-size: 12px;
-      line-height: 1.6;
-      color: var(--ink-mid);
-      margin-bottom: 12px;
-    }
-
-    .dp-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      padding: 4px 0;
-      border-bottom: 1px solid rgba(26,39,68,0.06);
-      gap: 10px;
-    }
-
-    .dp-row:last-child { border-bottom: none; }
+    .dp-type { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
+    .dp-desc { font-size: 12px; line-height: 1.6; color: var(--ink-mid); margin-bottom: 12px; }
+    .dp-row { display: flex; justify-content: space-between; font-size: 11px; padding: 4px 0; border-bottom: 1px solid rgba(26,39,68,0.06); gap: 10px; }
+    .dp-row:last-of-type { border-bottom: none; }
     .dp-key { color: var(--ink-mid); opacity: 0.7; }
     .dp-val { color: var(--ink); font-weight: 600; text-align: right; }
-
     .dp-substack {
-      display: block;
-      margin-top: 12px;
-      text-align: center;
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--navy);
-      background: var(--parchment);
-      border: 1px solid var(--border);
-      padding: 7px;
-      border-radius: 2px;
-      text-decoration: none;
-      transition: all 0.15s;
+      display: block; margin-top: 12px; text-align: center;
+      font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--navy); background: var(--parchment);
+      border: 1px solid var(--border); padding: 7px; border-radius: 2px;
+      text-decoration: none; transition: all 0.15s;
     }
-
     .dp-substack:hover { background: var(--navy); color: var(--cream); }
 
-    /* ─── SUBMIT MODAL ────────────────────────────────────── */
     #modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(26,39,68,0.6);
-      z-index: 2000;
-      display: none;
-      align-items: center;
-      justify-content: center;
+      position: fixed; inset: 0; background: rgba(26,39,68,0.6);
+      z-index: 2000; display: none; align-items: center; justify-content: center;
       backdrop-filter: blur(4px);
     }
-
     #modal-overlay.open { display: flex; }
-
-    .modal {
-      background: var(--cream);
-      border-radius: 4px;
-      width: 420px;
-      max-width: 90vw;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    }
-
-    .modal-header {
-      background: var(--navy);
-      padding: 20px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .modal-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--cream);
-    }
-
-    .modal-close {
-      background: none;
-      border: none;
-      color: rgba(245,240,232,0.5);
-      font-size: 20px;
-      cursor: pointer;
-    }
-
+    .modal { background: var(--cream); border-radius: 4px; width: 420px; max-width: 90vw; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+    .modal-header { background: var(--navy); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
+    .modal-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--cream); }
+    .modal-close { background: none; border: none; color: rgba(245,240,232,0.5); font-size: 20px; cursor: pointer; }
     .modal-close:hover { color: var(--cream); }
-
     .modal-body { padding: 24px; }
-
-    .modal-intro {
-      font-size: 13px;
-      color: var(--ink-mid);
-      line-height: 1.6;
-      margin-bottom: 20px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
+    .modal-intro { font-size: 13px; color: var(--ink-mid); line-height: 1.6; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
     .form-group { margin-bottom: 14px; }
-
-    .form-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--amber);
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .form-input, .form-textarea {
-      width: 100%;
-      padding: 8px 12px;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      background: var(--parchment);
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 13px;
-      color: var(--ink);
-      outline: none;
-      transition: border-color 0.15s;
-    }
-
+    .form-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 5px; }
+    .form-input, .form-textarea { width: 100%; padding: 8px 12px; border: 1px solid var(--border); border-radius: 2px; background: var(--parchment); font-family: 'Source Sans 3', sans-serif; font-size: 13px; color: var(--ink); outline: none; transition: border-color 0.15s; }
     .form-input:focus, .form-textarea:focus { border-color: var(--amber); }
     .form-textarea { resize: vertical; min-height: 80px; }
-
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-    .form-submit {
-      width: 100%;
-      padding: 10px;
-      background: var(--navy);
-      color: var(--cream);
-      border: none;
-      border-radius: 2px;
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.15s;
-      margin-top: 6px;
-    }
-
+    .form-submit { width: 100%; padding: 10px; background: var(--navy); color: var(--cream); border: none; border-radius: 2px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: background 0.15s; margin-top: 6px; }
     .form-submit:hover { background: var(--amber); }
 
-    /* Custom markers */
     .rest-marker {
-      width: 28px;
-      height: 28px;
-      background: var(--navy);
-      border: 2px solid var(--amber-lt);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-      cursor: pointer;
-      transition: transform 0.15s;
+      width: 28px; height: 28px; background: var(--navy);
+      border: 2px solid var(--amber-lt); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      cursor: pointer; transition: transform 0.15s;
     }
-
     .rest-marker:hover { transform: scale(1.15); }
     .rest-marker.multi { background: var(--amber); border-color: var(--navy); }
 
@@ -723,11 +331,8 @@
 <body>
 
 <div id="app">
-
-  <!-- HEADER -->
   <header>
     <div class="header-left">
-      <!-- Compass rose SVG -->
       <svg class="compass" viewBox="0 0 42 42" fill="none">
         <circle cx="21" cy="21" r="20" stroke="#e8a040" stroke-width="1" opacity="0.4"/>
         <circle cx="21" cy="21" r="15" stroke="#e8a040" stroke-width="0.5" opacity="0.3"/>
@@ -745,22 +350,10 @@
     </div>
 
     <div class="header-center">
-      <div class="hstat">
-        <span class="hstat-val" id="stat-airports">—</span>
-        <span class="hstat-label">Airports</span>
-      </div>
-      <div class="hstat">
-        <span class="hstat-val" id="stat-restaurants">—</span>
-        <span class="hstat-label">Restaurants</span>
-      </div>
-      <div class="hstat">
-        <span class="hstat-val" id="stat-states">—</span>
-        <span class="hstat-label">States</span>
-      </div>
-      <div class="hstat">
-        <span class="hstat-val" id="stat-reviewed">—</span>
-        <span class="hstat-label">Reviewed</span>
-      </div>
+      <div class="hstat"><span class="hstat-val" id="stat-airports">—</span><span class="hstat-label">Airports</span></div>
+      <div class="hstat"><span class="hstat-val" id="stat-restaurants">—</span><span class="hstat-label">Restaurants</span></div>
+      <div class="hstat"><span class="hstat-val" id="stat-states">—</span><span class="hstat-label">States</span></div>
+      <div class="hstat"><span class="hstat-val" id="stat-reviewed">—</span><span class="hstat-label">Reviewed</span></div>
     </div>
 
     <div class="header-right">
@@ -769,7 +362,6 @@
     </div>
   </header>
 
-  <!-- SIDEBAR -->
   <aside id="sidebar">
     <div class="sidebar-top">
       <div class="sidebar-label">Find Your Next Fly-In Meal</div>
@@ -779,27 +371,27 @@
       </div>
       <div class="filter-row">
         <button class="fpill active" data-f="all">All</button>
-        <button class="fpill" data-f="on-field">On Field</button>
-        <button class="fpill" data-f="breakfast">Breakfast</button>
-        <button class="fpill" data-f="lunch">Lunch</button>
-        <button class="fpill" data-f="dinner">Dinner</button>
+        <button class="fpill" data-f="on-airport">On Field</button>
+        <button class="fpill" data-f="near-airport">Near Airport</button>
+        <button class="fpill" data-f="reviewed">✉ Reviewed</button>
       </div>
       <div class="filter-row" style="margin-top:6px;">
         <select id="region-select" class="region-select">
-          <option value="all">&#127758; All Regions</option>
-          <option value="PNW">&#127794; Pacific Northwest</option>
-          <option value="California">&#9728;&#65039; California</option>
-          <option value="Southwest">&#127797; Southwest</option>
-          <option value="Mountain">&#9968;&#65039; Mountain West</option>
-          <option value="Midwest">&#127806; Midwest</option>
-          <option value="Southeast">&#127796; Southeast</option>
-          <option value="Northeast">&#127961; Northeast</option>
+          <option value="all">All Regions</option>
+          <option value="PNW">Pacific Northwest</option>
+          <option value="California">California</option>
+          <option value="Southwest">Southwest</option>
+          <option value="Mountain">Mountain West</option>
+          <option value="Midwest">Midwest</option>
+          <option value="Southeast">Southeast</option>
+          <option value="Northeast">Northeast</option>
+          <option value="South">South / Central</option>
+          <option value="Texas">Texas</option>
+          <option value="Florida">Florida</option>
         </select>
       </div>
     </div>
-
     <div id="airport-list"></div>
-
     <div class="sidebar-footer">
       <div class="footer-note">
         Know a great airport restaurant we're missing?<br/>
@@ -808,7 +400,6 @@
     </div>
   </aside>
 
-  <!-- MAP -->
   <div id="map">
     <div id="map-toggle">
       <button class="tog active" data-s="road">🗺 Road</button>
@@ -816,10 +407,8 @@
       <button class="tog" data-s="satellite">🛰 Satellite</button>
     </div>
   </div>
-
 </div>
 
-<!-- DETAIL PANEL -->
 <div id="detail-panel">
   <div class="dp-header">
     <div class="dp-name" id="dp-name">—</div>
@@ -828,7 +417,6 @@
   <div class="dp-body" id="dp-body"></div>
 </div>
 
-<!-- SUBMIT MODAL -->
 <div id="modal-overlay">
   <div class="modal">
     <div class="modal-header">
@@ -840,34 +428,33 @@
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Restaurant Name *</label>
-          <input type="text" class="form-input" placeholder="e.g. Spruce Goose Cafe" />
+          <input type="text" id="f-name" class="form-input" placeholder="e.g. Spruce Goose Cafe" />
         </div>
         <div class="form-group">
           <label class="form-label">Airport ID</label>
-          <input type="text" class="form-input" placeholder="e.g. 0S9" />
+          <input type="text" id="f-ident" class="form-input" placeholder="e.g. 0S9" />
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">City, State</label>
-          <input type="text" class="form-input" placeholder="Port Townsend, WA" />
+          <input type="text" id="f-loc" class="form-input" placeholder="Port Townsend, WA" />
         </div>
         <div class="form-group">
           <label class="form-label">On Field?</label>
-          <select class="form-input">
-            <option>Yes — on airport</option>
-            <option>Near airport (&lt;1 mile)</option>
-            <option>Short drive (&lt;5 miles)</option>
+          <select id="f-type" class="form-input">
+            <option value="on-airport">Yes — on airport</option>
+            <option value="near-airport">Near airport</option>
           </select>
         </div>
       </div>
       <div class="form-group">
         <label class="form-label">What makes it worth the flight?</label>
-        <textarea class="form-textarea" placeholder="Tell us about the food, the view, the vibe — what should pilots know before they go?"></textarea>
+        <textarea id="f-notes" class="form-textarea" placeholder="Tell us about the food, the view, the vibe..."></textarea>
       </div>
       <div class="form-group">
         <label class="form-label">Your Email (optional)</label>
-        <input type="email" class="form-input" placeholder="We'll credit you when it's featured" />
+        <input type="email" id="f-email" class="form-input" placeholder="We'll credit you when it's featured" />
       </div>
       <button class="form-submit" id="form-submit">Submit for Review ✈</button>
     </div>
@@ -888,197 +475,41 @@ function loadScript(src, cb) {
   document.head.appendChild(s);
 }
 
-loadScript('https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', init);
+loadScript('https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', () => {
+  fetch('data/restaurants.geojson')
+    .then(r => r.json())
+    .then(geojson => init(geojson.features))
+    .catch(err => {
+      document.getElementById('airport-list').innerHTML =
+        '<div style="padding:20px;color:#b84c2a;font-size:12px;">Failed to load restaurant data.<br>' + err + '</div>';
+    });
+});
 
-function init() {
+function init(features) {
 
-// ─── DATA ─────────────────────────────────────────────────────────────────────
-// Each airport has one or more restaurants
-const airports = [
-  {
-    id: "0S9",
-    name: "Jefferson County International",
-    loc: "Port Townsend, WA",
-    lat: 48.0539,
-    lng: -122.8108,
-    restaurants: [
-      {
-        name: "Spruce Goose Café",
-        type: "Diner · Breakfast & Lunch",
-        onField: true,
-        meals: ["breakfast","lunch"],
-        hours: "Wed–Sun 8AM–4PM",
-        phone: "(360) 385-3185",
-        website: "https://sprucegoosecafe.com",
-        stars: 4.6,
-        mustOrder: "Homemade pie — marionberry, rhubarb, or apple",
-        description: "A legendary fly-in destination since the 1960s. Watch planes taxi past while you eat. Aviation-themed décor, killer homemade pies, and one of the most social pilot lounges in the Pacific Northwest. Named a Top 10 Airport Restaurant by AOPA.",
-        substackUrl: "https://airportrestaurants.substack.com",
-        tags: ["on-field","breakfast","lunch"],
-      }
-    ]
-  },
-  {
-    id: "PWT",
-    name: "Bremerton National Airport",
-    loc: "Bremerton, WA",
-    lat: 47.4902,
-    lng: -122.7659,
-    restaurants: [
-      {
-        name: "Amelia's Hangar",
-        type: "American · Breakfast, Lunch & Dinner",
-        onField: true,
-        meals: ["breakfast","lunch","dinner"],
-        hours: "Tue–Sun 8AM–7:15PM (Fri–Sat until 8:15PM), Closed Mon",
-        phone: "(360) 525-2455",
-        website: "https://www.ameliashangarrestaurant.com",
-        stars: 4.3,
-        mustOrder: "Chicken fried steak with sausage gravy, or the Sunday brunch buffet",
-        description: "Amelia Earhart-themed restaurant right at Bremerton National. Generous portions, homemade desserts, and a runway view. The Sunday brunch buffet draws pilots and locals alike. A diamond in the rough that consistently surprises first-timers.",
-        substackUrl: "https://airportrestaurants.substack.com",
-        tags: ["on-field","breakfast","lunch","dinner"],
-      }
-    ]
-  },
-  {
-    id: "TIW",
-    name: "Tacoma Narrows Airport",
-    loc: "Gig Harbor, WA",
-    lat: 47.2679,
-    lng: -122.5779,
-    restaurants: [
-      {
-        name: "The Hub — Gig Harbor",
-        type: "American · Lunch & Dinner",
-        onField: true,
-        meals: ["lunch","dinner"],
-        hours: "Mon–Sun 11AM–8PM",
-        phone: null,
-        website: null,
-        stars: 3.8,
-        mustOrder: "Harmon craft beers on tap + burgers with runway views",
-        description: "Harmon Brewing Company's airport outpost, right on the Tacoma Narrows runway. Watch GA aircraft and business jets while enjoying local craft beer and American pub fare. Unique cycling and local art theme inside. Best for a post-flight lunch with a view.",
-        substackUrl: "https://airportrestaurants.substack.com/p/exploring-tacoma-narrows-airport",
-        tags: ["on-field","lunch","dinner"],
-      }
-    ]
+// ─── GROUP FEATURES INTO AIRPORTS ─────────────────────────────────────────────
+// GeoJSON is one feature per restaurant; group by airport_ident
+const airportMap = {};
+features.forEach(f => {
+  const p = f.properties;
+  const ident = p.airport_ident;
+  const [lng, lat] = f.geometry.coordinates;
+  if (!airportMap[ident]) {
+    airportMap[ident] = {
+      id: ident,
+      name: p.airport_name || ident,
+      city: p.city || '',
+      state: p.state || '',
+      lat, lng,
+      restaurants: []
+    };
   }
-];
-
-// ─── STARS RENDERER ───────────────────────────────────────────────────────────
-function renderStars(n) {
-  const full = Math.floor(n);
-  const half = n % 1 >= 0.5 ? 1 : 0;
-  return '★'.repeat(full) + (half ? '½' : '') + ` ${n.toFixed(1)}`;
-}
-
-// ─── MAP ──────────────────────────────────────────────────────────────────────
-const map = L.map('map', {
-  center: [39.5, -98.35],
-  zoom: 4,
-  zoomControl: false,
-  attributionControl: true,
+  airportMap[ident].restaurants.push(p);
 });
+const airports = Object.values(airportMap);
 
-L.control.zoom({ position: 'bottomleft' }).addTo(map);
-
-const tiles = {
-  road: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; OpenStreetMap &copy; CARTO',
-    subdomains: 'abcd', maxZoom: 19,
-  }),
-  topo: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenTopoMap &copy; OpenStreetMap',
-    subdomains: 'abc', maxZoom: 17,
-  }),
-  satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    attribution: '&copy; Esri',
-    maxZoom: 19,
-  }),
-};
-
-const osmFallback = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap', maxZoom: 19,
-});
-
-let curTile = 'road';
-tiles.road.addTo(map);
-tiles.road.on('tileerror', () => {
-  if (curTile === 'road') { map.removeLayer(tiles.road); osmFallback.addTo(map); }
-});
-
-document.querySelectorAll('.tog').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const s = btn.dataset.s;
-    if (s === curTile) return;
-    Object.values(tiles).forEach(l => { if (map.hasLayer(l)) map.removeLayer(l); });
-    if (map.hasLayer(osmFallback)) map.removeLayer(osmFallback);
-    tiles[s].addTo(map);
-    curTile = s;
-    document.querySelectorAll('.tog').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  });
-});
-
-// ─── MARKERS ──────────────────────────────────────────────────────────────────
-const markerMap = {};
-
-function makeIcon(count) {
-  const emoji = count > 1 ? '🍽' : '✈';
-  return L.divIcon({
-    className: '',
-    html: `<div class="rest-marker ${count > 1 ? 'multi' : ''}">${emoji}</div>`,
-    iconSize: [28, 28],
-    iconAnchor: [14, 14],
-    popupAnchor: [0, -16],
-  });
-}
-
-airports.forEach(a => {
-  const marker = L.marker([a.lat, a.lng], { icon: makeIcon(a.restaurants.length) });
-
-  const rHTML = a.restaurants.map(r => `
-    <div class="popup-rest" data-airport="${a.id}" data-rest="${r.name}">
-      <div class="pr-name">${r.name}</div>
-      <div class="pr-type">${r.type}</div>
-      <div class="pr-detail">${r.description.substring(0, 100)}…</div>
-      <div class="pr-meta">
-        <span class="pr-stars">${renderStars(r.stars)}</span>
-        <span>·</span>
-        <span>${r.hours.split(',')[0]}</span>
-      </div>
-    </div>
-  `).join('');
-
-  const popupHTML = `
-    <div class="popup-airport-header">
-      <div class="popup-airport-name">${a.name}</div>
-      <div class="popup-airport-id">${a.id}</div>
-    </div>
-    <div class="popup-restaurants">${rHTML}</div>
-  `;
-
-  marker.bindPopup(popupHTML, { maxWidth: 300 });
-  marker.on('click', () => selectAirport(a.id));
-  marker.addTo(map);
-  markerMap[a.id] = marker;
-});
-
-// Delegate click on popup restaurant rows
-document.addEventListener('click', e => {
-  const row = e.target.closest('.popup-rest');
-  if (!row) return;
-  const aid = row.dataset.airport;
-  const rname = row.dataset.rest;
-  const airport = airports.find(a => a.id === aid);
-  if (!airport) return;
-  const rest = airport.restaurants.find(r => r.name === rname);
-  if (!rest) return;
-  showDetail(rest, airport);
-});
-
-// ─── REGION BOUNDS ────────────────────────────────────────────────────────────
+// ─── REGION CONFIG ────────────────────────────────────────────────────────────
+// Maps dropdown value → which GeoJSON region values to include
 const regionBounds = {
   all:        { center: [39.5, -98.35], zoom: 4 },
   PNW:        { center: [47.5, -121.5], zoom: 6 },
@@ -1088,88 +519,185 @@ const regionBounds = {
   Midwest:    { center: [41.5, -93.0],  zoom: 5 },
   Southeast:  { center: [32.5, -84.0],  zoom: 5 },
   Northeast:  { center: [42.5, -73.5],  zoom: 6 },
+  South:      { center: [33.5, -92.0],  zoom: 5 },
+  Texas:      { center: [31.0, -99.0],  zoom: 6 },
+  Florida:    { center: [28.0, -82.0],  zoom: 7 },
 };
 
-// Map regions to state abbreviations for filtering
-const regionStates = {
+// Maps dropdown value → GeoJSON region tag(s)
+const regionTags = {
   all:        null,
-  PNW:        ['WA','OR','ID'],
-  California: ['CA'],
-  Southwest:  ['AZ','NV','NM','UT'],
-  Mountain:   ['CO','WY','MT'],
-  Midwest:    ['MN','WI','MI','IA','IL','IN','OH','MO','ND','SD','NE','KS'],
-  Southeast:  ['FL','GA','SC','NC','VA','AL','MS','TN','KY','AR','LA'],
-  Northeast:  ['ME','NH','VT','MA','RI','CT','NY','NJ','PA','DE','MD'],
+  PNW:        ['PNW'],
+  California: ['CA','SoCal','NorCal','California'],
+  Southwest:  ['AZ','NV','NM','UT','Southwest'],
+  Mountain:   ['Mountain','CO','WY','MT'],
+  Midwest:    ['Midwest'],
+  Southeast:  ['GA','SC','NC','VA','AL','MS','TN','KY','Southeast'],
+  Northeast:  ['Northeast','CT','MA','NY','NJ','PA','ME','NH','VT','RI','DE','MD'],
+  South:      ['South','AR','LA','OK'],
+  Texas:      ['TX','Texas'],
+  Florida:    ['FL','Florida'],
 };
 
-// ─── SIDEBAR LIST ─────────────────────────────────────────────────────────────
+// ─── MAP SETUP ────────────────────────────────────────────────────────────────
+const map = L.map('map', {
+  center: [39.5, -98.35],
+  zoom: 4,
+  zoomControl: false,
+});
+L.control.zoom({ position: 'bottomleft' }).addTo(map);
+
+const tiles = {
+  road: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap &copy; CARTO', subdomains: 'abcd', maxZoom: 19,
+  }),
+  topo: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenTopoMap', subdomains: 'abc', maxZoom: 17,
+  }),
+  satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: '&copy; Esri', maxZoom: 19,
+  }),
+};
+let curTile = 'road';
+tiles.road.addTo(map);
+
+document.querySelectorAll('.tog').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const s = btn.dataset.s;
+    if (s === curTile) return;
+    Object.values(tiles).forEach(l => { if (map.hasLayer(l)) map.removeLayer(l); });
+    tiles[s].addTo(map);
+    curTile = s;
+    document.querySelectorAll('.tog').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// ─── MARKERS ──────────────────────────────────────────────────────────────────
+const markerLayer = {};
+
+function makeIcon(count) {
+  return L.divIcon({
+    className: '',
+    html: `<div class="rest-marker ${count > 1 ? 'multi' : ''}">${count > 1 ? '🍽' : '✈'}</div>`,
+    iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -16],
+  });
+}
+
+airports.forEach(a => {
+  const marker = L.marker([a.lat, a.lng], { icon: makeIcon(a.restaurants.length) });
+
+  const rHTML = a.restaurants.map(r => `
+    <div class="popup-rest" data-ident="${a.id}" data-rest="${encodeURIComponent(r.restaurant_name)}">
+      <div class="pr-name">${r.restaurant_name}</div>
+      <div class="pr-type">${r.type}</div>
+      ${r.notes ? `<div class="pr-detail">${r.notes.substring(0, 90)}…</div>` : ''}
+      ${r.substack_post ? `<div class="pr-reviewed">✉ Reviewed</div>` : ''}
+    </div>
+  `).join('');
+
+  marker.bindPopup(`
+    <div class="popup-airport-header">
+      <div class="popup-airport-name">${a.name}</div>
+      <div class="popup-airport-id">${a.id}</div>
+    </div>
+    <div class="popup-restaurants">${rHTML}</div>
+  `, { maxWidth: 300 });
+
+  marker.on('click', () => selectAirport(a.id));
+  marker.addTo(map);
+  markerLayer[a.id] = marker;
+});
+
+// Click on popup row → show detail panel
+document.addEventListener('click', e => {
+  const row = e.target.closest('.popup-rest');
+  if (!row) return;
+  const ident = row.dataset.ident;
+  const rname = decodeURIComponent(row.dataset.rest);
+  const airport = airports.find(a => a.id === ident);
+  if (!airport) return;
+  const rest = airport.restaurants.find(r => r.restaurant_name === rname);
+  if (!rest) return;
+  showDetail(rest, airport);
+});
+
+// ─── SIDEBAR + STATS + MARKER SYNC ───────────────────────────────────────────
 const listEl = document.getElementById('airport-list');
 let activeFilter = 'all';
 let activeRegion = 'all';
 let searchTerm = '';
 
-function getStateFromLoc(loc) {
-  // loc is "City, ST" format
-  const parts = loc.split(',');
-  return parts.length > 1 ? parts[parts.length - 1].trim() : '';
-}
-
 function buildList() {
   listEl.innerHTML = '';
+  let countAirports = 0, countRests = 0, countReviewed = 0;
+  const countStates = new Set();
 
-  let shownAirports = 0;
-  let shownRestaurants = 0;
-  const shownStates = new Set();
-  let shownReviewed = 0;
-
-  const allowedStates = regionStates[activeRegion];
+  const allowedTags = regionTags[activeRegion];
 
   airports.forEach(a => {
-    const state = getStateFromLoc(a.loc);
+    // Region filter — match against the GeoJSON region field of each restaurant
+    const matchesRegion = !allowedTags ||
+      a.restaurants.some(r => allowedTags.includes(r.region));
 
-    const matchesRegion = !allowedStates || allowedStates.includes(state);
-
+    // Search filter
     const matchesSearch = !searchTerm ||
       a.name.toLowerCase().includes(searchTerm) ||
-      a.loc.toLowerCase().includes(searchTerm) ||
+      a.city.toLowerCase().includes(searchTerm) ||
+      a.state.toLowerCase().includes(searchTerm) ||
       a.id.toLowerCase().includes(searchTerm) ||
-      a.restaurants.some(r => r.name.toLowerCase().includes(searchTerm));
+      a.restaurants.some(r => r.restaurant_name.toLowerCase().includes(searchTerm));
 
-    const matchingRests = a.restaurants.filter(r =>
-      activeFilter === 'all' || r.tags.includes(activeFilter)
-    );
+    // Type/tag filter
+    let matchingRests = a.restaurants;
+    if (activeFilter === 'on-airport') {
+      matchingRests = a.restaurants.filter(r => r.type === 'on-airport');
+    } else if (activeFilter === 'near-airport') {
+      matchingRests = a.restaurants.filter(r => r.type === 'near-airport');
+    } else if (activeFilter === 'reviewed') {
+      matchingRests = a.restaurants.filter(r => r.substack_post);
+    }
 
-    if (!matchesRegion || !matchesSearch || matchingRests.length === 0) return;
+    const visible = matchesRegion && matchesSearch && matchingRests.length > 0;
 
-    shownAirports++;
-    shownRestaurants += matchingRests.length;
-    if (state) shownStates.add(state);
-    shownReviewed += matchingRests.filter(r => r.substackUrl && !r.substackUrl.endsWith('substack.com')).length;
+    // Sync map marker
+    const marker = markerLayer[a.id];
+    if (visible) {
+      if (!map.hasLayer(marker)) marker.addTo(map);
+    } else {
+      if (map.hasLayer(marker)) map.removeLayer(marker);
+    }
+
+    if (!visible) return;
+
+    countAirports++;
+    countRests += matchingRests.length;
+    if (a.state) countStates.add(a.state);
+    countReviewed += matchingRests.filter(r => r.substack_post).length;
 
     const el = document.createElement('div');
     el.className = 'airport-row';
     el.dataset.id = a.id;
-    const rCount = matchingRests.length;
     el.innerHTML = `
       <div class="row-top">
         <div class="airport-name">${a.name}</div>
         <div class="airport-id">${a.id}</div>
       </div>
-      <div class="rest-count"><strong>${rCount}</strong> restaurant${rCount !== 1 ? 's' : ''} listed</div>
-      <div class="airport-loc">📍 ${a.loc}</div>
+      <div class="rest-count"><strong>${matchingRests.length}</strong> restaurant${matchingRests.length !== 1 ? 's' : ''}</div>
+      <div class="airport-loc">📍 ${a.city}, ${a.state}</div>
     `;
     el.addEventListener('click', () => {
       map.setView([a.lat, a.lng], 12, { animate: true });
-      markerMap[a.id].openPopup();
+      marker.openPopup();
       selectAirport(a.id);
     });
     listEl.appendChild(el);
   });
 
-  document.getElementById('stat-airports').textContent = shownAirports;
-  document.getElementById('stat-restaurants').textContent = shownRestaurants;
-  document.getElementById('stat-states').textContent = shownStates.size || '—';
-  document.getElementById('stat-reviewed').textContent = shownReviewed;
+  document.getElementById('stat-airports').textContent = countAirports;
+  document.getElementById('stat-restaurants').textContent = countRests;
+  document.getElementById('stat-states').textContent = countStates.size || '—';
+  document.getElementById('stat-reviewed').textContent = countReviewed;
 }
 
 buildList();
@@ -1183,16 +711,14 @@ function selectAirport(id) {
 
 // ─── DETAIL PANEL ─────────────────────────────────────────────────────────────
 function showDetail(rest, airport) {
-  document.getElementById('dp-name').textContent = rest.name;
+  document.getElementById('dp-name').textContent = rest.restaurant_name;
   document.getElementById('dp-body').innerHTML = `
-    <div class="dp-type">${rest.type} · ${airport.id} — ${airport.loc}</div>
-    <div class="dp-desc">${rest.description}</div>
-    <div class="dp-row"><span class="dp-key">Rating</span><span class="dp-val pr-stars">${renderStars(rest.stars)}</span></div>
-    <div class="dp-row"><span class="dp-key">Hours</span><span class="dp-val">${rest.hours}</span></div>
-    ${rest.phone ? `<div class="dp-row"><span class="dp-key">Phone</span><span class="dp-val">${rest.phone}</span></div>` : ''}
-    <div class="dp-row"><span class="dp-key">Must Order</span><span class="dp-val">${rest.mustOrder}</span></div>
-    <div class="dp-row"><span class="dp-key">On Field</span><span class="dp-val">${rest.onField ? '✅ Yes' : '🚗 Short drive'}</span></div>
-    <a href="${rest.substackUrl}" target="_blank" class="dp-substack">✉ Read the Full Review →</a>
+    <div class="dp-type">${rest.type} · ${airport.id} — ${airport.city}, ${airport.state}</div>
+    ${rest.notes ? `<div class="dp-desc">${rest.notes}</div>` : ''}
+    <div class="dp-row"><span class="dp-key">Airport</span><span class="dp-val">${airport.name}</span></div>
+    <div class="dp-row"><span class="dp-key">Type</span><span class="dp-val">${rest.type === 'on-airport' ? '✅ On field' : '🚗 Near airport'}</span></div>
+    ${rest.website ? `<div class="dp-row"><span class="dp-key">Website</span><span class="dp-val"><a href="${rest.website}" target="_blank" style="color:var(--amber)">Visit →</a></span></div>` : ''}
+    ${rest.substack_post ? `<a href="${rest.substack_post}" target="_blank" class="dp-substack">✉ Read the Full Review →</a>` : ''}
   `;
   document.getElementById('detail-panel').classList.add('visible');
 }
@@ -1207,7 +733,7 @@ document.getElementById('search').addEventListener('input', e => {
   buildList();
 });
 
-// ─── FILTERS ──────────────────────────────────────────────────────────────────
+// ─── TYPE FILTER PILLS ────────────────────────────────────────────────────────
 document.querySelectorAll('.fpill').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.fpill').forEach(b => b.classList.remove('active'));
@@ -1233,8 +759,8 @@ document.getElementById('modal-close').addEventListener('click', () => overlay.c
 overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
 
 document.getElementById('form-submit').addEventListener('click', () => {
-  // In production this would POST to a form backend (Formspree, Netlify Forms, etc.)
-  alert('Thanks for the submission! We\'ll review it and add it to the map. Best ones get featured in the newsletter. ✈');
+  // TODO: wire to Formspree
+  alert("Thanks for the submission! We'll review it and add it to the map. Best ones get featured in the newsletter. ✈");
   overlay.classList.remove('open');
 });
 
