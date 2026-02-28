@@ -23,10 +23,13 @@ def load_ourairports_index() -> dict:
     text = download_text(OURAIRPORTS_AIRPORTS_CSV)
     reader = csv.DictReader(text.splitlines())
     idx = {}
-    for row in reader:
-        ident = (row.get("ident") or "").strip()
-        if ident:
-            idx[ident] = row
+for row in reader:
+    ident = (row.get("ident") or "").strip()
+    if ident:
+        idx[ident] = row
+    local_code = (row.get("local_code") or "").strip()
+    if local_code and local_code not in idx:
+        idx[local_code] = row
     print(f"  Loaded {len(idx):,} airports from OurAirports.")
     return idx
 
