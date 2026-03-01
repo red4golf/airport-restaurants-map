@@ -4,6 +4,32 @@
     {
       "type": "Feature",
       "properties": {
+        "restaurant_name": "Spruce Goose Café",
+        "type": "on-airport",
+        "region": "PNW",
+        "source": "Substack review",
+        "website": "https://sprucegoosecafe.com",
+        "substack_post": "https://airportrestaurants.substack.com/p/spruce-goose",
+        "notes": "A legendary fly-in destination since the 1960s. Aviation-themed décor and homemade pies — marionberry and rhubarb are the ones to get. Named a Top 10 Airport Restaurant by AOPA. Watch planes taxi past while you eat. Wed–Sun 8AM–4PM.",
+        "airport_ident": "0S9",
+        "airport_name": "Jefferson County Intl",
+        "city": "Port Townsend",
+        "state": "WA",
+        "iso_region": "US-WA",
+        "slug": "spruce-goose-café-0s9",
+        "airnav_url": "https://www.airnav.com/airport/K0S9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.810997009,
+          48.0537986755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "restaurant_name": "Amelia's Hangar Restaurant and Lounge",
         "type": "on-airport",
         "region": "PNW",
@@ -16,7 +42,8 @@
         "city": "Bremerton",
         "state": "WA",
         "iso_region": "US-WA",
-        "slug": "amelias-hangar-restaurant-and-lounge-kpwt"
+        "slug": "amelias-hangar-restaurant-and-lounge-kpwt",
+        "airnav_url": "https://www.airnav.com/airport/KPWT"
       },
       "geometry": {
         "type": "Point",
@@ -41,7 +68,8 @@
         "city": "Gig Harbor",
         "state": "WA",
         "iso_region": "US-WA",
-        "slug": "the-hub-gig-harbor-ktiw"
+        "slug": "the-hub-gig-harbor-ktiw",
+        "airnav_url": "https://www.airnav.com/airport/KTIW"
       },
       "geometry": {
         "type": "Point",
@@ -66,7 +94,8 @@
         "city": "Lakeview",
         "state": "AR",
         "iso_region": "US-AR",
-        "slug": "gastons-restaurant-3m0"
+        "slug": "gastons-restaurant-3m0",
+        "airnav_url": "https://www.airnav.com/airport/3M0"
       },
       "geometry": {
         "type": "Point",
@@ -91,7 +120,8 @@
         "city": "Chino",
         "state": "CA",
         "iso_region": "US-CA",
-        "slug": "flos-airport-café-kcno"
+        "slug": "flos-airport-café-kcno",
+        "airnav_url": "https://www.airnav.com/airport/KCNO"
       },
       "geometry": {
         "type": "Point",
@@ -116,7 +146,8 @@
         "city": "Coalinga",
         "state": "CA",
         "iso_region": "US-CA",
-        "slug": "harris-ranch-restaurant-3o8"
+        "slug": "harris-ranch-restaurant-3o8",
+        "airnav_url": "https://www.airnav.com/airport/3O8"
       },
       "geometry": {
         "type": "Point",
@@ -141,7 +172,8 @@
         "city": "Camarillo",
         "state": "CA",
         "iso_region": "US-CA",
-        "slug": "waypoint-cafe-kcma"
+        "slug": "waypoint-cafe-kcma",
+        "airnav_url": "https://www.airnav.com/airport/KCMA"
       },
       "geometry": {
         "type": "Point",
@@ -166,7 +198,8 @@
         "city": "Englewood",
         "state": "CO",
         "iso_region": "US-CO",
-        "slug": "the-perfect-landing-kapa"
+        "slug": "the-perfect-landing-kapa",
+        "airnav_url": "https://www.airnav.com/airport/KAPA"
       },
       "geometry": {
         "type": "Point",
@@ -191,7 +224,8 @@
         "city": "Oxford",
         "state": "CT",
         "iso_region": "US-CT",
-        "slug": "restaurant-121-koxc"
+        "slug": "restaurant-121-koxc",
+        "airnav_url": "https://www.airnav.com/airport/KOXC"
       },
       "geometry": {
         "type": "Point",
@@ -216,7 +250,8 @@
         "city": "Port Orange",
         "state": "FL",
         "iso_region": "US-FL",
-        "slug": "the-downwind-café-7fl6"
+        "slug": "the-downwind-café-7fl6",
+        "airnav_url": "https://www.airnav.com/airport/7FL6"
       },
       "geometry": {
         "type": "Point",
@@ -241,7 +276,8 @@
         "city": "Vero Beach",
         "state": "FL",
         "iso_region": "US-FL",
-        "slug": "cj-cannons-kvrb"
+        "slug": "cj-cannons-kvrb",
+        "airnav_url": "https://www.airnav.com/airport/KVRB"
       },
       "geometry": {
         "type": "Point",
@@ -266,7 +302,8 @@
         "city": "Winter Haven",
         "state": "FL",
         "iso_region": "US-FL",
-        "slug": "flightline-café-kgif"
+        "slug": "flightline-café-kgif",
+        "airnav_url": "https://www.airnav.com/airport/KGIF"
       },
       "geometry": {
         "type": "Point",
@@ -291,7 +328,8 @@
         "city": "Bartow",
         "state": "FL",
         "iso_region": "US-FL",
-        "slug": "runways-at-bartow-kbow"
+        "slug": "runways-at-bartow-kbow",
+        "airnav_url": "https://www.airnav.com/airport/KBOW"
       },
       "geometry": {
         "type": "Point",
@@ -316,7 +354,8 @@
         "city": "Venice",
         "state": "FL",
         "iso_region": "US-FL",
-        "slug": "suncoast-café-kvnc"
+        "slug": "suncoast-café-kvnc",
+        "airnav_url": "https://www.airnav.com/airport/KVNC"
       },
       "geometry": {
         "type": "Point",
@@ -341,7 +380,8 @@
         "city": "Ocala",
         "state": "FL",
         "iso_region": "US-FL",
-        "slug": "tailwind-café-kocf"
+        "slug": "tailwind-café-kocf",
+        "airnav_url": "https://www.airnav.com/airport/KOCF"
       },
       "geometry": {
         "type": "Point",
@@ -366,7 +406,8 @@
         "city": "St. Petersburg",
         "state": "FL",
         "iso_region": "US-FL",
-        "slug": "the-hangar-restaurant-flight-lounge-kspg"
+        "slug": "the-hangar-restaurant-flight-lounge-kspg",
+        "airnav_url": "https://www.airnav.com/airport/KSPG"
       },
       "geometry": {
         "type": "Point",
@@ -391,7 +432,8 @@
         "city": "Okeechobee",
         "state": "FL",
         "iso_region": "US-FL",
-        "slug": "landing-strip-café-kobe"
+        "slug": "landing-strip-café-kobe",
+        "airnav_url": "https://www.airnav.com/airport/KOBE"
       },
       "geometry": {
         "type": "Point",
@@ -416,7 +458,8 @@
         "city": "Fort Lauderdale",
         "state": "FL",
         "iso_region": "US-FL",
-        "slug": "jet-runway-café-kfxe"
+        "slug": "jet-runway-café-kfxe",
+        "airnav_url": "https://www.airnav.com/airport/KFXE"
       },
       "geometry": {
         "type": "Point",
@@ -441,13 +484,40 @@
         "city": "Atlanta",
         "state": "GA",
         "iso_region": "US-GA",
-        "slug": "57th-fighter-group-restaurant-kpdk"
+        "slug": "57th-fighter-group-restaurant-kpdk",
+        "airnav_url": "https://www.airnav.com/airport/KPDK"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -84.30213,
           33.87633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Pilot Pete's",
+        "type": "on-airport",
+        "region": "Midwest",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "notes": "Beloved on-field diner at Schaumburg Regional in the Chicago suburbs. Big breakfasts",
+        "airport_ident": "06C",
+        "airport_name": "Schaumburg Regional Airport",
+        "city": "Schaumburg",
+        "state": "IL",
+        "iso_region": "US-IL",
+        "slug": "pilot-petes-06c",
+        "airnav_url": "https://www.airnav.com/airport/K06C"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.1011962891,
+          41.9892997742
         ]
       }
     },
@@ -466,13 +536,40 @@
         "city": "Indianapolis",
         "state": "IN",
         "iso_region": "US-IN",
-        "slug": "ricks-café-boatyard-keye"
+        "slug": "ricks-café-boatyard-keye",
+        "airnav_url": "https://www.airnav.com/airport/KEYE"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -86.294403076172,
           39.830699920654
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "The Beaumont Hotel Café",
+        "type": "on-airport",
+        "region": "Midwest",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "notes": "Historic hotel café at a private Kansas airstrip. The Beaumont Hotel dates to 1879 and has hosted cattle drives and oil barons. A genuine step back in time — land at the grass strip and walk to the dining room.",
+        "airport_ident": "07S",
+        "airport_name": "Beaumont Hotel Airport",
+        "city": "Beaumont",
+        "state": "KS",
+        "iso_region": "US-KS",
+        "slug": "the-beaumont-hotel-café-07s",
+        "airnav_url": "https://www.airnav.com/airport/SN07"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.527198791504,
+          37.659198760986
         ]
       }
     },
@@ -491,7 +588,8 @@
         "city": "Louisville",
         "state": "KY",
         "iso_region": "US-KY",
-        "slug": "bistro-le-relais-klou"
+        "slug": "bistro-le-relais-klou",
+        "airnav_url": "https://www.airnav.com/airport/KLOU"
       },
       "geometry": {
         "type": "Point",
@@ -516,7 +614,8 @@
         "city": "Stow",
         "state": "MA",
         "iso_region": "US-MA",
-        "slug": "nancys-air-field-café-6b6"
+        "slug": "nancys-air-field-café-6b6",
+        "airnav_url": "https://www.airnav.com/airport/6B6"
       },
       "geometry": {
         "type": "Point",
@@ -541,7 +640,8 @@
         "city": "Nantucket",
         "state": "MA",
         "iso_region": "US-MA",
-        "slug": "crosswinds-restaurant-kack"
+        "slug": "crosswinds-restaurant-kack",
+        "airnav_url": "https://www.airnav.com/airport/KACK"
       },
       "geometry": {
         "type": "Point",
@@ -566,7 +666,8 @@
         "city": "St. Paul",
         "state": "MN",
         "iso_region": "US-MN",
-        "slug": "holmans-table-kstp"
+        "slug": "holmans-table-kstp",
+        "airnav_url": "https://www.airnav.com/airport/KSTP"
       },
       "geometry": {
         "type": "Point",
@@ -591,7 +692,8 @@
         "city": "Carthage",
         "state": "NC",
         "iso_region": "US-NC",
-        "slug": "pik-n-pig-bbq-5nc3"
+        "slug": "pik-n-pig-bbq-5nc3",
+        "airnav_url": "https://www.airnav.com/airport/5NC3"
       },
       "geometry": {
         "type": "Point",
@@ -616,7 +718,8 @@
         "city": "Cape May",
         "state": "NJ",
         "iso_region": "US-NJ",
-        "slug": "flight-deck-diner-kwwd"
+        "slug": "flight-deck-diner-kwwd",
+        "airnav_url": "https://www.airnav.com/airport/KWWD"
       },
       "geometry": {
         "type": "Point",
@@ -641,13 +744,40 @@
         "city": "Westhampton Beach",
         "state": "NY",
         "iso_region": "US-NY",
-        "slug": "the-apron-cafe-kfok"
+        "slug": "the-apron-cafe-kfok",
+        "airnav_url": "https://www.airnav.com/airport/KFOK"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -72.6317977905,
           40.8437004089
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Hangars Cafe",
+        "type": "on-airport",
+        "region": "Northeast",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "notes": "Beloved Hudson Valley airport diner at Sky Acres. Breakfast and lunch served to a tight-knit local flying community. The airport has one of the most active pilot communities in the mid-Hudson Valley. Worth the trip from NYC.",
+        "airport_ident": "44N",
+        "airport_name": "Sky Acres Airport",
+        "city": "Poughkeepsie",
+        "state": "NY",
+        "iso_region": "US-NY",
+        "slug": "hangars-cafe-44n",
+        "airnav_url": "https://www.airnav.com/airport/K44N"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.737999,
+          41.707401
         ]
       }
     },
@@ -666,7 +796,8 @@
         "city": "Cincinnati",
         "state": "OH",
         "iso_region": "US-OH",
-        "slug": "sky-galley-kluk"
+        "slug": "sky-galley-kluk",
+        "airnav_url": "https://www.airnav.com/airport/KLUK"
       },
       "geometry": {
         "type": "Point",
@@ -691,7 +822,8 @@
         "city": "Port Clinton",
         "state": "OH",
         "iso_region": "US-OH",
-        "slug": "tin-goose-diner-kpcw"
+        "slug": "tin-goose-diner-kpcw",
+        "airnav_url": "https://www.airnav.com/airport/KPCW"
       },
       "geometry": {
         "type": "Point",
@@ -716,7 +848,8 @@
         "city": "Ardmore",
         "state": "OK",
         "iso_region": "US-OK",
-        "slug": "jakes-joint-kadm"
+        "slug": "jakes-joint-kadm",
+        "airnav_url": "https://www.airnav.com/airport/KADM"
       },
       "geometry": {
         "type": "Point",
@@ -741,7 +874,8 @@
         "city": "Latrobe",
         "state": "PA",
         "iso_region": "US-PA",
-        "slug": "denunzios-italian-chophouse-klbe"
+        "slug": "denunzios-italian-chophouse-klbe",
+        "airnav_url": "https://www.airnav.com/airport/KLBE"
       },
       "geometry": {
         "type": "Point",
@@ -766,13 +900,40 @@
         "city": "Greenville",
         "state": "SC",
         "iso_region": "US-SC",
-        "slug": "runway-café-kgmu"
+        "slug": "runway-café-kgmu",
+        "airnav_url": "https://www.airnav.com/airport/KGMU"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -82.350217,
           34.847903
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Southern Flyer Diner",
+        "type": "on-airport",
+        "region": "TX",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "notes": "A Texas institution. The Southern Flyer is one of the most talked-about airport diners in the state — chicken fried steak",
+        "airport_ident": "11R",
+        "airport_name": "Brenham Municipal Airport",
+        "city": "Brenham",
+        "state": "TX",
+        "iso_region": "US-TX",
+        "slug": "southern-flyer-diner-11r",
+        "airnav_url": "https://www.airnav.com/airport/K11R"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.374298,
+          30.219
         ]
       }
     },
@@ -791,7 +952,8 @@
         "city": "Uvalde",
         "state": "TX",
         "iso_region": "US-TX",
-        "slug": "hangar-6-air-café-kuva"
+        "slug": "hangar-6-air-café-kuva",
+        "airnav_url": "https://www.airnav.com/airport/KUVA"
       },
       "geometry": {
         "type": "Point",
@@ -816,7 +978,8 @@
         "city": "Stephenville",
         "state": "TX",
         "iso_region": "US-TX",
-        "slug": "hard-eight-bbq-ksep"
+        "slug": "hard-eight-bbq-ksep",
+        "airnav_url": "https://www.airnav.com/airport/KSEP"
       },
       "geometry": {
         "type": "Point",
@@ -841,7 +1004,8 @@
         "city": "Spring",
         "state": "TX",
         "iso_region": "US-TX",
-        "slug": "aviators-grill-kdwh"
+        "slug": "aviators-grill-kdwh",
+        "airnav_url": "https://www.airnav.com/airport/KDWH"
       },
       "geometry": {
         "type": "Point",
@@ -866,7 +1030,8 @@
         "city": "Scottsdale",
         "state": "AZ",
         "iso_region": "US-AZ",
-        "slug": "volanti-ksdl"
+        "slug": "volanti-ksdl",
+        "airnav_url": "https://www.airnav.com/airport/KSDL"
       },
       "geometry": {
         "type": "Point",
@@ -891,13 +1056,66 @@
         "city": "Sedona",
         "state": "AZ",
         "iso_region": "US-AZ",
-        "slug": "mesa-grill-ksez"
+        "slug": "mesa-grill-ksez",
+        "airnav_url": "https://www.airnav.com/airport/KSEZ"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -111.78800201416,
           34.848598480225
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Flight Deck Restaurant & Lounge",
+        "type": "on-airport",
+        "region": "PNW",
+        "source": "Seed list",
+        "website": "https://flightdeckrestaurant.com",
+        "substack_post": "",
+        "notes": "On-field restaurant established in 1968 at Salem McNary Field with windows on three sides giving panoramic views of the runway and Cascade Mountains. Northwest American cuisine with homemade soups",
+        "airport_ident": "KSLE",
+        "airport_name": "Salem McNary Field",
+        "city": "Salem",
+        "state": "OR",
+        "iso_region": "US-OR",
+        "slug": "flight-deck-restaurant-lounge-ksle",
+        "airnav_url": "https://www.airnav.com/airport/KSLE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.002998,
+          44.9095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Ellie's at the Airport",
+        "type": "on-airport",
+        "region": "PNW",
+        "source": "Seed list",
+        "website": "",
+        "substack_post": "",
+        "notes": "On-field diner at Arlington Municipal with direct runway views and a devoted local following. Classic American breakfast and lunch — the omelets and French fries draw particular praise. A lively spot with a full bar and a mix of pilots",
+        "airport_ident": "KAWO",
+        "airport_name": "Arlington Municipal Airport",
+        "city": "Arlington",
+        "state": "WA",
+        "iso_region": "US-WA",
+        "slug": "ellies-at-the-airport-kawo",
+        "airnav_url": "https://www.airnav.com/airport/KAWO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.158442,
+          48.161448
         ]
       }
     }
