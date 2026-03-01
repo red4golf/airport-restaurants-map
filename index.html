@@ -688,21 +688,11 @@ function buildList() {
     `;
     el.addEventListener('click', () => {
       const targetZoom = map.getZoom() < 12 ? 12 : map.getZoom();
-
-      // Calculate a target point offset from the pin so the pin appears
-      // in the upper-left of the visible area, clear of the detail panel
-      // (detail panel is ~290px wide, ~320px tall, anchored bottom-right)
-      const mapSize = map.getSize();
-      const pinPoint = map.project([a.lat, a.lng], targetZoom);
-
-      // Shift pin left of center by ~150px and up by ~80px
-      const offsetPoint = pinPoint.subtract([
-        (mapSize.x / 2) - 200,   // how far left of map center to place pin
-        (mapSize.y / 2) - 180    // how far above map center to place pin
-      ]);
-      const offsetLatLng = map.unproject(offsetPoint, targetZoom);
-
-      map.setView(offsetLatLng, targetZoom, { animate: true });
+      // First center exactly on the pin with no animation
+      map.setView([a.lat, a.lng], targetZoom, { animate: false });
+      // Then nudge left and up so pin clears the bottom-right detail panel
+      // panBy is relative to current view, applied once from a clean center
+      map.panBy([-160, 80], { animate: true, duration: 0.3 });
       marker.openPopup();
       selectAirport(a.id);
     });
