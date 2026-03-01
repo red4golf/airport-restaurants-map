@@ -17,7 +17,7 @@
         "state": "WA",
         "iso_region": "US-WA",
         "slug": "spruce-goose-café-0s9",
-        "airnav_url": "https://www.airnav.com/airport/K0S9"
+        "airnav_url": "https://www.airnav.com/airport/0S9"
       },
       "geometry": {
         "type": "Point",
@@ -511,7 +511,7 @@
         "state": "IL",
         "iso_region": "US-IL",
         "slug": "pilot-petes-06c",
-        "airnav_url": "https://www.airnav.com/airport/K06C"
+        "airnav_url": "https://www.airnav.com/airport/06C"
       },
       "geometry": {
         "type": "Point",
@@ -563,7 +563,7 @@
         "state": "KS",
         "iso_region": "US-KS",
         "slug": "the-beaumont-hotel-café-07s",
-        "airnav_url": "https://www.airnav.com/airport/SN07"
+        "airnav_url": "https://www.airnav.com/airport/07S"
       },
       "geometry": {
         "type": "Point",
@@ -771,7 +771,7 @@
         "state": "NY",
         "iso_region": "US-NY",
         "slug": "hangars-cafe-44n",
-        "airnav_url": "https://www.airnav.com/airport/K44N"
+        "airnav_url": "https://www.airnav.com/airport/44N"
       },
       "geometry": {
         "type": "Point",
@@ -927,7 +927,7 @@
         "state": "TX",
         "iso_region": "US-TX",
         "slug": "southern-flyer-diner-11r",
-        "airnav_url": "https://www.airnav.com/airport/K11R"
+        "airnav_url": "https://www.airnav.com/airport/11R"
       },
       "geometry": {
         "type": "Point",
