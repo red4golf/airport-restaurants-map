@@ -724,6 +724,7 @@ function showDetail(rest, airport) {
     <div class="dp-row"><span class="dp-key">Airport</span><span class="dp-val">${airport.name}</span></div>
     <div class="dp-row"><span class="dp-key">Type</span><span class="dp-val">${rest.type === 'on-airport' ? '✅ On field' : '🚗 Near airport'}</span></div>
     ${rest.website ? `<div class="dp-row"><span class="dp-key">Website</span><span class="dp-val"><a href="${rest.website}" target="_blank" style="color:var(--amber)">Visit →</a></span></div>` : ''}
+    ${rest.airnav_url ? `<div class="dp-row"><span class="dp-key">Airport Info</span><span class="dp-val"><a href="${rest.airnav_url}" target="_blank" style="color:var(--amber)">AirNav ✈</a></span></div>` : ''}
     ${rest.substack_post ? `<a href="${rest.substack_post}" target="_blank" class="dp-substack">✉ Read the Full Review →</a>` : ''}
   `;
   document.getElementById('detail-panel').classList.add('visible');
