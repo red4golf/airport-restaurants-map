@@ -95,7 +95,7 @@ def build_geojson(idx: dict) -> list:
                 "state":           (r.get("state")           or "").strip(),
                 "iso_region":      (oa.get("iso_region")     or "").strip(),
                 "slug":            slugify(f"{name}-{ident}"),
-                "airnav_url":      f"{AIRNAV_BASE}{resolved_ident}",
+                "airnav_url":      f"{AIRNAV_BASE}{ident}",
             }
 
             features.append({
