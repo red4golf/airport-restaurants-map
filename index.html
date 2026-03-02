@@ -19,55 +19,917 @@
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://red4golf.github.io/airport-restaurants-map/#website",
-        "url": "https://red4golf.github.io/airport-restaurants-map/",
-        "name": "Airport Restaurants",
-        "description": "The pilot's guide to fly-in dining and $100 hamburger destinations across the United States.",
-        "publisher": {
-          "@type": "Person",
-          "name": "Charles Einarson",
-          "url": "https://airportrestaurants.substack.com"
-        },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://red4golf.github.io/airport-restaurants-map/?q={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
-        }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://red4golf.github.io/airport-restaurants-map/#website",
+      "url": "https://red4golf.github.io/airport-restaurants-map/",
+      "name": "Airport Restaurants",
+      "description": "The pilot's guide to fly-in dining and $100 hamburger destinations across the United States.",
+      "publisher": {
+        "@type": "Person",
+        "name": "Charles Einarson",
+        "url": "https://airportrestaurants.substack.com"
       },
-      {
-        "@type": "ItemList",
-        "name": "Fly-In Restaurants at US General Aviation Airports",
-        "description": "A curated directory of the best on-field and near-airport restaurants for pilots across the United States — from classic $100 hamburger diners to upscale fly-in destinations.",
-        "url": "https://red4golf.github.io/airport-restaurants-map/",
-        "numberOfItems": 44,
-        "itemListElement": [
-          {"@type":"ListItem","position":1,"item":{"@type":"FoodEstablishment","name":"Spruce Goose Café","description":"A legendary fly-in destination since the 1960s. Aviation-themed décor and homemade pies — marionberry and rhubarb are the ones to get. Named a Top 10 Airport Restaurant by AOPA.","url":"https://sprucegoosecafe.com","address":{"@type":"PostalAddress","addressLocality":"Port Townsend","addressRegion":"WA","addressCountry":"US"},"containedInPlace":{"@type":"Airport","name":"Jefferson County Intl","identifier":"0S9"}}},
-          {"@type":"ListItem","position":2,"item":{"@type":"FoodEstablishment","name":"Amelia's Hangar Restaurant and Lounge","description":"Amelia Earhart-themed restaurant inside a plane hangar at Bremerton National. American classics with generous portions. Sunday brunch buffet draws pilots and locals alike.","url":"https://www.ameliashangarrestaurant.com","address":{"@type":"PostalAddress","addressLocality":"Bremerton","addressRegion":"WA","addressCountry":"US"},"containedInPlace":{"@type":"Airport","name":"Bremerton National Airport","identifier":"KPWT"}}},
-          {"@type":"ListItem","position":3,"item":{"@type":"FoodEstablishment","name":"Pik-N-Pig BBQ","description":"A genuine BBQ landmark accessible only by air or a bumpy dirt road. Fly into this grass strip in the North Carolina Sandhills and taxi up to a pulled pork sandwich that's worth the trip.","url":"https://piknpig.com","address":{"@type":"PostalAddress","addressLocality":"Carthage","addressRegion":"NC","addressCountry":"US"},"containedInPlace":{"@type":"Airport","name":"Gilliam-McConnell Airfield","identifier":"5NC3"}}},
-          {"@type":"ListItem","position":4,"item":{"@type":"FoodEstablishment","name":"Harris Ranch Restaurant","description":"A legendary California pit stop on the I-5 corridor. Land at the private Harris Ranch strip and walk to one of the state's most famous steakhouses. Prime beef raised on-site.","url":"https://harrisranch.com","address":{"@type":"PostalAddress","addressLocality":"Coalinga","addressRegion":"CA","addressCountry":"US"},"containedInPlace":{"@type":"Airport","name":"Harris Ranch Airport","identifier":"3O8"}}},
-          {"@type":"ListItem","position":5,"item":{"@type":"FoodEstablishment","name":"Holman's Table","description":"Upscale farm-to-table dining in the historic Holman Field terminal building overlooking the Mississippi River and downtown St. Paul skyline.","url":"https://holmanstable.com","address":{"@type":"PostalAddress","addressLocality":"St. Paul","addressRegion":"MN","addressCountry":"US"},"containedInPlace":{"@type":"Airport","name":"St. Paul Downtown Airport","identifier":"KSTP"}}},
-          {"@type":"ListItem","position":6,"item":{"@type":"FoodEstablishment","name":"Gaston's Restaurant","description":"World-famous fly-in fishing resort on the White River. The restaurant serves fresh trout caught steps from the table. One of the most unique fly-in dining experiences in the country.","url":"https://gastons.com","address":{"@type":"PostalAddress","addressLocality":"Lakeview","addressRegion":"AR","addressCountry":"US"},"containedInPlace":{"@type":"Airport","name":"Gaston's Airport","identifier":"3M0"}}},
-          {"@type":"ListItem","position":7,"item":{"@type":"FoodEstablishment","name":"The Perfect Landing","description":"Upscale dining with panoramic views of the Front Range and runway at Centennial Airport. One of Colorado's best airport restaurants.","url":"https://perfectlandingrestaurant.com","address":{"@type":"PostalAddress","addressLocality":"Englewood","addressRegion":"CO","addressCountry":"US"},"containedInPlace":{"@type":"Airport","name":"Centennial Airport","identifier":"KAPA"}}},
-          {"@type":"ListItem","position":8,"item":{"@type":"FoodEstablishment","name":"Bistro Le Relais","description":"French bistro in the historic terminal at Bowman Field — one of the oldest operating airports in the US. White tablecloths and classic French cuisine next to a ramp full of vintage aircraft.","url":"https://lerelaisrestaurant.com","address":{"@type":"PostalAddress","addressLocality":"Louisville","addressRegion":"KY","addressCountry":"US"},"containedInPlace":{"@type":"Airport","name":"Bowman Field","identifier":"KLOU"}}},
-          {"@type":"ListItem","position":9,"item":{"@type":"FoodEstablishment","name":"Southern Flyer Diner","description":"A Texas institution. Chicken fried steak, jalapeño cornbread and sweet tea. Brenham is Blue Bell ice cream country. Breakfast and lunch Fri–Sun.","address":{"@type":"PostalAddress","addressLocality":"Brenham","addressRegion":"TX","addressCountry":"US"},"containedInPlace":{"@type":"Airport","name":"Brenham Municipal Airport","identifier":"11R"}}},
-          {"@type":"ListItem","position":10,"item":{"@type":"FoodEstablishment","name":"Volanti","description":"Upscale restaurant at Scottsdale Airport with sweeping desert views and a sleek modern interior. One of the most polished airport dining experiences in the Southwest.","url":"https://volantiscottsdale.com","address":{"@type":"PostalAddress","addressLocality":"Scottsdale","addressRegion":"AZ","addressCountry":"US"},"containedInPlace":{"@type":"Airport","name":"Scottsdale Airport","identifier":"KSDL"}}},
-          {"@type":"ListItem","position":11,"item":{"@type":"FoodEstablishment","name":"Mesa Grill","description":"Perched on top of the Sedona Airport mesa at 4,800 feet with arguably the most dramatic views of any airport restaurant in the country. Red rock formations in every direction.","url":"https://sedonamesagrill.com","address":{"@type":"PostalAddress","addressLocality":"Sedona","addressRegion":"AZ","addressCountry":"US"},"containedInPlace":{"@type":"Airport","name":"Sedona Airport","identifier":"KSEZ"}}},
-          {"@type":"ListItem","position":12,"item":{"@type":"FoodEstablishment","name":"57th Fighter Group Restaurant","description":"WWII-themed restaurant adjacent to DeKalb-Peachtree with a control tower you can dine in. Runway views, wartime memorabilia and a full menu of American classics.","url":"https://the57threstaurant.com","address":{"@type":"PostalAddress","addressLocality":"Atlanta","addressRegion":"GA","addressCountry":"US"},"containedInPlace":{"@type":"Airport","name":"DeKalb-Peachtree Airport","identifier":"KPDK"}}},
-          {"@type":"ListItem","position":13,"item":{"@type":"FoodEstablishment","name":"Sky Galley","description":"On-field restaurant at Lunken Airport — one of the oldest airports in the country — with art deco terminal views and a classic American menu.","address":{"@type":"PostalAddress","addressLocality":"Cincinnati","addressRegion":"OH","addressCountry":"US"},"containedInPlace":{"@type":"Airport","name":"Cincinnati Municipal Lunken Airport","identifier":"KLUK"}}},
-          {"@type":"ListItem","position":14,"item":{"@type":"FoodEstablishment","name":"The Hangar Restaurant & Flight Lounge","description":"Waterfront airport restaurant at Albert Whitted with stunning views of Tampa Bay and the St. Pete skyline. One of Florida's most scenic dining spots.","address":{"@type":"PostalAddress","addressLocality":"St. Petersburg","addressRegion":"FL","addressCountry":"US"},"containedInPlace":{"@type":"Airport","name":"Albert Whitted Airport","identifier":"KSPG"}}},
-          {"@type":"ListItem","position":15,"item":{"@type":"FoodEstablishment","name":"Flight Deck Restaurant & Lounge","description":"On-field restaurant established in 1968 at Salem McNary Field. Northwest American cuisine with homemade soups, desserts and a full bar. A classic $100 hamburger destination on the I-5 corridor.","url":"https://flightdeckrestaurant.com","address":{"@type":"PostalAddress","addressLocality":"Salem","addressRegion":"OR","addressCountry":"US"},"containedInPlace":{"@type":"Airport","name":"Salem McNary Field","identifier":"KSLE"}}}
-        ]
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://red4golf.github.io/airport-restaurants-map/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
       }
-    ]
-  }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Fly-In Restaurants at US General Aviation Airports",
+      "description": "A curated directory of the best on-field and near-airport restaurants for pilots across the United States — from classic $100 hamburger diners to upscale fly-in destinations.",
+      "url": "https://red4golf.github.io/airport-restaurants-map/",
+      "numberOfItems": 43,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Spruce Goose Café",
+            "description": "A legendary fly-in destination since the 1960s. Aviation-themed décor and homemade pies — marionberry and rhubarb are the ones to get. Named a Top 10 Airport Restaurant by AOPA. Watch planes taxi past while you eat. Wed–Sun 8AM–4PM.",
+            "url": "https://sprucegoosecafe.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Port Townsend",
+              "addressRegion": "WA",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Jefferson County Intl",
+              "identifier": "0S9"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Amelia's Hangar Restaurant and Lounge",
+            "description": "Amelia Earhart-themed restaurant inside a plane hangar at Bremerton National. American classics with generous portions. Sunday brunch buffet draws pilots and locals alike. Tue–Thu 6AM–8PM · Fri–Sat 6AM–9PM · Sun 6AM–8PM · Closed Mon.",
+            "url": "https://www.ameliashangarrestaurant.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bremerton",
+              "addressRegion": "WA",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Bremerton National Airport",
+              "identifier": "KPWT"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "The Hub - Gig Harbor",
+            "description": "On-field restaurant right at Tacoma Narrows with runway views. Burgers",
+            "url": "https://www.toasttab.com/the.hub.gig.harbor/v3",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Gig Harbor",
+              "addressRegion": "WA",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Tacoma Narrows Airport",
+              "identifier": "KTIW"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Gaston's Restaurant",
+            "description": "World-famous fly-in fishing resort on the White River. The restaurant serves fresh trout caught steps from the table. One of the most unique fly-in dining experiences in the country — land on the private strip and walk to the table.",
+            "url": "https://gastons.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Lakeview",
+              "addressRegion": "AR",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Gaston's Airport",
+              "identifier": "3M0"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Flo's Airport Café",
+            "description": "Classic airport diner at Chino Airport — home of the Planes of Fame Air Museum. Breakfast and lunch staples served with a side of warbird sightings. A longtime favorite for pilots flying the Southern California basin.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Chino",
+              "addressRegion": "CA",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Chino Airport",
+              "identifier": "KCNO"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Harris Ranch Restaurant",
+            "description": "A legendary California pit stop on the I-5 corridor. Land at the private Harris Ranch strip and walk to one of the state's most famous steakhouses. Prime beef raised on-site. Open for breakfast",
+            "url": "https://harrisranch.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Coalinga",
+              "addressRegion": "CA",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Harris Ranch Airport",
+              "identifier": "3O8"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Waypoint Cafe",
+            "description": "Popular on-field café at Camarillo Airport serving breakfast and lunch. Generous portions and a friendly pilot crowd. On clear days the Channel Islands are visible from the ramp. Open daily 7AM–3PM.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Camarillo",
+              "addressRegion": "CA",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Camarillo Airport",
+              "identifier": "KCMA"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "The Perfect Landing",
+            "description": "Upscale dining with panoramic views of the Front Range and runway at Centennial Airport. One of Colorado's best airport restaurants — think steaks and Colorado craft beers with a view of the Rockies. Open for lunch and dinner.",
+            "url": "https://perfectlandingrestaurant.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Englewood",
+              "addressRegion": "CO",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Centennial Airport",
+              "identifier": "KAPA"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Restaurant 121",
+            "description": "On-field restaurant at Waterbury-Oxford with runway views. Breakfast and lunch served daily. Local favorite for weekend fly-ins in the Connecticut hills. Named for the airport elevation — 726 feet MSL.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Oxford",
+              "addressRegion": "CT",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Waterbury-Oxford Airport",
+              "identifier": "KOXC"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "The Downwind Café",
+            "description": "Located inside the famous Spruce Creek Fly-In community — one of the largest residential airparks in the world. Casual café atmosphere with a mix of resident pilots and visiting aviators. Great spot to soak up the unique fly-in neighborhood vibe.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Port Orange",
+              "addressRegion": "FL",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Spruce Creek Fly-In",
+              "identifier": "7FL6"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "CJ Cannon's",
+            "description": "A Vero Beach institution right on the airport with sweeping runway views. Known for generous portions of American comfort food and a lively bar. Popular with both Piper training fleet pilots from next door and transient GA traffic.",
+            "url": "https://cjcannons.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Vero Beach",
+              "addressRegion": "FL",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Vero Beach Regional Airport",
+              "identifier": "KVRB"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Flightline Café",
+            "description": "Casual on-field diner at Winter Haven Regional serving breakfast and lunch. Friendly staff and a loyal local pilot following. Good stopping point between Tampa and Orlando in the heart of central Florida's lake country.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Winter Haven",
+              "addressRegion": "FL",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Winter Haven Regional Airport",
+              "identifier": "KGIF"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Runways at Bartow",
+            "description": "On-field restaurant at Bartow Municipal in the heart of Polk County. Breakfast and lunch with views of the ramp and a rotating menu of daily specials. A quiet alternative to busier central Florida airports.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bartow",
+              "addressRegion": "FL",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Bartow Municipal Airport",
+              "identifier": "KBOW"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Suncoast Café",
+            "description": "Relaxed café at Venice Municipal — the shark tooth capital of the world. Breakfast and lunch with a friendly airport crowd. Venice has one of the most active GA communities on Florida's Gulf Coast.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Venice",
+              "addressRegion": "FL",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Venice Municipal Airport",
+              "identifier": "KVNC"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Tailwind Café",
+            "description": "On-field café at Ocala International serving breakfast and lunch to the north-central Florida GA community. Horse country surrounds the airport — a good fuel and food stop between Gainesville and the I-4 corridor.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Ocala",
+              "addressRegion": "FL",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Ocala Intl (Jim Taylor Field)",
+              "identifier": "KOCF"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "The Hangar Restaurant & Flight Lounge",
+            "description": "Waterfront airport restaurant at Albert Whitted with stunning views of Tampa Bay and the St. Pete skyline. One of Florida's most scenic dining spots. Open for breakfast and lunch — arrive early on weekends.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "St. Petersburg",
+              "addressRegion": "FL",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Albert Whitted Airport",
+              "identifier": "KSPG"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Landing Strip Café",
+            "description": "Down-home Florida diner at Okeechobee County Airport. Breakfast and lunch served to a mix of ag pilots",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Okeechobee",
+              "addressRegion": "FL",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Okeechobee County Airport",
+              "identifier": "KOBE"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Jet Runway Café",
+            "description": "Casual café at Fort Lauderdale Executive — one of the busiest GA airports in the country. Breakfast and lunch with a front-row seat to a parade of jets",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Fort Lauderdale",
+              "addressRegion": "FL",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Fort Lauderdale Executive Airport",
+              "identifier": "KFXE"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "57th Fighter Group Restaurant",
+            "description": "WWII-themed restaurant adjacent to DeKalb-Peachtree with a control tower you can dine in. Runway views",
+            "url": "https://the57threstaurant.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Atlanta",
+              "addressRegion": "GA",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "DeKalb-Peachtree Airport",
+              "identifier": "KPDK"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Pilot Pete's",
+            "description": "Beloved on-field diner at Schaumburg Regional in the Chicago suburbs. Big breakfasts",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Schaumburg",
+              "addressRegion": "IL",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Schaumburg Regional Airport",
+              "identifier": "06C"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Rick's Café Boatyard",
+            "description": "Waterfront restaurant on Eagle Creek Reservoir adjacent to Eagle Creek Airpark. Seafood",
+            "url": "https://rickscafeboatyard.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Indianapolis",
+              "addressRegion": "IN",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Eagle Creek Airpark",
+              "identifier": "KEYE"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "The Beaumont Hotel Café",
+            "description": "Historic hotel café at a private Kansas airstrip. The Beaumont Hotel dates to 1879 and has hosted cattle drives and oil barons. A genuine step back in time — land at the grass strip and walk to the dining room.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Beaumont",
+              "addressRegion": "KS",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Beaumont Hotel Airport",
+              "identifier": "07S"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Bistro Le Relais",
+            "description": "French bistro in the historic terminal at Bowman Field — one of the oldest operating airports in the US. White tablecloths and classic French cuisine next to a ramp full of vintage aircraft. A genuinely surprising find at a Kentucky GA airport.",
+            "url": "https://lerelaisrestaurant.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Louisville",
+              "addressRegion": "KY",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Bowman Field",
+              "identifier": "KLOU"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Nancy's Air Field Café",
+            "description": "Classic New England airport diner at Minute Man Airfield west of Boston. Famous among local pilots for generous breakfasts and friendly service. The airfield has strong ties to the local Civil Air Patrol and EAA community.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Stow",
+              "addressRegion": "MA",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Minute Man Air Field",
+              "identifier": "6B6"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Crosswinds Restaurant",
+            "description": "On-field restaurant at Nantucket Memorial with views of one of the most scenic GA airports on the East Coast. Breakfast and lunch — expect a mix of island residents",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Nantucket",
+              "addressRegion": "MA",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Nantucket Memorial Airport",
+              "identifier": "KACK"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Holman's Table",
+            "description": "Upscale farm-to-table dining in the historic Holman Field terminal building overlooking the Mississippi River and downtown St. Paul skyline. One of the most architecturally beautiful airport restaurants in the Midwest. Lunch and dinner.",
+            "url": "https://holmanstable.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "St. Paul",
+              "addressRegion": "MN",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "St. Paul Downtown Airport",
+              "identifier": "KSTP"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Pik-N-Pig BBQ",
+            "description": "A genuine BBQ landmark accessible only by air or a bumpy dirt road. Fly into this grass strip in the North Carolina Sandhills and taxi up to a pulled pork sandwich that's worth the trip. A bucket-list fly-in for East Coast pilots. Thu–Sun only.",
+            "url": "https://piknpig.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Carthage",
+              "addressRegion": "NC",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Gilliam-McConnell Airfield",
+              "identifier": "5NC3"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Flight Deck Diner",
+            "description": "On-field diner at Cape May Airport on the southern tip of New Jersey. Breakfast and lunch served to a mix of shore-bound vacationers and transient GA traffic. One of the more scenic GA airports in the mid-Atlantic.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Cape May",
+              "addressRegion": "NJ",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Cape May Airport",
+              "identifier": "KWWD"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "The Apron Cafe",
+            "description": "On-field café at Gabreski Airport on Long Island's East End — gateway to the Hamptons. Breakfast and lunch with ramp views. A popular fuel and food stop for NYC-area pilots heading out to eastern Long Island.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Westhampton Beach",
+              "addressRegion": "NY",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Francis S. Gabreski Airport",
+              "identifier": "KFOK"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 30,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Hangars Cafe",
+            "description": "Beloved Hudson Valley airport diner at Sky Acres. Breakfast and lunch served to a tight-knit local flying community. The airport has one of the most active pilot communities in the mid-Hudson Valley. Worth the trip from NYC.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Poughkeepsie",
+              "addressRegion": "NY",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Sky Acres Airport",
+              "identifier": "44N"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 31,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Sky Galley",
+            "description": "On-field restaurant at Lunken Airport — one of the oldest airports in the country — with art deco terminal views and a classic American menu. Breakfast and lunch. A beloved institution for the Cincinnati aviation community.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Cincinnati",
+              "addressRegion": "OH",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Cincinnati Municipal Lunken Airport",
+              "identifier": "KLUK"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 32,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Tin Goose Diner",
+            "description": "Named for the Ford Tri-Motor",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Port Clinton",
+              "addressRegion": "OH",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Erie-Ottawa International Airport",
+              "identifier": "KPCW"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 33,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Jake's Joint",
+            "description": "Down-home Oklahoma diner at Ardmore Municipal with a devoted local following. Breakfast and lunch at a price that makes you feel like you're back in 1985. A good fuel stop on the I-35 corridor between Oklahoma City and Dallas.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Ardmore",
+              "addressRegion": "OK",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Ardmore Municipal Airport",
+              "identifier": "KADM"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 34,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "DeNunzio's Italian Chophouse",
+            "description": "Upscale Italian steakhouse at Arnold Palmer Regional — fittingly",
+            "url": "https://denunziosrestaurant.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Latrobe",
+              "addressRegion": "PA",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Arnold Palmer Regional Airport",
+              "identifier": "KLBE"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 35,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Runway Café",
+            "description": "On-field café at Greenville Downtown with ramp views and a loyal local pilot crowd. Breakfast and lunch in the heart of the South Carolina Upstate. The airport sits minutes from downtown Greenville — one of the most revitalized mid-size cities in the Southeast.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Greenville",
+              "addressRegion": "SC",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Greenville Downtown Airport",
+              "identifier": "KGMU"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 36,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Southern Flyer Diner",
+            "description": "A Texas institution. The Southern Flyer is one of the most talked-about airport diners in the state — chicken fried steak",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Brenham",
+              "addressRegion": "TX",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Brenham Municipal Airport",
+              "identifier": "11R"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 37,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Hangar 6 Air Café",
+            "description": "On-field café at Garner Field in the Texas Hill Country. Breakfast and lunch with a strong local ranching and hunting crowd. Uvalde is one of the highest-density quail hunting areas in Texas — expect to share the ramp with hunting camp traffic in season.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Uvalde",
+              "addressRegion": "TX",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Garner Field",
+              "identifier": "KUVA"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 38,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Hard Eight BBQ",
+            "description": "One of Texas's most celebrated BBQ joints — brisket",
+            "url": "https://hardeightbbq.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Stephenville",
+              "addressRegion": "TX",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Stephenville Clark Regional Airport",
+              "identifier": "KSEP"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 39,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Aviator's Grill",
+            "description": "On-field restaurant at Hooks — one of the busiest GA airports in the Houston metro. Breakfast and lunch with ramp views of a constant stream of GA traffic. A reliable fuel-and-food stop north of Houston.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Spring",
+              "addressRegion": "TX",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "David Wayne Hooks Memorial Airport",
+              "identifier": "KDWH"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 40,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Volanti",
+            "description": "Upscale restaurant at Scottsdale Airport with sweeping desert views and a sleek modern interior. One of the most polished airport dining experiences in the Southwest. Lunch and dinner — expect a sophisticated crowd and a serious cocktail program.",
+            "url": "https://volantiscottsdale.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Scottsdale",
+              "addressRegion": "AZ",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Scottsdale Airport",
+              "identifier": "KSDL"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 41,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Mesa Grill",
+            "description": "Perched on top of the Sedona Airport mesa at 4",
+            "url": "https://sedonamesagrill.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Sedona",
+              "addressRegion": "AZ",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Sedona Airport",
+              "identifier": "KSEZ"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 42,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Flight Deck Restaurant & Lounge",
+            "description": "On-field restaurant established in 1968 at Salem McNary Field with windows on three sides giving panoramic views of the runway and Cascade Mountains. Northwest American cuisine with homemade soups",
+            "url": "https://flightdeckrestaurant.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Salem",
+              "addressRegion": "OR",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Salem McNary Field",
+              "identifier": "KSLE"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 43,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Ellie's at the Airport",
+            "description": "On-field diner at Arlington Municipal with direct runway views and a devoted local following. Classic American breakfast and lunch — the omelets and French fries draw particular praise. A lively spot with a full bar and a mix of pilots",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Arlington",
+              "addressRegion": "WA",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Arlington Municipal Airport",
+              "identifier": "KAWO"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -529,59 +1391,315 @@
 
 <!--
   SEO: Hidden restaurant index for search engine crawlers.
-  This block is visually hidden but fully readable by Googlebot.
-  It is generated at build time by tools/build_geojson.py.
-  DO NOT edit manually — it will be overwritten on the next build.
+  Generated at build time by tools/build_geojson.py.
+  DO NOT edit manually — overwritten on next build.
 -->
 <section id="seo-restaurant-index" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
   <h1>Airport Restaurants — Fly-In Dining Guide for Pilots</h1>
   <p>Airport Restaurants is a directory of fly-in dining destinations at general aviation airports across the United States. Browse on-field restaurants, classic $100 hamburger stops, and the best fly-in meals by state and region.</p>
   <h2>Featured Fly-In Restaurants by State</h2>
   <ul>
-    <li><h3>Spruce Goose Café — Jefferson County Intl (0S9), Port Townsend, WA</h3><p>On-airport. A legendary fly-in destination since the 1960s. Aviation-themed décor and homemade pies — marionberry and rhubarb are the ones to get. Named a Top 10 Airport Restaurant by AOPA. Watch planes taxi past while you eat. Wed–Sun 8AM–4PM.</p></li>
-    <li><h3>Amelia's Hangar Restaurant and Lounge — Bremerton National Airport (KPWT), Bremerton, WA</h3><p>On-airport. Amelia Earhart-themed restaurant inside a plane hangar at Bremerton National. American classics with generous portions. Sunday brunch buffet draws pilots and locals alike. Tue–Thu 6AM–8PM · Fri–Sat 6AM–9PM · Sun 6AM–8PM · Closed Mon.</p></li>
-    <li><h3>The Hub - Gig Harbor — Tacoma Narrows Airport (KTIW), Gig Harbor, WA</h3><p>On-airport. On-field restaurant right at Tacoma Narrows with runway views. Burgers, pizza, Cajun tots and Harmon craft beers on tap. Watch GA aircraft and business jets roll by. Open daily 11AM–9PM.</p></li>
-    <li><h3>Ellie's at the Airport — Arlington Municipal Airport (KAWO), Arlington, WA</h3><p>On-airport. On-field diner at Arlington Municipal with direct runway views and a devoted local following. Classic American breakfast and lunch — the omelets and French fries draw particular praise. A lively spot with a full bar and a mix of pilots, hangar tenants and locals. Mon–Fri 8AM–2PM · Sat–Sun 8AM–2PM.</p></li>
-    <li><h3>Flight Deck Restaurant &amp; Lounge — Salem McNary Field (KSLE), Salem, OR</h3><p>On-airport. On-field restaurant established in 1968 at Salem McNary Field with windows on three sides giving panoramic views of the runway and Cascade Mountains. Northwest American cuisine with homemade soups, desserts and a full bar. A classic $100 hamburger destination on the I-5 corridor. Mon–Fri 11AM–9PM · Sat–Sun 8AM–9PM.</p></li>
-    <li><h3>Gaston's Restaurant — Gaston's Airport (3M0), Lakeview, AR</h3><p>On-airport. World-famous fly-in fishing resort on the White River. The restaurant serves fresh trout caught steps from the table. One of the most unique fly-in dining experiences in the country — land on the private strip and walk to the table.</p></li>
-    <li><h3>Flo's Airport Café — Chino Airport (KCNO), Chino, CA</h3><p>On-airport. Classic airport diner at Chino Airport — home of the Planes of Fame Air Museum. Breakfast and lunch staples served with a side of warbird sightings. A longtime favorite for pilots flying the Southern California basin.</p></li>
-    <li><h3>Harris Ranch Restaurant — Harris Ranch Airport (3O8), Coalinga, CA</h3><p>On-airport. A legendary California pit stop on the I-5 corridor. Land at the private Harris Ranch strip and walk to one of the state's most famous steakhouses. Prime beef raised on-site. Open for breakfast, lunch and dinner daily.</p></li>
-    <li><h3>Waypoint Cafe — Camarillo Airport (KCMA), Camarillo, CA</h3><p>On-airport. Popular on-field café at Camarillo Airport serving breakfast and lunch. Generous portions and a friendly pilot crowd. On clear days the Channel Islands are visible from the ramp. Open daily 7AM–3PM.</p></li>
-    <li><h3>The Perfect Landing — Centennial Airport (KAPA), Englewood, CO</h3><p>On-airport. Upscale dining with panoramic views of the Front Range and runway at Centennial Airport. One of Colorado's best airport restaurants — think steaks and Colorado craft beers with a view of the Rockies. Open for lunch and dinner.</p></li>
-    <li><h3>Restaurant 121 — Waterbury-Oxford Airport (KOXC), Oxford, CT</h3><p>On-airport. On-field restaurant at Waterbury-Oxford with runway views. Breakfast and lunch served daily. Local favorite for weekend fly-ins in the Connecticut hills. Named for the airport elevation — 726 feet MSL.</p></li>
-    <li><h3>The Downwind Café — Spruce Creek Fly-In (7FL6), Port Orange, FL</h3><p>On-airport. Located inside the famous Spruce Creek Fly-In community — one of the largest residential airparks in the world. Casual café atmosphere with a mix of resident pilots and visiting aviators.</p></li>
-    <li><h3>CJ Cannon's — Vero Beach Regional Airport (KVRB), Vero Beach, FL</h3><p>On-airport. A Vero Beach institution right on the airport with sweeping runway views. Known for generous portions of American comfort food and a lively bar. Popular with both Piper training fleet pilots from next door and transient GA traffic.</p></li>
-    <li><h3>Flightline Café — Winter Haven Regional Airport (KGIF), Winter Haven, FL</h3><p>On-airport. Casual on-field diner at Winter Haven Regional serving breakfast and lunch. Friendly staff and a loyal local pilot following. Good stopping point between Tampa and Orlando in the heart of central Florida's lake country.</p></li>
-    <li><h3>Runways at Bartow — Bartow Municipal Airport (KBOW), Bartow, FL</h3><p>On-airport. On-field restaurant at Bartow Municipal in the heart of Polk County. Breakfast and lunch with views of the ramp and a rotating menu of daily specials. A quiet alternative to busier central Florida airports.</p></li>
-    <li><h3>Suncoast Café — Venice Municipal Airport (KVNC), Venice, FL</h3><p>On-airport. Relaxed café at Venice Municipal — the shark tooth capital of the world. Breakfast and lunch with a friendly airport crowd. Venice has one of the most active GA communities on Florida's Gulf Coast.</p></li>
-    <li><h3>Tailwind Café — Ocala Intl Jim Taylor Field (KOCF), Ocala, FL</h3><p>On-airport. On-field café at Ocala International serving breakfast and lunch to the north-central Florida GA community. Horse country surrounds the airport — a good fuel and food stop between Gainesville and the I-4 corridor.</p></li>
-    <li><h3>The Hangar Restaurant &amp; Flight Lounge — Albert Whitted Airport (KSPG), St. Petersburg, FL</h3><p>On-airport. Waterfront airport restaurant at Albert Whitted with stunning views of Tampa Bay and the St. Pete skyline. One of Florida's most scenic dining spots. Open for breakfast and lunch — arrive early on weekends.</p></li>
-    <li><h3>Landing Strip Café — Okeechobee County Airport (KOBE), Okeechobee, FL</h3><p>On-airport. Down-home Florida diner at Okeechobee County Airport. Breakfast and lunch served to a mix of ag pilots, fishermen and cross-country traffic. Okeechobee sits at the north end of the lake — good stopping point for south Florida trips.</p></li>
-    <li><h3>Jet Runway Café — Fort Lauderdale Executive Airport (KFXE), Fort Lauderdale, FL</h3><p>On-airport. Casual café at Fort Lauderdale Executive — one of the busiest GA airports in the country. Breakfast and lunch with a front-row seat to a parade of jets, turboprops and helicopters.</p></li>
-    <li><h3>57th Fighter Group Restaurant — DeKalb-Peachtree Airport (KPDK), Atlanta, GA</h3><p>Near airport. WWII-themed restaurant adjacent to DeKalb-Peachtree with a control tower you can dine in. Runway views, wartime memorabilia and a full menu of American classics. One of the most atmospheric airport-adjacent restaurants in the Southeast.</p></li>
-    <li><h3>Pilot Pete's — Schaumburg Regional Airport (06C), Schaumburg, IL</h3><p>On-airport. Beloved on-field diner at Schaumburg Regional in the Chicago suburbs. Big breakfasts, burgers and a loyal pilot crowd. One of the busiest small GA airports in Illinois — expect company on weekend mornings.</p></li>
-    <li><h3>Rick's Café Boatyard — Eagle Creek Airpark (KEYE), Indianapolis, IN</h3><p>Near airport. Waterfront restaurant on Eagle Creek Reservoir adjacent to Eagle Creek Airpark. Seafood, burgers and lake views. A fun combination of the boating and flying communities in one spot on the west side of Indianapolis.</p></li>
-    <li><h3>The Beaumont Hotel Café — Beaumont Hotel Airport (07S), Beaumont, KS</h3><p>On-airport. Historic hotel café at a private Kansas airstrip. The Beaumont Hotel dates to 1879. A genuine step back in time — land at the grass strip and walk to the dining room.</p></li>
-    <li><h3>Bistro Le Relais — Bowman Field (KLOU), Louisville, KY</h3><p>On-airport. French bistro in the historic terminal at Bowman Field — one of the oldest operating airports in the US. White tablecloths and classic French cuisine next to a ramp full of vintage aircraft.</p></li>
-    <li><h3>Nancy's Air Field Café — Minute Man Air Field (6B6), Stow, MA</h3><p>On-airport. Classic New England airport diner at Minute Man Airfield west of Boston. Famous among local pilots for generous breakfasts and friendly service.</p></li>
-    <li><h3>Crosswinds Restaurant — Nantucket Memorial Airport (KACK), Nantucket, MA</h3><p>On-airport. On-field restaurant at Nantucket Memorial with views of one of the most scenic GA airports on the East Coast. Breakfast and lunch.</p></li>
-    <li><h3>Holman's Table — St. Paul Downtown Airport (KSTP), St. Paul, MN</h3><p>On-airport. Upscale farm-to-table dining in the historic Holman Field terminal building overlooking the Mississippi River and downtown St. Paul skyline. One of the most architecturally beautiful airport restaurants in the Midwest.</p></li>
-    <li><h3>Pik-N-Pig BBQ — Gilliam-McConnell Airfield (5NC3), Carthage, NC</h3><p>On-airport. A genuine BBQ landmark accessible only by air or a bumpy dirt road. Fly into this grass strip in the North Carolina Sandhills and taxi up to a pulled pork sandwich that's worth the trip. A bucket-list fly-in for East Coast pilots. Thu–Sun only.</p></li>
-    <li><h3>Flight Deck Diner — Cape May Airport (KWWD), Cape May, NJ</h3><p>On-airport. On-field diner at Cape May Airport on the southern tip of New Jersey. Breakfast and lunch served to a mix of shore-bound vacationers and transient GA traffic.</p></li>
-    <li><h3>The Apron Cafe — Francis S. Gabreski Airport (KFOK), Westhampton Beach, NY</h3><p>On-airport. On-field café at Gabreski Airport on Long Island's East End — gateway to the Hamptons. Breakfast and lunch with ramp views. A popular fuel and food stop for NYC-area pilots heading out to eastern Long Island.</p></li>
-    <li><h3>Hangars Cafe — Sky Acres Airport (44N), Poughkeepsie, NY</h3><p>On-airport. Beloved Hudson Valley airport diner at Sky Acres. Breakfast and lunch served to a tight-knit local flying community. Worth the trip from NYC.</p></li>
-    <li><h3>Sky Galley — Cincinnati Municipal Lunken Airport (KLUK), Cincinnati, OH</h3><p>On-airport. On-field restaurant at Lunken Airport — one of the oldest airports in the country — with art deco terminal views and a classic American menu. Breakfast and lunch. A beloved institution for the Cincinnati aviation community.</p></li>
-    <li><h3>Tin Goose Diner — Erie-Ottawa International Airport (KPCW), Port Clinton, OH</h3><p>On-airport. Named for the Ford Tri-Motor, this diner at Erie-Ottawa International sits on the shores of Lake Erie. Breakfast and lunch with lake views. Port Clinton is the walleye capital of the world — fish specials are a regular feature.</p></li>
-    <li><h3>Jake's Joint — Ardmore Municipal Airport (KADM), Ardmore, OK</h3><p>On-airport. Down-home Oklahoma diner at Ardmore Municipal with a devoted local following. Breakfast and lunch. A good fuel stop on the I-35 corridor between Oklahoma City and Dallas.</p></li>
-    <li><h3>DeNunzio's Italian Chophouse — Arnold Palmer Regional Airport (KLBE), Latrobe, PA</h3><p>On-airport. Upscale Italian steakhouse at Arnold Palmer Regional — fittingly, in the hometown of the King himself. Dinner-focused with a full bar and sweeping views of the Laurel Highlands.</p></li>
-    <li><h3>Runway Café — Greenville Downtown Airport (KGMU), Greenville, SC</h3><p>On-airport. On-field café at Greenville Downtown with ramp views and a loyal local pilot crowd. Breakfast and lunch in the heart of the South Carolina Upstate.</p></li>
-    <li><h3>Southern Flyer Diner — Brenham Municipal Airport (11R), Brenham, TX</h3><p>On-airport. A Texas institution. Chicken fried steak, jalapeño cornbread and sweet tea. Brenham is Blue Bell ice cream country. Breakfast and lunch Fri–Sun. Worth planning a trip around.</p></li>
-    <li><h3>Hangar 6 Air Café — Garner Field (KUVA), Uvalde, TX</h3><p>On-airport. On-field café at Garner Field in the Texas Hill Country. Breakfast and lunch with a strong local ranching and hunting crowd.</p></li>
-    <li><h3>Hard Eight BBQ — Stephenville Clark Regional Airport (KSEP), Stephenville, TX</h3><p>Near airport. One of Texas's most celebrated BBQ joints — brisket, ribs and sausage cooked over mesquite in open pits out front. A short drive from Stephenville Clark Regional in the heart of Cowboy Country. Open daily.</p></li>
-    <li><h3>Aviator's Grill — David Wayne Hooks Memorial Airport (KDWH), Spring, TX</h3><p>On-airport. On-field restaurant at Hooks — one of the busiest GA airports in the Houston metro. Breakfast and lunch with ramp views. A reliable fuel-and-food stop north of Houston.</p></li>
-    <li><h3>McGehee Catfish Restaurant — McGehee Catfish Restaurant Airport (T40), Cresson, TX</h3><p>On-airport. The airport is named after the restaurant — that's how good the catfish is. Land at this Texas private strip and walk to one of the state's most unique dining experiences.</p></li>
-    <li><h3>Volanti — Scottsdale Airport (KSDL), Scottsdale, AZ</h3><p>On-airport. Upscale restaurant at Scottsdale Airport with sweeping desert views and a sleek modern interior. One of the most polished airport dining experiences in the Southwest. Lunch and dinner.</p></li>
-    <li><h3>Mesa Grill — Sedona Airport (KSEZ), Sedona, AZ</h3><p>On-airport. Perched on top of the Sedona Airport mesa at 4,800 feet with arguably the most dramatic views of any airport restaurant in the country. Red rock formations in every direction. Breakfast and lunch.</p></li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/0s9/">Jefferson County Intl (0S9) — Port Townsend, WA</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Spruce Goose Café</strong> — On-airport. A legendary fly-in destination since the 1960s. Aviation-themed décor and homemade pies — marionberry and rhubarb are the ones to get. Named a Top 10 Airport Restaurant by AOPA. Watch planes taxi past while you eat. Wed–Sun 8AM–4PM.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kpwt/">Bremerton National Airport (KPWT) — Bremerton, WA</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Amelia's Hangar Restaurant and Lounge</strong> — On-airport. Amelia Earhart-themed restaurant inside a plane hangar at Bremerton National. American classics with generous portions. Sunday brunch buffet draws pilots and locals alike. Tue–Thu 6AM–8PM · Fri–Sat 6AM–9PM · Sun 6AM–8PM · Closed Mon.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/ktiw/">Tacoma Narrows Airport (KTIW) — Gig Harbor, WA</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>The Hub - Gig Harbor</strong> — On-airport. On-field restaurant right at Tacoma Narrows with runway views. Burgers</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/3m0/">Gaston's Airport (3M0) — Lakeview, AR</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Gaston's Restaurant</strong> — On-airport. World-famous fly-in fishing resort on the White River. The restaurant serves fresh trout caught steps from the table. One of the most unique fly-in dining experiences in the country — land on the private strip and walk to the table.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kcno/">Chino Airport (KCNO) — Chino, CA</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Flo's Airport Café</strong> — On-airport. Classic airport diner at Chino Airport — home of the Planes of Fame Air Museum. Breakfast and lunch staples served with a side of warbird sightings. A longtime favorite for pilots flying the Southern California basin.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/3o8/">Harris Ranch Airport (3O8) — Coalinga, CA</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Harris Ranch Restaurant</strong> — On-airport. A legendary California pit stop on the I-5 corridor. Land at the private Harris Ranch strip and walk to one of the state's most famous steakhouses. Prime beef raised on-site. Open for breakfast</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kcma/">Camarillo Airport (KCMA) — Camarillo, CA</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Waypoint Cafe</strong> — On-airport. Popular on-field café at Camarillo Airport serving breakfast and lunch. Generous portions and a friendly pilot crowd. On clear days the Channel Islands are visible from the ramp. Open daily 7AM–3PM.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kapa/">Centennial Airport (KAPA) — Englewood, CO</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>The Perfect Landing</strong> — On-airport. Upscale dining with panoramic views of the Front Range and runway at Centennial Airport. One of Colorado's best airport restaurants — think steaks and Colorado craft beers with a view of the Rockies. Open for lunch and dinner.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/koxc/">Waterbury-Oxford Airport (KOXC) — Oxford, CT</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Restaurant 121</strong> — On-airport. On-field restaurant at Waterbury-Oxford with runway views. Breakfast and lunch served daily. Local favorite for weekend fly-ins in the Connecticut hills. Named for the airport elevation — 726 feet MSL.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/7fl6/">Spruce Creek Fly-In (7FL6) — Port Orange, FL</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>The Downwind Café</strong> — On-airport. Located inside the famous Spruce Creek Fly-In community — one of the largest residential airparks in the world. Casual café atmosphere with a mix of resident pilots and visiting aviators. Great spot to soak up the unique fly-in neighborhood vibe.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kvrb/">Vero Beach Regional Airport (KVRB) — Vero Beach, FL</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>CJ Cannon's</strong> — On-airport. A Vero Beach institution right on the airport with sweeping runway views. Known for generous portions of American comfort food and a lively bar. Popular with both Piper training fleet pilots from next door and transient GA traffic.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kgif/">Winter Haven Regional Airport (KGIF) — Winter Haven, FL</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Flightline Café</strong> — On-airport. Casual on-field diner at Winter Haven Regional serving breakfast and lunch. Friendly staff and a loyal local pilot following. Good stopping point between Tampa and Orlando in the heart of central Florida's lake country.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kbow/">Bartow Municipal Airport (KBOW) — Bartow, FL</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Runways at Bartow</strong> — On-airport. On-field restaurant at Bartow Municipal in the heart of Polk County. Breakfast and lunch with views of the ramp and a rotating menu of daily specials. A quiet alternative to busier central Florida airports.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kvnc/">Venice Municipal Airport (KVNC) — Venice, FL</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Suncoast Café</strong> — On-airport. Relaxed café at Venice Municipal — the shark tooth capital of the world. Breakfast and lunch with a friendly airport crowd. Venice has one of the most active GA communities on Florida's Gulf Coast.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kocf/">Ocala Intl (Jim Taylor Field) (KOCF) — Ocala, FL</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Tailwind Café</strong> — On-airport. On-field café at Ocala International serving breakfast and lunch to the north-central Florida GA community. Horse country surrounds the airport — a good fuel and food stop between Gainesville and the I-4 corridor.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kspg/">Albert Whitted Airport (KSPG) — St. Petersburg, FL</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>The Hangar Restaurant &amp; Flight Lounge</strong> — On-airport. Waterfront airport restaurant at Albert Whitted with stunning views of Tampa Bay and the St. Pete skyline. One of Florida's most scenic dining spots. Open for breakfast and lunch — arrive early on weekends.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kobe/">Okeechobee County Airport (KOBE) — Okeechobee, FL</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Landing Strip Café</strong> — On-airport. Down-home Florida diner at Okeechobee County Airport. Breakfast and lunch served to a mix of ag pilots</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kfxe/">Fort Lauderdale Executive Airport (KFXE) — Fort Lauderdale, FL</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Jet Runway Café</strong> — On-airport. Casual café at Fort Lauderdale Executive — one of the busiest GA airports in the country. Breakfast and lunch with a front-row seat to a parade of jets</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kpdk/">DeKalb-Peachtree Airport (KPDK) — Atlanta, GA</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>57th Fighter Group Restaurant</strong> — Near airport. WWII-themed restaurant adjacent to DeKalb-Peachtree with a control tower you can dine in. Runway views</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/06c/">Schaumburg Regional Airport (06C) — Schaumburg, IL</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Pilot Pete's</strong> — On-airport. Beloved on-field diner at Schaumburg Regional in the Chicago suburbs. Big breakfasts</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/keye/">Eagle Creek Airpark (KEYE) — Indianapolis, IN</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Rick's Café Boatyard</strong> — Near airport. Waterfront restaurant on Eagle Creek Reservoir adjacent to Eagle Creek Airpark. Seafood</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/07s/">Beaumont Hotel Airport (07S) — Beaumont, KS</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>The Beaumont Hotel Café</strong> — On-airport. Historic hotel café at a private Kansas airstrip. The Beaumont Hotel dates to 1879 and has hosted cattle drives and oil barons. A genuine step back in time — land at the grass strip and walk to the dining room.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/klou/">Bowman Field (KLOU) — Louisville, KY</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Bistro Le Relais</strong> — On-airport. French bistro in the historic terminal at Bowman Field — one of the oldest operating airports in the US. White tablecloths and classic French cuisine next to a ramp full of vintage aircraft. A genuinely surprising find at a Kentucky GA airport.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/6b6/">Minute Man Air Field (6B6) — Stow, MA</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Nancy's Air Field Café</strong> — On-airport. Classic New England airport diner at Minute Man Airfield west of Boston. Famous among local pilots for generous breakfasts and friendly service. The airfield has strong ties to the local Civil Air Patrol and EAA community.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kack/">Nantucket Memorial Airport (KACK) — Nantucket, MA</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Crosswinds Restaurant</strong> — On-airport. On-field restaurant at Nantucket Memorial with views of one of the most scenic GA airports on the East Coast. Breakfast and lunch — expect a mix of island residents</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kstp/">St. Paul Downtown Airport (KSTP) — St. Paul, MN</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Holman's Table</strong> — On-airport. Upscale farm-to-table dining in the historic Holman Field terminal building overlooking the Mississippi River and downtown St. Paul skyline. One of the most architecturally beautiful airport restaurants in the Midwest. Lunch and dinner.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/5nc3/">Gilliam-McConnell Airfield (5NC3) — Carthage, NC</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Pik-N-Pig BBQ</strong> — On-airport. A genuine BBQ landmark accessible only by air or a bumpy dirt road. Fly into this grass strip in the North Carolina Sandhills and taxi up to a pulled pork sandwich that's worth the trip. A bucket-list fly-in for East Coast pilots. Thu–Sun only.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kwwd/">Cape May Airport (KWWD) — Cape May, NJ</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Flight Deck Diner</strong> — On-airport. On-field diner at Cape May Airport on the southern tip of New Jersey. Breakfast and lunch served to a mix of shore-bound vacationers and transient GA traffic. One of the more scenic GA airports in the mid-Atlantic.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kfok/">Francis S. Gabreski Airport (KFOK) — Westhampton Beach, NY</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>The Apron Cafe</strong> — On-airport. On-field café at Gabreski Airport on Long Island's East End — gateway to the Hamptons. Breakfast and lunch with ramp views. A popular fuel and food stop for NYC-area pilots heading out to eastern Long Island.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/44n/">Sky Acres Airport (44N) — Poughkeepsie, NY</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Hangars Cafe</strong> — On-airport. Beloved Hudson Valley airport diner at Sky Acres. Breakfast and lunch served to a tight-knit local flying community. The airport has one of the most active pilot communities in the mid-Hudson Valley. Worth the trip from NYC.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kluk/">Cincinnati Municipal Lunken Airport (KLUK) — Cincinnati, OH</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Sky Galley</strong> — On-airport. On-field restaurant at Lunken Airport — one of the oldest airports in the country — with art deco terminal views and a classic American menu. Breakfast and lunch. A beloved institution for the Cincinnati aviation community.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kpcw/">Erie-Ottawa International Airport (KPCW) — Port Clinton, OH</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Tin Goose Diner</strong> — On-airport. Named for the Ford Tri-Motor</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kadm/">Ardmore Municipal Airport (KADM) — Ardmore, OK</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Jake's Joint</strong> — On-airport. Down-home Oklahoma diner at Ardmore Municipal with a devoted local following. Breakfast and lunch at a price that makes you feel like you're back in 1985. A good fuel stop on the I-35 corridor between Oklahoma City and Dallas.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/klbe/">Arnold Palmer Regional Airport (KLBE) — Latrobe, PA</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>DeNunzio's Italian Chophouse</strong> — On-airport. Upscale Italian steakhouse at Arnold Palmer Regional — fittingly</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kgmu/">Greenville Downtown Airport (KGMU) — Greenville, SC</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Runway Café</strong> — On-airport. On-field café at Greenville Downtown with ramp views and a loyal local pilot crowd. Breakfast and lunch in the heart of the South Carolina Upstate. The airport sits minutes from downtown Greenville — one of the most revitalized mid-size cities in the Southeast.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/11r/">Brenham Municipal Airport (11R) — Brenham, TX</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Southern Flyer Diner</strong> — On-airport. A Texas institution. The Southern Flyer is one of the most talked-about airport diners in the state — chicken fried steak</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kuva/">Garner Field (KUVA) — Uvalde, TX</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Hangar 6 Air Café</strong> — On-airport. On-field café at Garner Field in the Texas Hill Country. Breakfast and lunch with a strong local ranching and hunting crowd. Uvalde is one of the highest-density quail hunting areas in Texas — expect to share the ramp with hunting camp traffic in season.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/ksep/">Stephenville Clark Regional Airport (KSEP) — Stephenville, TX</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Hard Eight BBQ</strong> — Near airport. One of Texas's most celebrated BBQ joints — brisket</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kdwh/">David Wayne Hooks Memorial Airport (KDWH) — Spring, TX</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Aviator's Grill</strong> — On-airport. On-field restaurant at Hooks — one of the busiest GA airports in the Houston metro. Breakfast and lunch with ramp views of a constant stream of GA traffic. A reliable fuel-and-food stop north of Houston.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/ksdl/">Scottsdale Airport (KSDL) — Scottsdale, AZ</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Volanti</strong> — On-airport. Upscale restaurant at Scottsdale Airport with sweeping desert views and a sleek modern interior. One of the most polished airport dining experiences in the Southwest. Lunch and dinner — expect a sophisticated crowd and a serious cocktail program.</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/ksez/">Sedona Airport (KSEZ) — Sedona, AZ</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Mesa Grill</strong> — On-airport. Perched on top of the Sedona Airport mesa at 4</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/ksle/">Salem McNary Field (KSLE) — Salem, OR</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Flight Deck Restaurant &amp; Lounge</strong> — On-airport. On-field restaurant established in 1968 at Salem McNary Field with windows on three sides giving panoramic views of the runway and Cascade Mountains. Northwest American cuisine with homemade soups</li>
+      </ul>
+    </li>
+    <li>
+      <h3><a href="https://red4golf.github.io/airport-restaurants-map/airports/kawo/">Arlington Municipal Airport (KAWO) — Arlington, WA</a></h3>
+      <p>1 restaurant listed for pilots.</p>
+      <ul>
+        <li><strong>Ellie's at the Airport</strong> — On-airport. On-field diner at Arlington Municipal with direct runway views and a devoted local following. Classic American breakfast and lunch — the omelets and French fries draw particular praise. A lively spot with a full bar and a mix of pilots</li>
+      </ul>
+    </li>
   </ul>
   <p>Browse the full interactive map to find fly-in restaurants near any general aviation airport in the United States. Filter by region, state, or restaurant type. Subscribe to the <a href="https://airportrestaurants.substack.com">Airport Restaurants newsletter</a> for in-depth fly-in dining reviews.</p>
 </section>

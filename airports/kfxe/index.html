@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fly-In Dining at Fort Lauderdale Executive Airport (KFXE) — Airport Restaurants</title>
+  <meta name="description" content="Find fly-in restaurants at Fort Lauderdale Executive Airport (KFXE) in Fort Lauderdale, Florida. 1 restaurant listed — on-field dining and $100 hamburger destinations for pilots." />
+  <link rel="canonical" href="https://red4golf.github.io/airport-restaurants-map/airports/kfxe/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://red4golf.github.io/airport-restaurants-map/airports/kfxe/" />
+  <meta property="og:title" content="Fly-In Dining at Fort Lauderdale Executive Airport (KFXE) — Airport Restaurants" />
+  <meta property="og:description" content="Find fly-in restaurants at Fort Lauderdale Executive Airport (KFXE) in Fort Lauderdale, Florida. 1 restaurant listed — on-field dining and $100 hamburger destinations for pilots." />
+  <meta property="og:site_name" content="Airport Restaurants" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Airport",
+      "name": "Fort Lauderdale Executive Airport",
+      "identifier": "KFXE",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Fort Lauderdale",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 26.1972999573,
+        "longitude": -80.1707000732
+      }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Fly-In Restaurants at Fort Lauderdale Executive Airport",
+      "numberOfItems": 1,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "FoodEstablishment",
+            "name": "Jet Runway Café",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Fort Lauderdale",
+              "addressRegion": "FL",
+              "addressCountry": "US"
+            },
+            "containedInPlace": {
+              "@type": "Airport",
+              "name": "Fort Lauderdale Executive Airport",
+              "identifier": "KFXE"
+            },
+            "description": "Casual café at Fort Lauderdale Executive — one of the busiest GA airports in the country. Breakfast and lunch with a front-row seat to a parade of jets"
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Airport Restaurants", "item": "https://red4golf.github.io/airport-restaurants-map/"}, {"@type": "ListItem", "position": 2, "name": "Fort Lauderdale Executive Airport (KFXE)", "item": "https://red4golf.github.io/airport-restaurants-map/airports/kfxe/"}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    :root {
+      --cream:     #f5f0e8;
+      --parchment: #ede5d4;
+      --navy:      #1a2744;
+      --navy-mid:  #243460;
+      --amber:     #c8821a;
+      --amber-lt:  #e8a040;
+      --rust:      #b84c2a;
+      --ink:       #2a2420;
+      --ink-mid:   #5a4f48;
+      --border:    rgba(26,39,68,0.15);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--cream); color: var(--ink); font-family: 'Source Sans 3', sans-serif; }
+
+    /* ── Header ── */
+    header {
+      background: var(--navy);
+      border-bottom: 3px solid var(--amber);
+      padding: 0 28px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand { line-height: 1; text-decoration: none; }
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 900;
+      color: var(--cream); letter-spacing: 0.5px; display: block;
+    }
+    .brand-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--amber-lt); display: block; margin-top: 2px;
+    }
+    .header-right { display: flex; gap: 12px; align-items: center; }
+    .btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      text-decoration: none; padding: 7px 16px; border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .btn-amber { color: var(--navy); background: var(--amber-lt); }
+    .btn-amber:hover { background: var(--cream); }
+    .btn-ghost { color: var(--cream); border: 1px solid rgba(245,240,232,0.3); }
+    .btn-ghost:hover { border-color: var(--amber-lt); color: var(--amber-lt); }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb {
+      background: var(--parchment);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 28px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--ink-mid);
+    }
+    .breadcrumb a { color: var(--amber); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    /* ── Page layout ── */
+    .page { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    /* ── Airport hero ── */
+    .airport-hero { margin-bottom: 36px; }
+    .airport-ident {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 8px;
+    }
+    .airport-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px; font-weight: 900;
+      color: var(--navy); line-height: 1.1; margin-bottom: 10px;
+    }
+    .airport-meta {
+      font-size: 15px; color: var(--ink-mid); margin-bottom: 16px;
+    }
+    .airport-meta a { color: var(--amber); text-decoration: none; }
+    .airport-meta a:hover { text-decoration: underline; }
+    .airport-count {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--rust); background: rgba(184,76,42,0.08);
+      border: 1px solid rgba(184,76,42,0.2);
+      padding: 4px 10px; border-radius: 2px;
+    }
+
+    /* ── Mini map ── */
+    #mini-map {
+      width: 100%; height: 280px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      margin-bottom: 40px;
+      z-index: 1;
+    }
+
+    /* ── Section heading ── */
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Restaurant cards ── */
+    .rest-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+      transition: box-shadow 0.15s;
+    }
+    .rest-card:hover { box-shadow: 0 4px 16px rgba(26,39,68,0.08); }
+    .card-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 12px; margin-bottom: 10px;
+    }
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 700; color: var(--navy); line-height: 1.2;
+    }
+    .card-badges { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
+    .badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 2px;
+      border: 1px solid var(--border); color: var(--ink-mid);
+    }
+    .badge-reviewed {
+      background: rgba(200,130,26,0.1);
+      border-color: var(--amber); color: var(--amber);
+    }
+    .card-notes {
+      font-size: 14px; line-height: 1.7;
+      color: var(--ink-mid); margin-bottom: 14px;
+    }
+    .card-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .card-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      text-decoration: none; padding: 6px 14px; border-radius: 2px;
+      border: 1px solid var(--border); color: var(--ink-mid);
+      transition: all 0.15s;
+    }
+    .card-link:hover { border-color: var(--navy); color: var(--navy); }
+    .card-link-sub {
+      background: var(--navy); color: var(--cream); border-color: var(--navy);
+    }
+    .card-link-sub:hover { background: var(--amber); border-color: var(--amber); }
+
+    /* ── Back link ── */
+    .back-section {
+      margin-top: 48px; padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .back-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--amber); text-decoration: none;
+    }
+    .back-link:hover { color: var(--navy); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--navy);
+      border-top: 3px solid var(--amber);
+      padding: 20px 28px;
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+      color: rgba(245,240,232,0.4);
+    }
+    footer a { color: var(--amber-lt); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      header { padding: 0 16px; }
+      .page { padding: 24px 16px 60px; }
+      .airport-title { font-size: 26px; }
+      .card-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="https://red4golf.github.io/airport-restaurants-map/" class="brand">
+    <span class="brand-name">Airport Restaurants</span>
+    <span class="brand-sub">The Pilot's Dining Guide</span>
+  </a>
+  <div class="header-right">
+    <a href="https://red4golf.github.io/airport-restaurants-map/" class="btn btn-ghost">← Back to Map</a>
+    <a href="https://airportrestaurants.substack.com" target="_blank" class="btn btn-amber">✉ Newsletter</a>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="https://red4golf.github.io/airport-restaurants-map/">Airport Restaurants</a> &rsaquo; Fort Lauderdale Executive Airport (KFXE)
+</nav>
+
+<main class="page">
+
+  <div class="airport-hero">
+    <div class="airport-ident">✈ KFXE &mdash; Florida</div>
+    <h1 class="airport-title">Fort Lauderdale Executive Airport</h1>
+    <p class="airport-meta">
+      📍 Fort Lauderdale, Florida
+       &nbsp;·&nbsp; <a href="https://www.airnav.com/airport/KFXE" target="_blank" rel="noopener">AirNav ✈</a>
+    </p>
+    <span class="airport-count">1 restaurant</span>
+  </div>
+
+  <div id="mini-map"></div>
+
+  <div class="section-label">Restaurants at this Airport</div>
+
+  
+  <article class="rest-card">
+    <div class="card-header">
+      <h2 class="card-name">Jet Runway Café</h2>
+      <div class="card-badges">
+        <span class="badge">✅ On Field</span>
+        
+      </div>
+    </div>
+    <p class="card-notes">Casual café at Fort Lauderdale Executive — one of the busiest GA airports in the country. Breakfast and lunch with a front-row seat to a parade of jets</p>
+    
+  </article>
+
+  <div class="back-section">
+    <a href="https://red4golf.github.io/airport-restaurants-map/" class="back-link">← View All Airports on the Map</a>
+  </div>
+
+</main>
+
+<footer>
+  <a href="https://red4golf.github.io/airport-restaurants-map/">Airport Restaurants</a> &nbsp;·&nbsp;
+  <a href="https://airportrestaurants.substack.com">Newsletter</a> &nbsp;·&nbsp;
+  Built for pilots who fly for food.
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const map = L.map('mini-map', {
+    center: [26.1972999573, -80.1707000732],
+    zoom: 12,
+    zoomControl: true,
+    scrollWheelZoom: false,
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap &copy; CARTO',
+    subdomains: 'abcd',
+    maxZoom: 19,
+  }).addTo(map);
+
+  const icon = L.divIcon({
+    className: '',
+    html: '<div style="width:32px;height:32px;background:#1a2744;border:2px solid #e8a040;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 2px 8px rgba(0,0,0,0.3);">✈</div>',
+    iconSize: [32, 32],
+    iconAnchor: [16, 16],
+    popupAnchor: [0, -18],
+  });
+
+  L.marker([26.1972999573, -80.1707000732], { icon })
+    .addTo(map)
+    .bindPopup('<strong>Fort Lauderdale Executive Airport</strong><br>KFXE &mdash; Fort Lauderdale, Florida')
+    .openPopup();
+</script>
+
+</body>
+</html>
