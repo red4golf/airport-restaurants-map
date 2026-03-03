@@ -701,7 +701,7 @@ function buildList() {
       <div class="rest-count"><strong>${matchingRests.length}</strong> restaurant${matchingRests.length !== 1 ? 's' : ''}</div>
       <div class="row-bottom">
         <div class="airport-loc">📍 ${a.city}, ${a.state}</div>
-        <a href="${airportPageUrl}" target="_blank" class="airport-guide-link" onclick="event.stopPropagation()">Full guide →</a>
+        <a href="${airportPageUrl}" target="airport-guide" class="airport-guide-link" onclick="event.stopPropagation()">Full guide →</a>
       </div>
     `;
     el.addEventListener('click', () => {
@@ -746,7 +746,7 @@ function showDetail(rest, airport) {
     <div class="dp-row"><span class="dp-key">Type</span><span class="dp-val">${rest.type === 'on-airport' ? '✅ On field' : '🚗 Near airport'}</span></div>
     ${rest.website ? `<div class="dp-row"><span class="dp-key">Website</span><span class="dp-val"><a href="${rest.website}" target="_blank" style="color:var(--amber)">Visit →</a></span></div>` : ''}
     ${rest.airnav_url ? `<div class="dp-row"><span class="dp-key">Airport Info</span><span class="dp-val"><a href="${rest.airnav_url}" target="_blank" style="color:var(--amber)">AirNav ✈</a></span></div>` : ''}
-    <div class="dp-row"><span class="dp-key">Airport Guide</span><span class="dp-val"><a href="${airportPageUrl}" target="_blank" style="color:var(--amber)">All restaurants →</a></span></div>
+    <div class="dp-row"><span class="dp-key">Airport Guide</span><span class="dp-val"><a href="${airportPageUrl}" target="airport-guide" style="color:var(--amber)">All restaurants →</a></span></div>
     ${rest.substack_post ? `<a href="${rest.substack_post}" target="_blank" class="dp-substack">✉ Read the Full Review →</a>` : ''}
   `;
   document.getElementById('detail-panel').classList.add('visible');
