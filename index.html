@@ -332,10 +332,132 @@
     .rest-marker:hover { transform: scale(1.15); }
     .rest-marker.multi { background: var(--amber); border-color: var(--navy); }
 
+    /* ── Mobile bottom sheet trigger button ── */
+    #sheet-btn {
+      display: none;
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      z-index: 950;
+      background: var(--navy); color: var(--cream);
+      border: 2px solid var(--amber-lt); border-radius: 999px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      padding: 12px 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      cursor: pointer; transition: all 0.2s;
+      white-space: nowrap;
+    }
+    #sheet-btn:hover { background: var(--amber); border-color: var(--amber); }
+
+    /* ── Mobile bottom sheet ── */
+    #bottom-sheet {
+      display: none;
+      position: fixed; left: 0; right: 0; bottom: 0;
+      z-index: 960;
+      background: var(--panel);
+      border-top: 3px solid var(--amber);
+      border-radius: 16px 16px 0 0;
+      box-shadow: 0 -8px 32px rgba(0,0,0,0.2);
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+      max-height: 80vh;
+      display: flex; flex-direction: column;
+    }
+    #bottom-sheet.open { transform: translateY(0); }
+
+    .sheet-handle-bar {
+      width: 40px; height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      margin: 10px auto 0;
+      flex-shrink: 0;
+    }
+    .sheet-header {
+      padding: 10px 16px 12px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+      background: var(--parchment);
+      border-radius: 16px 16px 0 0;
+    }
+    .sheet-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 10px;
+    }
+    .sheet-close {
+      position: absolute; top: 14px; right: 16px;
+      background: none; border: none;
+      font-size: 18px; color: var(--ink-mid); cursor: pointer;
+      padding: 4px; line-height: 1;
+    }
+    #sheet-list {
+      overflow-y: auto; flex: 1;
+      padding: 6px 0 24px;
+      -webkit-overflow-scrolling: touch;
+    }
+
     @media (max-width: 768px) {
-      #app { grid-template-columns: 1fr; grid-template-rows: 60px 1fr; }
-      #sidebar { display: none; }
+      #app {
+        grid-template-columns: 1fr;
+        grid-template-rows: 56px 1fr;
+      }
+
+      /* Header — compact, brand only + newsletter icon */
+      header { padding: 0 16px; height: 56px; }
+      .compass { width: 32px; height: 32px; }
+      .brand-name { font-size: 17px; }
+      .brand-sub { display: none; }
       .header-center { display: none; }
+      .submit-btn { display: none; }
+      .substack-btn {
+        font-size: 9px; padding: 6px 12px; letter-spacing: 1px;
+      }
+
+      /* Desktop sidebar hidden — replaced by bottom sheet */
+      #sidebar { display: none; }
+
+      /* Map fills full remaining height */
+      #map { height: 100%; }
+
+      /* Map toggle buttons — larger tap targets */
+      .tog { padding: 9px 13px; font-size: 10px; }
+
+      /* Bottom sheet visible on mobile */
+      #bottom-sheet { display: flex; }
+      #sheet-btn { display: block; }
+
+      /* Detail panel — full width, bottom anchored */
+      #detail-panel {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        max-width: 100%;
+        border-radius: 16px 16px 0 0;
+        border: none;
+        border-top: 3px solid var(--amber);
+        transform: translateY(110%);
+        opacity: 1;
+        box-shadow: 0 -8px 32px rgba(0,0,0,0.2);
+        max-height: 70vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      #detail-panel.visible { transform: translateY(0); }
+
+      /* Detail panel body — more breathing room on mobile */
+      .dp-body { padding: 16px 20px 32px; }
+      .dp-desc { font-size: 13px; }
+      .dp-row { font-size: 12px; padding: 7px 0; }
+      .dp-substack { padding: 12px; font-size: 10px; }
+
+      /* Popup — full width friendly */
+      .leaflet-popup-content-wrapper { min-width: 220px; max-width: 85vw; }
+
+      /* Airport rows — larger tap targets */
+      .airport-row { padding: 14px 16px; }
+      .airport-name { font-size: 15px; }
+
+      /* Form modal — full screen on mobile */
+      .modal { width: 100%; max-width: 100%; border-radius: 16px 16px 0 0; position: fixed; bottom: 0; left: 0; right: 0; }
+      #modal-overlay { align-items: flex-end; }
     }
   </style>
 </head>
@@ -418,6 +540,44 @@
       <button class="tog" data-s="satellite">🛰 Satellite</button>
     </div>
   </div>
+</div>
+
+<!-- Mobile: floating list button -->
+<button id="sheet-btn">🍽 Browse Restaurants</button>
+
+<!-- Mobile: bottom sheet -->
+<div id="bottom-sheet" role="dialog" aria-label="Restaurant list">
+  <div class="sheet-handle-bar"></div>
+  <div class="sheet-header">
+    <div class="sheet-title">Find Your Next Fly-In Meal</div>
+    <button class="sheet-close" id="sheet-close" aria-label="Close">✕</button>
+    <div class="search-wrap" style="margin-bottom:8px;">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" id="search-mobile" placeholder="Airport, city, or restaurant..." />
+    </div>
+    <div class="filter-row">
+      <button class="fpill active" data-f="all">All</button>
+      <button class="fpill" data-f="on-airport">On Field</button>
+      <button class="fpill" data-f="near-airport">Near Airport</button>
+      <button class="fpill" data-f="reviewed">✉ Reviewed</button>
+    </div>
+    <div class="filter-row" style="margin-top:6px;">
+      <select id="region-select-mobile" class="region-select">
+        <option value="all">All Regions</option>
+        <option value="PNW">Pacific Northwest</option>
+        <option value="California">California</option>
+        <option value="Southwest">Southwest</option>
+        <option value="Mountain">Mountain West</option>
+        <option value="Midwest">Midwest</option>
+        <option value="Southeast">Southeast</option>
+        <option value="Northeast">Northeast</option>
+        <option value="South">South / Central</option>
+        <option value="Texas">Texas</option>
+        <option value="Florida">Florida</option>
+      </select>
+    </div>
+  </div>
+  <div id="sheet-list"></div>
 </div>
 
 <div id="detail-panel">
@@ -618,8 +778,7 @@ airports.forEach(a => {
   marker.on('click', () => {
     document.getElementById('detail-panel').classList.remove('visible');
     selectAirport(a.id);
-  });
-  marker.addTo(map);
+  });  marker.addTo(map);
   markerLayer[a.id] = marker;
 });
 
@@ -644,6 +803,9 @@ let searchTerm = '';
 
 function buildList() {
   listEl.innerHTML = '';
+  const sheetListEl = document.getElementById('sheet-list');
+  if (sheetListEl) sheetListEl.innerHTML = '';
+
   let countAirports = 0, countRests = 0, countReviewed = 0;
   const countStates = new Set();
 
@@ -708,16 +870,31 @@ function buildList() {
       // Close any open detail panel and map popup before opening new one
       document.getElementById('detail-panel').classList.remove('visible');
       map.closePopup();
+      closeSheet();
       const targetZoom = map.getZoom() < 12 ? 12 : map.getZoom();
-      // First center exactly on the pin with no animation
       map.setView([a.lat, a.lng], targetZoom, { animate: false });
-      // Then nudge left and up so pin clears the bottom-right detail panel
-      // panBy is relative to current view, applied once from a clean center
       map.panBy([-160, 80], { animate: true, duration: 0.3 });
       marker.openPopup();
       selectAirport(a.id);
     });
+
     listEl.appendChild(el);
+    // Also add a clone to the mobile sheet (cloneNode doesn't copy listeners — re-attach)
+    const sheetListEl = document.getElementById('sheet-list');
+    if (sheetListEl) {
+      const clone = el.cloneNode(true);
+      clone.addEventListener('click', () => {
+        document.getElementById('detail-panel').classList.remove('visible');
+        map.closePopup();
+        closeSheet();
+        const targetZoom = map.getZoom() < 12 ? 12 : map.getZoom();
+        map.setView([a.lat, a.lng], targetZoom, { animate: false });
+        map.panBy([-160, 80], { animate: true, duration: 0.3 });
+        marker.openPopup();
+        selectAirport(a.id);
+      });
+      sheetListEl.appendChild(clone);
+    }
   });
 
   document.getElementById('stat-airports').textContent = countAirports;
@@ -798,6 +975,58 @@ map.on('click', () => {
   document.getElementById('detail-panel').classList.remove('visible');
   document.querySelectorAll('.airport-row').forEach(el => el.classList.remove('active'));
 });
+
+// ─── MOBILE BOTTOM SHEET ─────────────────────────────────────────────────────
+const bottomSheet  = document.getElementById('bottom-sheet');
+const sheetBtn     = document.getElementById('sheet-btn');
+const sheetClose   = document.getElementById('sheet-close');
+const searchMobile = document.getElementById('search-mobile');
+const regionMobile = document.getElementById('region-select-mobile');
+
+function openSheet()  { bottomSheet.classList.add('open');  sheetBtn.style.display = 'none'; }
+function closeSheet() { bottomSheet.classList.remove('open'); sheetBtn.style.display = ''; }
+
+sheetBtn.addEventListener('click', openSheet);
+sheetClose.addEventListener('click', closeSheet);
+
+// Sync mobile search → desktop search and rebuild
+searchMobile.addEventListener('input', e => {
+  searchTerm = e.target.value.toLowerCase().trim();
+  document.getElementById('search').value = e.target.value;
+  buildList();
+});
+
+// Sync mobile region → desktop region and rebuild
+regionMobile.addEventListener('change', e => {
+  activeRegion = e.target.value;
+  document.getElementById('region-select').value = e.target.value;
+  const rb = regionBounds[activeRegion];
+  map.setView(rb.center, rb.zoom, { animate: true });
+  buildList();
+});
+
+// Mobile filter pills share the same data-f attribute — wire them up
+document.querySelectorAll('#bottom-sheet .fpill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Deactivate all pills in both desktop and mobile
+    document.querySelectorAll('.fpill').forEach(b => b.classList.remove('active'));
+    // Activate matching pill in both panels
+    document.querySelectorAll(`.fpill[data-f="${btn.dataset.f}"]`).forEach(b => b.classList.add('active'));
+    activeFilter = btn.dataset.f;
+    buildList();
+  });
+});
+
+// Close sheet when user taps a map marker
+airports.forEach(a => {
+  const marker = markerLayer[a.id];
+  if (marker) {
+    marker.on('click', () => closeSheet());
+  }
+});
+
+// Tap outside sheet (on map) closes it
+map.on('click', () => closeSheet());
 
 } // end init
 </script>
