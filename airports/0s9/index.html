@@ -26,8 +26,8 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 48.0537986755,
-        "longitude": -122.810997009
+        "latitude": 48.053799,
+        "longitude": -122.810997
       }
     },
     {
@@ -315,7 +315,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
   const map = L.map('mini-map', {
-    center: [48.0537986755, -122.810997009],
+    center: [48.053799, -122.810997],
     zoom: 12,
     zoomControl: true,
     scrollWheelZoom: false,
@@ -335,7 +335,7 @@
     popupAnchor: [0, -18],
   });
 
-  L.marker([48.0537986755, -122.810997009], { icon })
+  L.marker([48.053799, -122.810997], { icon })
     .addTo(map)
     .bindPopup('<strong>Jefferson County Intl</strong><br>0S9 &mdash; Port Townsend, Washington')
     .openPopup();
