@@ -2197,50 +2197,10 @@ document.getElementById('footer-submit').addEventListener('click', () => overlay
 document.getElementById('modal-close').addEventListener('click', () => overlay.classList.remove('open'));
 overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
 
-document.getElementById('form-submit').addEventListener('click', async () => {
-  const name  = document.getElementById('f-name').value.trim();
-  const ident = document.getElementById('f-ident').value.trim();
-  const loc   = document.getElementById('f-loc').value.trim();
-  const type  = document.getElementById('f-type').value;
-  const notes = document.getElementById('f-notes').value.trim();
-  const email = document.getElementById('f-email').value.trim();
-
-  if (!name) {
-    alert('Please enter a restaurant name.');
-    return;
-  }
-
-  const btn = document.getElementById('form-submit');
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-
-  try {
-    const res = await fetch('https://formspree.io/f/mqewaqgr', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ name, ident, loc, type, notes, email })
-    });
-
-    if (res.ok) {
-      document.querySelector('.modal-body').innerHTML = `
-        <div style="text-align:center; padding: 40px 20px;">
-          <div style="font-size:48px; margin-bottom:16px;">✈️</div>
-          <div style="font-family:'Playfair Display',serif; font-size:22px; color:var(--navy); margin-bottom:12px;">
-            Thanks for the tip!
-          </div>
-          <p style="font-size:14px; color:var(--ink-mid); line-height:1.6;">
-            We'll review it and add it to the map.<br/>
-            The best ones get featured in the newsletter.
-          </p>
-        </div>`;
-    } else {
-      throw new Error('Server error');
-    }
-  } catch (err) {
-    btn.textContent = 'Submit for Review ✈';
-    btn.disabled = false;
-    alert('Something went wrong. Please try again or email us directly.');
-  }
+document.getElementById('form-submit').addEventListener('click', () => {
+  // TODO: wire to Formspree
+  alert("Thanks for the submission! We'll review it and add it to the map. Best ones get featured in the newsletter. ✈");
+  overlay.classList.remove('open');
 });
 
 // ─── MAP CLICK ────────────────────────────────────────────────────────────────
