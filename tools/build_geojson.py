@@ -139,7 +139,9 @@ def build_geojson(idx: dict) -> tuple:
                 "state":           (r.get("state")           or "").strip(),
                 "iso_region":      (oa.get("iso_region")     or "").strip(),
                 "slug":            slugify(f"{name}-{ident}"),
-                "airnav_url":      f"{AIRNAV_BASE}{ident}",
+                # Only link AirNav for fields it still carries. Decommissioned strips
+                # (the ones we place by lat/lon override) 404 there.
+                "airnav_url":      f"{AIRNAV_BASE}{ident}" if oa else "",
                 # Blank status = open. Closures are recorded, never deleted.
                 "status":          (r.get("status")      or "").strip(),
                 "status_date":     (r.get("status_date") or "").strip(),
@@ -232,10 +234,12 @@ def render_airport_page(airport: dict) -> str:
             f"{count_str} listed — on-field dining and $100 hamburger destinations for pilots."
         )
     else:
-        # Don't promise a meal that isn't there. An airport with nothing open says so.
+        # Don't promise a meal that isn't there. Phrased around flying rather than around
+        # the restaurant existing, because at least one of these fields (T40) has a
+        # restaurant that is very much open next to a runway that is very much closed.
         former = closed[0]["restaurant_name"] if len(closed) == 1 else "its restaurants"
         desc = (
-            f"There is currently no restaurant open at {aname} ({ident}) in {loc_str}. "
+            f"There is nothing you can fly in for at {aname} ({ident}) in {loc_str}. "
             f"We track what closed and when — {former} is listed here with the details."
         )
 
@@ -344,13 +348,13 @@ def render_airport_page(airport: dict) -> str:
     </div>
     {f'<p class="card-notes">{why}</p>' if why else ""}
   </article>""")
-        heading = ("No Restaurant Open Here Right Now"
+        heading = ("Nothing Here You Can Fly In For"
                    if not count else "Previously at this Airport")
         intro = ""
         if not count:
-            intro = ('<p class="empty-note">Nothing on this field is serving at the moment. '
-                     'We keep the record here so you know why, and so a stale listing '
-                     'somewhere else doesn\'t send you on a wasted flight.</p>')
+            intro = ('<p class="empty-note">There is nothing here to fly in for at the moment. '
+                     'We keep the record so you know why, and so a stale listing somewhere '
+                     'else doesn\'t send you on a wasted flight.</p>')
         closed_html = (f'\n  <div class="section-label">{heading}</div>\n'
                        f'  {intro}\n' + "\n".join(closed_cards))
 
@@ -616,7 +620,7 @@ def render_airport_page(airport: dict) -> str:
       📍 {loc_str}
       {f' &nbsp;·&nbsp; <a href="{airnav}" target="_blank" rel="noopener">AirNav ✈</a>' if airnav else ""}
     </p>
-    <span class="airport-count{'' if count else ' airport-count-none'}">{count_str if count else 'None open'}</span>
+    <span class="airport-count{'' if count else ' airport-count-none'}">{count_str if count else 'No fly-in dining'}</span>
   </div>
 
   <div id="mini-map"></div>
@@ -859,7 +863,7 @@ def build_seo_html_list(features: list) -> str:
         if rcount:
             lines.append(f'      <p>{rcount_s} listed for pilots.</p>')
         else:
-            lines.append(f'      <p>No restaurant is currently open at this airport. '
+            lines.append(f'      <p>Nothing you can fly in for at this airport right now. '
                          f'See the airport page for what closed and when.</p>')
         lines.append(f'      <ul>')
         for r in airport["restaurants"]:
