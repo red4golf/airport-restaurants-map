@@ -40,7 +40,7 @@
           "position": 1,
           "item": {
             "@type": "FoodEstablishment",
-            "name": "Runways at Bartow",
+            "name": "Tantrums Flightside Cafe",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Bartow",
@@ -52,7 +52,8 @@
               "name": "Bartow Municipal Airport",
               "identifier": "KBOW"
             },
-            "description": "On-field restaurant at Bartow Municipal in the heart of Polk County. Breakfast and lunch with views of the ramp and a rotating menu of daily specials. A quiet alternative to busier central Florida airports."
+            "description": "A family-run operation inside the Bartow terminal building with ramp and runway views, serving Old Florida comfort food. Breakfast runs to the Pilot's Breakfast, chicken and waffles, and shrimp and grits; lunch to the Signature Smash Burger, a Cuban, Shrimp & Grit Cakes and gator bites. Burger Monday, Taco Tuesday and a Friday fish fry rotate through the week, and there is key lime pie waiting at the end of it. Mon–Sat 7AM–2PM · Closed Sun.",
+            "url": "https://tantrumscafe.com"
           }
         }
       ]
@@ -153,6 +154,10 @@
       border: 1px solid rgba(184,76,42,0.2);
       padding: 4px 10px; border-radius: 2px;
     }
+    .airport-count-none {
+      color: var(--ink-mid); background: rgba(90,79,72,0.06);
+      border-color: rgba(90,79,72,0.25);
+    }
 
     /* ── Mini map ── */
     #mini-map {
@@ -200,6 +205,20 @@
     .badge-reviewed {
       background: rgba(200,130,26,0.1);
       border-color: var(--amber); color: var(--amber);
+    }
+    .badge-closed {
+      background: rgba(90,79,72,0.08);
+      border-color: rgba(90,79,72,0.35); color: var(--ink-mid);
+    }
+    .rest-card-closed {
+      background: rgba(237,229,212,0.5);
+      border-style: dashed;
+    }
+    .rest-card-closed .card-name { color: var(--ink-mid); }
+    .rest-card-closed:hover { box-shadow: none; }
+    .empty-note {
+      font-size: 14px; line-height: 1.7; color: var(--ink-mid);
+      margin-bottom: 18px; max-width: 62ch;
     }
     .card-notes {
       font-size: 14px; line-height: 1.7;
@@ -285,18 +304,29 @@
   <div id="mini-map"></div>
 
   <div class="section-label">Restaurants at this Airport</div>
-
-  
   <article class="rest-card">
     <div class="card-header">
-      <h2 class="card-name">Runways at Bartow</h2>
+      <h2 class="card-name">Tantrums Flightside Cafe</h2>
       <div class="card-badges">
         <span class="badge">✅ On Field</span>
         
       </div>
     </div>
-    <p class="card-notes">On-field restaurant at Bartow Municipal in the heart of Polk County. Breakfast and lunch with views of the ramp and a rotating menu of daily specials. A quiet alternative to busier central Florida airports.</p>
-    
+    <p class="card-notes">A family-run operation inside the Bartow terminal building with ramp and runway views, serving Old Florida comfort food. Breakfast runs to the Pilot's Breakfast, chicken and waffles, and shrimp and grits; lunch to the Signature Smash Burger, a Cuban, Shrimp &amp; Grit Cakes and gator bites. Burger Monday, Taco Tuesday and a Friday fish fry rotate through the week, and there is key lime pie waiting at the end of it. Mon–Sat 7AM–2PM · Closed Sun.</p>
+    <div class="card-links"><a href="https://tantrumscafe.com" target="_blank" rel="noopener" class="card-link">Website →</a></div>
+  </article>
+  
+  <div class="section-label">Previously at this Airport</div>
+  
+
+  <article class="rest-card rest-card-closed">
+    <div class="card-header">
+      <h3 class="card-name">Runways at Bartow</h3>
+      <div class="card-badges">
+        <span class="badge badge-closed">⛔ Closed &middot; 2024</span>
+      </div>
+    </div>
+    <p class="card-notes">Ceased operations in 2024 with no public announcement. Tantrums Flightside Cafe now runs the terminal restaurant.</p>
   </article>
 
   <div class="back-section">

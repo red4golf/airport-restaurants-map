@@ -77,10 +77,23 @@ def html_escape(s: str) -> str:
              .replace('"', "&quot;"))
 
 
+# ─── STATUS HELPERS ───────────────────────────────────────────────────────────
+# A blank `status` means open. Older seed files with no status column keep working.
+def is_open(props: dict) -> bool:
+    return (props.get("status") or "").strip().lower() != "closed"
+
+
+def split_open_closed(rests: list) -> tuple:
+    return [r for r in rests if is_open(r)], [r for r in rests if not is_open(r)]
+
+
 # ─── BUILD GEOJSON ────────────────────────────────────────────────────────────
-def build_geojson(idx: dict) -> list:
+def build_geojson(idx: dict) -> tuple:
+    """Returns (features, stats). Every seed row is accounted for — nothing is
+    dropped silently. Rows the geocoder cannot place are reported loudly."""
     features = []
-    missing  = []
+    dropped  = []
+    rows_read = 0
 
     with SEED_CSV.open(newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
@@ -91,16 +104,26 @@ def build_geojson(idx: dict) -> list:
             if not ident or not name or name.startswith("ADD YOUR"):
                 continue
 
+            rows_read += 1
+
+            # Manual lat/lon overrides win over OurAirports, and are the fallback
+            # for idents OurAirports no longer carries (closed or private strips).
+            lat = (r.get("lat") or "").strip()
+            lon = (r.get("lon") or "").strip()
+
             oa = lookup_airport(idx, ident)
-            if not oa:
-                missing.append(ident)
+            if not lat or not lon:
+                if oa:
+                    lat = oa.get("latitude_deg") or ""
+                    lon = oa.get("longitude_deg") or ""
+
+            if not lat or not lon:
+                dropped.append((ident, name,
+                                "not in OurAirports and no lat/lon override in the seed file"
+                                if not oa else "OurAirports record has no coordinates"))
                 continue
 
-            lat = oa.get("latitude_deg")
-            lon = oa.get("longitude_deg")
-            if not lat or not lon:
-                missing.append(ident)
-                continue
+            oa = oa or {}
 
             props = {
                 "restaurant_name": name,
@@ -117,6 +140,10 @@ def build_geojson(idx: dict) -> list:
                 "iso_region":      (oa.get("iso_region")     or "").strip(),
                 "slug":            slugify(f"{name}-{ident}"),
                 "airnav_url":      f"{AIRNAV_BASE}{ident}",
+                # Blank status = open. Closures are recorded, never deleted.
+                "status":          (r.get("status")      or "").strip(),
+                "status_date":     (r.get("status_date") or "").strip(),
+                "status_note":     (r.get("status_note") or "").strip(),
             }
 
             features.append({
@@ -130,14 +157,28 @@ def build_geojson(idx: dict) -> list:
 
     fc = {"type": "FeatureCollection", "features": features}
     OUT_GEOJSON.write_text(json.dumps(fc, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"  Wrote {OUT_GEOJSON} with {len(features)} features.")
 
-    if missing:
-        print("  Missing idents (not found in OurAirports):")
-        for m in sorted(set(missing)):
-            print(f"    - {m}")
+    open_f, closed_f = split_open_closed([f["properties"] for f in features])
+    print(f"  Read {rows_read} seed rows → wrote {len(features)} features "
+          f"({len(open_f)} open · {len(closed_f)} closed).")
 
-    return features
+    if dropped:
+        print()
+        print("  " + "!" * 68)
+        print(f"  !! {len(dropped)} SEED ROW(S) DROPPED — these are invisible to the build:")
+        for ident, name, why in dropped:
+            print(f"  !!   {ident:<6} {name}  —  {why}")
+        print("  !! Fix: add lat/lon columns for these rows in data/restaurants_seed.csv")
+        print("  " + "!" * 68)
+        print()
+
+    stats = {
+        "rows_read": rows_read,
+        "dropped":   len(dropped),
+        "open":      len(open_f),
+        "closed":    len(closed_f),
+    }
+    return features, stats
 
 
 # ─── GROUP FEATURES BY AIRPORT ────────────────────────────────────────────────
@@ -155,9 +196,13 @@ def group_by_airport(features: list) -> dict:
                 "lat":        f["geometry"]["coordinates"][1],
                 "lng":        f["geometry"]["coordinates"][0],
                 "airnav_url": p.get("airnav_url", ""),
-                "restaurants": [],
+                "restaurants": [],   # open only
+                "closed":      [],   # retained history
             }
-        airports[ident]["restaurants"].append(p)
+        if is_open(p):
+            airports[ident]["restaurants"].append(p)
+        else:
+            airports[ident]["closed"].append(p)
     return airports
 
 
@@ -173,6 +218,7 @@ def render_airport_page(airport: dict) -> str:
     lng        = airport["lng"]
     airnav     = html_escape(airport["airnav_url"])
     rests      = airport["restaurants"]
+    closed     = airport.get("closed", [])
     page_url   = f"{BASE_URL}/airports/{ident.lower()}/"
 
     loc_str    = f"{city}, {state_full}" if city else state_full
@@ -180,10 +226,18 @@ def render_airport_page(airport: dict) -> str:
     count_str  = f"{count} restaurant{'s' if count != 1 else ''}"
 
     title      = f"Fly-In Dining at {aname} ({ident}) — Airport Restaurants"
-    desc       = (
-        f"Find fly-in restaurants at {aname} ({ident}) in {loc_str}. "
-        f"{count_str} listed — on-field dining and $100 hamburger destinations for pilots."
-    )
+    if count:
+        desc = (
+            f"Find fly-in restaurants at {aname} ({ident}) in {loc_str}. "
+            f"{count_str} listed — on-field dining and $100 hamburger destinations for pilots."
+        )
+    else:
+        # Don't promise a meal that isn't there. An airport with nothing open says so.
+        former = closed[0]["restaurant_name"] if len(closed) == 1 else "its restaurants"
+        desc = (
+            f"There is currently no restaurant open at {aname} ({ident}) in {loc_str}. "
+            f"We track what closed and when — {former} is listed here with the details."
+        )
 
     # ── JSON-LD for this airport page ────────────────────────────────────────
     jsonld_items = []
@@ -209,33 +263,36 @@ def render_airport_page(airport: dict) -> str:
             entry["url"] = r["website"]
         jsonld_items.append({"@type": "ListItem", "position": i, "item": entry})
 
-    jsonld = json.dumps({
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type":      "Airport",
-                "name":       aname,
-                "identifier": ident,
-                "address": {
-                    "@type":          "PostalAddress",
-                    "addressLocality": city,
-                    "addressRegion":   state_esc,
-                    "addressCountry":  "US",
-                },
-                "geo": {
-                    "@type":     "GeoCoordinates",
-                    "latitude":  lat,
-                    "longitude": lng,
-                },
+    graph = [
+        {
+            "@type":      "Airport",
+            "name":       aname,
+            "identifier": ident,
+            "address": {
+                "@type":          "PostalAddress",
+                "addressLocality": city,
+                "addressRegion":   state_esc,
+                "addressCountry":  "US",
             },
-            {
-                "@type":           "ItemList",
-                "name":            f"Fly-In Restaurants at {aname}",
-                "numberOfItems":   count,
-                "itemListElement": jsonld_items,
-            }
-        ]
-    }, ensure_ascii=False, indent=2)
+            "geo": {
+                "@type":     "GeoCoordinates",
+                "latitude":  lat,
+                "longitude": lng,
+            },
+        },
+    ]
+    # Closed restaurants never appear in structured data — we are not telling
+    # Google about a place a pilot can't eat.
+    if count:
+        graph.append({
+            "@type":           "ItemList",
+            "name":            f"Fly-In Restaurants at {aname}",
+            "numberOfItems":   count,
+            "itemListElement": jsonld_items,
+        })
+
+    jsonld = json.dumps({"@context": "https://schema.org", "@graph": graph},
+                        ensure_ascii=False, indent=2)
 
     # ── Restaurant cards HTML ─────────────────────────────────────────────────
     cards_html = []
@@ -268,6 +325,34 @@ def render_airport_page(airport: dict) -> str:
   </article>""")
 
     cards = "\n".join(cards_html)
+
+    # ── "Previously at this Airport" — closures are recorded, not deleted ─────
+    closed_html = ""
+    if closed:
+        closed_cards = []
+        for r in closed:
+            rname = html_escape(r.get("restaurant_name", ""))
+            when  = html_escape(r.get("status_date", ""))
+            why   = html_escape(r.get("status_note", ""))
+            closed_cards.append(f"""
+  <article class="rest-card rest-card-closed">
+    <div class="card-header">
+      <h3 class="card-name">{rname}</h3>
+      <div class="card-badges">
+        <span class="badge badge-closed">⛔ Closed{f" &middot; {when}" if when else ""}</span>
+      </div>
+    </div>
+    {f'<p class="card-notes">{why}</p>' if why else ""}
+  </article>""")
+        heading = ("No Restaurant Open Here Right Now"
+                   if not count else "Previously at this Airport")
+        intro = ""
+        if not count:
+            intro = ('<p class="empty-note">Nothing on this field is serving at the moment. '
+                     'We keep the record here so you know why, and so a stale listing '
+                     'somewhere else doesn\'t send you on a wasted flight.</p>')
+        closed_html = (f'\n  <div class="section-label">{heading}</div>\n'
+                       f'  {intro}\n' + "\n".join(closed_cards))
 
     # ── Breadcrumb JSON-LD ────────────────────────────────────────────────────
     breadcrumb_jsonld = json.dumps({
@@ -387,6 +472,10 @@ def render_airport_page(airport: dict) -> str:
       border: 1px solid rgba(184,76,42,0.2);
       padding: 4px 10px; border-radius: 2px;
     }}
+    .airport-count-none {{
+      color: var(--ink-mid); background: rgba(90,79,72,0.06);
+      border-color: rgba(90,79,72,0.25);
+    }}
 
     /* ── Mini map ── */
     #mini-map {{
@@ -434,6 +523,20 @@ def render_airport_page(airport: dict) -> str:
     .badge-reviewed {{
       background: rgba(200,130,26,0.1);
       border-color: var(--amber); color: var(--amber);
+    }}
+    .badge-closed {{
+      background: rgba(90,79,72,0.08);
+      border-color: rgba(90,79,72,0.35); color: var(--ink-mid);
+    }}
+    .rest-card-closed {{
+      background: rgba(237,229,212,0.5);
+      border-style: dashed;
+    }}
+    .rest-card-closed .card-name {{ color: var(--ink-mid); }}
+    .rest-card-closed:hover {{ box-shadow: none; }}
+    .empty-note {{
+      font-size: 14px; line-height: 1.7; color: var(--ink-mid);
+      margin-bottom: 18px; max-width: 62ch;
     }}
     .card-notes {{
       font-size: 14px; line-height: 1.7;
@@ -513,14 +616,13 @@ def render_airport_page(airport: dict) -> str:
       📍 {loc_str}
       {f' &nbsp;·&nbsp; <a href="{airnav}" target="_blank" rel="noopener">AirNav ✈</a>' if airnav else ""}
     </p>
-    <span class="airport-count">{count_str}</span>
+    <span class="airport-count{'' if count else ' airport-count-none'}">{count_str if count else 'None open'}</span>
   </div>
 
   <div id="mini-map"></div>
 
-  <div class="section-label">Restaurants at this Airport</div>
-
-  {cards}
+  {f'<div class="section-label">Restaurants at this Airport</div>{cards}' if count else ''}
+  {closed_html}
 
   <div class="back-section">
     <a href="{BASE_URL}/" class="back-link">← View All Airports on the Map</a>
@@ -551,7 +653,7 @@ def render_airport_page(airport: dict) -> str:
 
   const icon = L.divIcon({{
     className: '',
-    html: '<div style="width:32px;height:32px;background:#1a2744;border:2px solid #e8a040;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 2px 8px rgba(0,0,0,0.3);">✈</div>',
+    html: '<div style="width:32px;height:32px;background:{"#1a2744" if count else "#8a8178"};border:2px solid {"#e8a040" if count else "#b3aca4"};border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 2px 8px rgba(0,0,0,0.3);">✈</div>',
     iconSize: [32, 32],
     iconAnchor: [16, 16],
     popupAnchor: [0, -18],
@@ -632,7 +734,9 @@ def build_sitemap(features: list, airport_page_paths: list):
 # ─── GENERATE JSON-LD ─────────────────────────────────────────────────────────
 def build_jsonld(features: list) -> str:
     items = []
-    for i, f in enumerate(features, start=1):
+    # Closed listings are excluded from structured data entirely.
+    open_features = [f for f in features if is_open(f["properties"])]
+    for i, f in enumerate(open_features, start=1):
         p    = f["properties"]
         name = p.get("restaurant_name", "")
         if not name:
@@ -752,7 +856,11 @@ def build_seo_html_list(features: list) -> str:
 
         lines.append(f'    <li>')
         lines.append(f'      <h3><a href="{page_url}">{aname} ({html_escape(ident)}) — {loc}</a></h3>')
-        lines.append(f'      <p>{rcount_s} listed for pilots.</p>')
+        if rcount:
+            lines.append(f'      <p>{rcount_s} listed for pilots.</p>')
+        else:
+            lines.append(f'      <p>No restaurant is currently open at this airport. '
+                         f'See the airport page for what closed and when.</p>')
         lines.append(f'      <ul>')
         for r in airport["restaurants"]:
             rname  = html_escape(r.get("restaurant_name", ""))
@@ -797,7 +905,7 @@ def main():
     print("\n=== Airport Restaurants Build ===")
 
     idx                = load_ourairports_index()
-    features           = build_geojson(idx)
+    features, stats    = build_geojson(idx)
     airport_page_paths = build_airport_pages(features)
     build_sitemap(features, airport_page_paths)
 
@@ -807,9 +915,18 @@ def main():
     seo_html = build_seo_html_list(features)
     inject_seo_html_list(seo_html)
 
-    airport_count = len(set(f["properties"]["airport_ident"] for f in features))
-    print(f"\nDone. {len(features)} restaurants · {airport_count} airports · "
+    airports      = group_by_airport(features)
+    airport_count = len(airports)
+    open_airports = sum(1 for a in airports.values() if a["restaurants"])
+
+    print(f"\nDone. {stats['rows_read']}/{stats['rows_read']} seed rows built "
+          f"({stats['dropped']} dropped).")
+    print(f"      {stats['open']} open restaurants · {stats['closed']} closed listings retained")
+    print(f"      {airport_count} airports ({open_airports} with something open) · "
           f"{len(airport_page_paths)} static pages generated.\n")
+
+    if stats["dropped"]:
+        raise SystemExit(f"Build finished with {stats['dropped']} dropped row(s) — see above.")
 
 
 if __name__ == "__main__":

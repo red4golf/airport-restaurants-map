@@ -17,7 +17,10 @@
         "state": "WA",
         "iso_region": "US-WA",
         "slug": "spruce-goose-café-0s9",
-        "airnav_url": "https://www.airnav.com/airport/0S9"
+        "airnav_url": "https://www.airnav.com/airport/0S9",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -43,7 +46,10 @@
         "state": "WA",
         "iso_region": "US-WA",
         "slug": "amelias-hangar-restaurant-and-lounge-kpwt",
-        "airnav_url": "https://www.airnav.com/airport/KPWT"
+        "airnav_url": "https://www.airnav.com/airport/KPWT",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -62,14 +68,17 @@
         "source": "Substack review",
         "website": "https://www.toasttab.com/the.hub.gig.harbor/v3",
         "substack_post": "https://airportrestaurants.substack.com/p/the-hub-gig-harbor",
-        "notes": "On-field restaurant right at Tacoma Narrows with runway views. Burgers",
+        "notes": "On-field restaurant right at Tacoma Narrows with runway views. Burgers, pizza, Cajun tots and Harmon craft beers on tap. Watch GA aircraft and business jets roll by. Open daily 11AM–9PM.",
         "airport_ident": "KTIW",
         "airport_name": "Tacoma Narrows Airport",
         "city": "Gig Harbor",
         "state": "WA",
         "iso_region": "US-WA",
         "slug": "the-hub-gig-harbor-ktiw",
-        "airnav_url": "https://www.airnav.com/airport/KTIW"
+        "airnav_url": "https://www.airnav.com/airport/KTIW",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -95,7 +104,10 @@
         "state": "AR",
         "iso_region": "US-AR",
         "slug": "gastons-restaurant-3m0",
-        "airnav_url": "https://www.airnav.com/airport/3M0"
+        "airnav_url": "https://www.airnav.com/airport/3M0",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -121,7 +133,10 @@
         "state": "CA",
         "iso_region": "US-CA",
         "slug": "flos-airport-café-kcno",
-        "airnav_url": "https://www.airnav.com/airport/KCNO"
+        "airnav_url": "https://www.airnav.com/airport/KCNO",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -140,14 +155,17 @@
         "source": "Seed list",
         "website": "https://harrisranch.com",
         "substack_post": "",
-        "notes": "A legendary California pit stop on the I-5 corridor. Land at the private Harris Ranch strip and walk to one of the state's most famous steakhouses. Prime beef raised on-site. Open for breakfast",
+        "notes": "A legendary California pit stop on the I-5 corridor. Land at the private Harris Ranch strip and walk to one of the state's most famous steakhouses. Prime beef raised on-site. Open for breakfast, lunch and dinner daily.",
         "airport_ident": "3O8",
         "airport_name": "Harris Ranch Airport",
         "city": "Coalinga",
         "state": "CA",
         "iso_region": "US-CA",
         "slug": "harris-ranch-restaurant-3o8",
-        "airnav_url": "https://www.airnav.com/airport/3O8"
+        "airnav_url": "https://www.airnav.com/airport/3O8",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -173,7 +191,10 @@
         "state": "CA",
         "iso_region": "US-CA",
         "slug": "waypoint-cafe-kcma",
-        "airnav_url": "https://www.airnav.com/airport/KCMA"
+        "airnav_url": "https://www.airnav.com/airport/KCMA",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -199,7 +220,10 @@
         "state": "CO",
         "iso_region": "US-CO",
         "slug": "the-perfect-landing-kapa",
-        "airnav_url": "https://www.airnav.com/airport/KAPA"
+        "airnav_url": "https://www.airnav.com/airport/KAPA",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -225,7 +249,10 @@
         "state": "CT",
         "iso_region": "US-CT",
         "slug": "restaurant-121-koxc",
-        "airnav_url": "https://www.airnav.com/airport/KOXC"
+        "airnav_url": "https://www.airnav.com/airport/KOXC",
+        "status": "closed",
+        "status_date": "2020-03-16",
+        "status_note": "Closed under Connecticut's COVID dine-in ban and never reopened. Volo now occupies the same building at 7 Juliano Drive."
       },
       "geometry": {
         "type": "Point",
@@ -251,7 +278,10 @@
         "state": "FL",
         "iso_region": "US-FL",
         "slug": "the-downwind-café-7fl6",
-        "airnav_url": "https://www.airnav.com/airport/7FL6"
+        "airnav_url": "https://www.airnav.com/airport/7FL6",
+        "status": "closed",
+        "status_date": "2023-06",
+        "status_note": "Sold abruptly in June 2023; the new owners reopened the space as Fly In Cafe."
       },
       "geometry": {
         "type": "Point",
@@ -277,7 +307,10 @@
         "state": "FL",
         "iso_region": "US-FL",
         "slug": "cj-cannons-kvrb",
-        "airnav_url": "https://www.airnav.com/airport/KVRB"
+        "airnav_url": "https://www.airnav.com/airport/KVRB",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -303,7 +336,10 @@
         "state": "FL",
         "iso_region": "US-FL",
         "slug": "flightline-café-kgif",
-        "airnav_url": "https://www.airnav.com/airport/KGIF"
+        "airnav_url": "https://www.airnav.com/airport/KGIF",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -329,7 +365,10 @@
         "state": "FL",
         "iso_region": "US-FL",
         "slug": "runways-at-bartow-kbow",
-        "airnav_url": "https://www.airnav.com/airport/KBOW"
+        "airnav_url": "https://www.airnav.com/airport/KBOW",
+        "status": "closed",
+        "status_date": "2024",
+        "status_note": "Ceased operations in 2024 with no public announcement. Tantrums Flightside Cafe now runs the terminal restaurant."
       },
       "geometry": {
         "type": "Point",
@@ -355,7 +394,10 @@
         "state": "FL",
         "iso_region": "US-FL",
         "slug": "suncoast-café-kvnc",
-        "airnav_url": "https://www.airnav.com/airport/KVNC"
+        "airnav_url": "https://www.airnav.com/airport/KVNC",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -381,7 +423,10 @@
         "state": "FL",
         "iso_region": "US-FL",
         "slug": "tailwind-café-kocf",
-        "airnav_url": "https://www.airnav.com/airport/KOCF"
+        "airnav_url": "https://www.airnav.com/airport/KOCF",
+        "status": "closed",
+        "status_date": "2019",
+        "status_note": "Closed at the old terminal on SW 60th Ave. Ocala's airport restaurant is now Elevation 89, in the newer Sheltair terminal building."
       },
       "geometry": {
         "type": "Point",
@@ -407,7 +452,10 @@
         "state": "FL",
         "iso_region": "US-FL",
         "slug": "the-hangar-restaurant-flight-lounge-kspg",
-        "airnav_url": "https://www.airnav.com/airport/KSPG"
+        "airnav_url": "https://www.airnav.com/airport/KSPG",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -426,14 +474,17 @@
         "source": "Seed list",
         "website": "",
         "substack_post": "",
-        "notes": "Down-home Florida diner at Okeechobee County Airport. Breakfast and lunch served to a mix of ag pilots",
+        "notes": "Down-home Florida diner at Okeechobee County Airport. Breakfast and lunch served to a mix of ag pilots, fishermen and cross-country traffic. Okeechobee sits at the north end of the lake — good stopping point for south Florida trips.",
         "airport_ident": "KOBE",
         "airport_name": "Okeechobee County Airport",
         "city": "Okeechobee",
         "state": "FL",
         "iso_region": "US-FL",
         "slug": "landing-strip-café-kobe",
-        "airnav_url": "https://www.airnav.com/airport/KOBE"
+        "airnav_url": "https://www.airnav.com/airport/KOBE",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -452,14 +503,17 @@
         "source": "Seed list",
         "website": "",
         "substack_post": "",
-        "notes": "Casual café at Fort Lauderdale Executive — one of the busiest GA airports in the country. Breakfast and lunch with a front-row seat to a parade of jets",
+        "notes": "Casual café at Fort Lauderdale Executive — one of the busiest GA airports in the country. Breakfast and lunch with a front-row seat to a parade of jets, turboprops and helicopters. Great people-watching between bites.",
         "airport_ident": "KFXE",
         "airport_name": "Fort Lauderdale Executive Airport",
         "city": "Fort Lauderdale",
         "state": "FL",
         "iso_region": "US-FL",
         "slug": "jet-runway-café-kfxe",
-        "airnav_url": "https://www.airnav.com/airport/KFXE"
+        "airnav_url": "https://www.airnav.com/airport/KFXE",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -478,14 +532,17 @@
         "source": "Seed list",
         "website": "https://the57threstaurant.com",
         "substack_post": "",
-        "notes": "WWII-themed restaurant adjacent to DeKalb-Peachtree with a control tower you can dine in. Runway views",
+        "notes": "WWII-themed restaurant adjacent to DeKalb-Peachtree with a control tower you can dine in. Runway views, wartime memorabilia and a full menu of American classics. One of the most atmospheric airport-adjacent restaurants in the Southeast.",
         "airport_ident": "KPDK",
         "airport_name": "DeKalb-Peachtree Airport",
         "city": "Atlanta",
         "state": "GA",
         "iso_region": "US-GA",
         "slug": "57th-fighter-group-restaurant-kpdk",
-        "airnav_url": "https://www.airnav.com/airport/KPDK"
+        "airnav_url": "https://www.airnav.com/airport/KPDK",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -504,14 +561,17 @@
         "source": "Seed list",
         "website": "",
         "substack_post": "",
-        "notes": "Beloved on-field diner at Schaumburg Regional in the Chicago suburbs. Big breakfasts",
+        "notes": "Beloved on-field diner at Schaumburg Regional in the Chicago suburbs. Big breakfasts, burgers and a loyal pilot crowd. One of the busiest small GA airports in Illinois — expect company on weekend mornings.",
         "airport_ident": "06C",
         "airport_name": "Schaumburg Regional Airport",
         "city": "Schaumburg",
         "state": "IL",
         "iso_region": "US-IL",
         "slug": "pilot-petes-06c",
-        "airnav_url": "https://www.airnav.com/airport/06C"
+        "airnav_url": "https://www.airnav.com/airport/06C",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -530,14 +590,17 @@
         "source": "Seed list",
         "website": "https://rickscafeboatyard.com",
         "substack_post": "",
-        "notes": "Waterfront restaurant on Eagle Creek Reservoir adjacent to Eagle Creek Airpark. Seafood",
+        "notes": "Waterfront restaurant on Eagle Creek Reservoir adjacent to Eagle Creek Airpark. Seafood, burgers and lake views. A fun combination of the boating and flying communities in one spot on the west side of Indianapolis.",
         "airport_ident": "KEYE",
         "airport_name": "Eagle Creek Airpark",
         "city": "Indianapolis",
         "state": "IN",
         "iso_region": "US-IN",
         "slug": "ricks-café-boatyard-keye",
-        "airnav_url": "https://www.airnav.com/airport/KEYE"
+        "airnav_url": "https://www.airnav.com/airport/KEYE",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -563,7 +626,10 @@
         "state": "KS",
         "iso_region": "US-KS",
         "slug": "the-beaumont-hotel-café-07s",
-        "airnav_url": "https://www.airnav.com/airport/07S"
+        "airnav_url": "https://www.airnav.com/airport/07S",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -589,7 +655,10 @@
         "state": "KY",
         "iso_region": "US-KY",
         "slug": "bistro-le-relais-klou",
-        "airnav_url": "https://www.airnav.com/airport/KLOU"
+        "airnav_url": "https://www.airnav.com/airport/KLOU",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -615,7 +684,10 @@
         "state": "MA",
         "iso_region": "US-MA",
         "slug": "nancys-air-field-café-6b6",
-        "airnav_url": "https://www.airnav.com/airport/6B6"
+        "airnav_url": "https://www.airnav.com/airport/6B6",
+        "status": "closed",
+        "status_date": "2023-04",
+        "status_note": "Closed in spring 2023 when the owner retired after 27 years. Fourth & Field opened in the space that September."
       },
       "geometry": {
         "type": "Point",
@@ -634,14 +706,17 @@
         "source": "Seed list",
         "website": "",
         "substack_post": "",
-        "notes": "On-field restaurant at Nantucket Memorial with views of one of the most scenic GA airports on the East Coast. Breakfast and lunch — expect a mix of island residents",
+        "notes": "On-field restaurant at Nantucket Memorial with views of one of the most scenic GA airports on the East Coast. Breakfast and lunch — expect a mix of island residents, ferry commuters and summer transient traffic from throughout the Northeast.",
         "airport_ident": "KACK",
         "airport_name": "Nantucket Memorial Airport",
         "city": "Nantucket",
         "state": "MA",
         "iso_region": "US-MA",
         "slug": "crosswinds-restaurant-kack",
-        "airnav_url": "https://www.airnav.com/airport/KACK"
+        "airnav_url": "https://www.airnav.com/airport/KACK",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -667,7 +742,10 @@
         "state": "MN",
         "iso_region": "US-MN",
         "slug": "holmans-table-kstp",
-        "airnav_url": "https://www.airnav.com/airport/KSTP"
+        "airnav_url": "https://www.airnav.com/airport/KSTP",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -693,7 +771,10 @@
         "state": "NC",
         "iso_region": "US-NC",
         "slug": "pik-n-pig-bbq-5nc3",
-        "airnav_url": "https://www.airnav.com/airport/5NC3"
+        "airnav_url": "https://www.airnav.com/airport/5NC3",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -719,7 +800,10 @@
         "state": "NJ",
         "iso_region": "US-NJ",
         "slug": "flight-deck-diner-kwwd",
-        "airnav_url": "https://www.airnav.com/airport/KWWD"
+        "airnav_url": "https://www.airnav.com/airport/KWWD",
+        "status": "closed",
+        "status_date": "2026-03-14",
+        "status_note": "A fire-suppression pipe burst in early February 2026 and flooded the building. Engineering reports put repairs in the millions, the lease was terminated, and the owner announced permanent closure on March 14, 2026. Note: capemayairport.com still advertises the diner as open — it is not."
       },
       "geometry": {
         "type": "Point",
@@ -745,7 +829,10 @@
         "state": "NY",
         "iso_region": "US-NY",
         "slug": "the-apron-cafe-kfok",
-        "airnav_url": "https://www.airnav.com/airport/KFOK"
+        "airnav_url": "https://www.airnav.com/airport/KFOK",
+        "status": "closed",
+        "status_date": "2020-10",
+        "status_note": "A new chef-owner took over in the fall of 2020 and rebranded the space as Cafe Volo."
       },
       "geometry": {
         "type": "Point",
@@ -771,7 +858,10 @@
         "state": "NY",
         "iso_region": "US-NY",
         "slug": "hangars-cafe-44n",
-        "airnav_url": "https://www.airnav.com/airport/44N"
+        "airnav_url": "https://www.airnav.com/airport/44N",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -797,7 +887,10 @@
         "state": "OH",
         "iso_region": "US-OH",
         "slug": "sky-galley-kluk",
-        "airnav_url": "https://www.airnav.com/airport/KLUK"
+        "airnav_url": "https://www.airnav.com/airport/KLUK",
+        "status": "closed",
+        "status_date": "2020-09-20",
+        "status_note": "Closed September 20, 2020 after decades at Lunken. The terminal restaurant space has been vacant since; a boutique hotel with its own restaurant is under construction as of 2026."
       },
       "geometry": {
         "type": "Point",
@@ -816,14 +909,17 @@
         "source": "Seed list",
         "website": "",
         "substack_post": "",
-        "notes": "Named for the Ford Tri-Motor",
+        "notes": "Named for the Ford Tri-Motor, this diner at Erie-Ottawa International sits on the shores of Lake Erie. Breakfast and lunch with lake views. Port Clinton is the walleye capital of the world — fish specials are a regular feature.",
         "airport_ident": "KPCW",
         "airport_name": "Erie-Ottawa International Airport",
         "city": "Port Clinton",
         "state": "OH",
         "iso_region": "US-OH",
         "slug": "tin-goose-diner-kpcw",
-        "airnav_url": "https://www.airnav.com/airport/KPCW"
+        "airnav_url": "https://www.airnav.com/airport/KPCW",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -849,7 +945,10 @@
         "state": "OK",
         "iso_region": "US-OK",
         "slug": "jakes-joint-kadm",
-        "airnav_url": "https://www.airnav.com/airport/KADM"
+        "airnav_url": "https://www.airnav.com/airport/KADM",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -868,14 +967,17 @@
         "source": "Seed list",
         "website": "https://denunziosrestaurant.com",
         "substack_post": "",
-        "notes": "Upscale Italian steakhouse at Arnold Palmer Regional — fittingly",
+        "notes": "Upscale Italian steakhouse at Arnold Palmer Regional — fittingly, in the hometown of the King himself. One of the more elegant airport restaurants in the Northeast. Dinner-focused with a full bar and sweeping views of the Laurel Highlands.",
         "airport_ident": "KLBE",
         "airport_name": "Arnold Palmer Regional Airport",
         "city": "Latrobe",
         "state": "PA",
         "iso_region": "US-PA",
         "slug": "denunzios-italian-chophouse-klbe",
-        "airnav_url": "https://www.airnav.com/airport/KLBE"
+        "airnav_url": "https://www.airnav.com/airport/KLBE",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -901,7 +1003,10 @@
         "state": "SC",
         "iso_region": "US-SC",
         "slug": "runway-café-kgmu",
-        "airnav_url": "https://www.airnav.com/airport/KGMU"
+        "airnav_url": "https://www.airnav.com/airport/KGMU",
+        "status": "closed",
+        "status_date": "2025-05-26",
+        "status_note": "The Airport Commission did not renew the lease after 15 years. Hangar 28 Kitchen & Events opened in the space in July 2026."
       },
       "geometry": {
         "type": "Point",
@@ -920,14 +1025,17 @@
         "source": "Seed list",
         "website": "",
         "substack_post": "",
-        "notes": "A Texas institution. The Southern Flyer is one of the most talked-about airport diners in the state — chicken fried steak",
+        "notes": "A Texas institution. The Southern Flyer is one of the most talked-about airport diners in the state — chicken fried steak, jalapeño cornbread and sweet tea. Brenham is Blue Bell ice cream country. Breakfast and lunch Fri–Sun. Worth planning a trip around.",
         "airport_ident": "11R",
         "airport_name": "Brenham Municipal Airport",
         "city": "Brenham",
         "state": "TX",
         "iso_region": "US-TX",
         "slug": "southern-flyer-diner-11r",
-        "airnav_url": "https://www.airnav.com/airport/11R"
+        "airnav_url": "https://www.airnav.com/airport/11R",
+        "status": "closed",
+        "status_date": "2020-08",
+        "status_note": "Closed in the COVID dine-in shutdown. A successor, the Dreamliner Diner, ran Dec 2021 – Dec 2022; the space has been under renovation since."
       },
       "geometry": {
         "type": "Point",
@@ -953,7 +1061,10 @@
         "state": "TX",
         "iso_region": "US-TX",
         "slug": "hangar-6-air-café-kuva",
-        "airnav_url": "https://www.airnav.com/airport/KUVA"
+        "airnav_url": "https://www.airnav.com/airport/KUVA",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -972,14 +1083,17 @@
         "source": "Seed list",
         "website": "https://hardeightbbq.com",
         "substack_post": "",
-        "notes": "One of Texas's most celebrated BBQ joints — brisket",
+        "notes": "One of Texas's most celebrated BBQ joints — brisket, ribs and sausage cooked over mesquite in open pits out front. A short drive from Stephenville Clark Regional in the heart of Cowboy Country. The smell hits you a mile out. Open daily.",
         "airport_ident": "KSEP",
         "airport_name": "Stephenville Clark Regional Airport",
         "city": "Stephenville",
         "state": "TX",
         "iso_region": "US-TX",
         "slug": "hard-eight-bbq-ksep",
-        "airnav_url": "https://www.airnav.com/airport/KSEP"
+        "airnav_url": "https://www.airnav.com/airport/KSEP",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -1005,13 +1119,45 @@
         "state": "TX",
         "iso_region": "US-TX",
         "slug": "aviators-grill-kdwh",
-        "airnav_url": "https://www.airnav.com/airport/KDWH"
+        "airnav_url": "https://www.airnav.com/airport/KDWH",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -95.55280303960001,
           30.0618000031
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "McGehee Catfish Restaurant",
+        "type": "on-airport",
+        "region": "South",
+        "source": "Seed list",
+        "website": "https://www.mcgeheescatfish.com",
+        "substack_post": "",
+        "notes": "A Red River institution since 1972, built on all-you-can-eat fried catfish with homemade hushpuppies, fresh-cut fries, coleslaw and a green tomato relish, finished with fried pies. For decades the turf strip ran right up to the door and this was one of the best-known fly-in meals in the region. Thu–Fri 5PM–8PM · Sat 1PM–8PM · Sun 1PM–7PM · Closed Mon–Wed.",
+        "airport_ident": "T40",
+        "airport_name": "McGehee Catfish Restaurant Airport",
+        "city": "Marietta",
+        "state": "OK",
+        "iso_region": "",
+        "slug": "mcgehee-catfish-restaurant-t40",
+        "airnav_url": "https://www.airnav.com/airport/T40",
+        "status": "closed",
+        "status_date": "2020-02",
+        "status_note": "The restaurant is still open — the airstrip is not. T40 is listed closed and non-operational as of February 2020, and pilot reports indicate it had been shut to transient traffic for roughly a decade before that after two 2007 accidents made liability insurance untenable. The airport is literally named for the restaurant, which is why fly-in directories keep listing it. Reachable by car only."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.1705,
+          33.899
         ]
       }
     },
@@ -1031,7 +1177,10 @@
         "state": "AZ",
         "iso_region": "US-AZ",
         "slug": "volanti-ksdl",
-        "airnav_url": "https://www.airnav.com/airport/KSDL"
+        "airnav_url": "https://www.airnav.com/airport/KSDL",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -1050,14 +1199,17 @@
         "source": "Seed list",
         "website": "https://sedonamesagrill.com",
         "substack_post": "",
-        "notes": "Perched on top of the Sedona Airport mesa at 4",
+        "notes": "Perched on top of the Sedona Airport mesa at 4,800 feet with arguably the most dramatic views of any airport restaurant in the country. Red rock formations in every direction. Breakfast and lunch — arrive early before the tour helicopter traffic picks up.",
         "airport_ident": "KSEZ",
         "airport_name": "Sedona Airport",
         "city": "Sedona",
         "state": "AZ",
         "iso_region": "US-AZ",
         "slug": "mesa-grill-ksez",
-        "airnav_url": "https://www.airnav.com/airport/KSEZ"
+        "airnav_url": "https://www.airnav.com/airport/KSEZ",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -1076,14 +1228,17 @@
         "source": "Seed list",
         "website": "https://flightdeckrestaurant.com",
         "substack_post": "",
-        "notes": "On-field restaurant established in 1968 at Salem McNary Field with windows on three sides giving panoramic views of the runway and Cascade Mountains. Northwest American cuisine with homemade soups",
+        "notes": "On-field restaurant established in 1968 at Salem McNary Field with windows on three sides giving panoramic views of the runway and Cascade Mountains. Northwest American cuisine with homemade soups, desserts and a full bar. A classic $100 hamburger destination on the I-5 corridor. Mon–Fri 11AM–9PM · Sat–Sun 8AM–9PM.",
         "airport_ident": "KSLE",
         "airport_name": "Salem McNary Field",
         "city": "Salem",
         "state": "OR",
         "iso_region": "US-OR",
         "slug": "flight-deck-restaurant-lounge-ksle",
-        "airnav_url": "https://www.airnav.com/airport/KSLE"
+        "airnav_url": "https://www.airnav.com/airport/KSLE",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
@@ -1102,20 +1257,313 @@
         "source": "Seed list",
         "website": "",
         "substack_post": "",
-        "notes": "On-field diner at Arlington Municipal with direct runway views and a devoted local following. Classic American breakfast and lunch — the omelets and French fries draw particular praise. A lively spot with a full bar and a mix of pilots",
+        "notes": "On-field diner at Arlington Municipal with direct runway views and a devoted local following. Classic American breakfast and lunch — the omelets and French fries draw particular praise. A lively spot with a full bar and a mix of pilots, hangar tenants and locals. Mon–Fri 8AM–2PM · Sat–Sun 8AM–2PM.",
         "airport_ident": "KAWO",
         "airport_name": "Arlington Municipal Airport",
         "city": "Arlington",
         "state": "WA",
         "iso_region": "US-WA",
         "slug": "ellies-at-the-airport-kawo",
-        "airnav_url": "https://www.airnav.com/airport/KAWO"
+        "airnav_url": "https://www.airnav.com/airport/KAWO",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -122.158442,
           48.161448
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Volo",
+        "type": "on-airport",
+        "region": "Northeast",
+        "source": "2026 freshness pass",
+        "website": "https://voloatoxford.com",
+        "substack_post": "",
+        "notes": "Opened in the former Restaurant 121 space, roughly 300 feet off the runway with floor-to-ceiling glass and both indoor and patio seating. Run by Executive Cuisine, a corporate in-flight catering company that moved its operation into the building in 2024 — the kitchen's aviation credentials are literal. Casual fine dining: elevated American plates plus Neapolitan pizza, with happy hour at the bar Wed–Sun 3–6PM. Open daily 11AM–9:30PM. Reservations suggested for parties of five or more.",
+        "airport_ident": "KOXC",
+        "airport_name": "Waterbury-Oxford Airport",
+        "city": "Oxford",
+        "state": "CT",
+        "iso_region": "US-CT",
+        "slug": "volo-koxc",
+        "airnav_url": "https://www.airnav.com/airport/KOXC",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.135200500488,
+          41.47859954834
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Fourth & Field",
+        "type": "on-airport",
+        "region": "Northeast",
+        "source": "2026 freshness pass",
+        "website": "https://www.fourthandfield.com",
+        "substack_post": "",
+        "notes": "A family-run farm-to-table restaurant that took over Nancy's Air Field Café in September 2023, with about 70 seats indoors and a 75-seat patio looking out over the field. The kitchen sources from named local farms and twenty of its own garden beds; brunch is the move — corned beef hash, build-your-own omelettes, steak and cheese on an everything bagel. Wed–Fri lunch 11AM–3PM and dinner from 4PM · Sat brunch 9AM–3PM and dinner from 4PM · Sun brunch 9AM–3PM · Closed Mon–Tue. Note the field itself is on the market as of 2026, though the owners say it is business as usual.",
+        "airport_ident": "6B6",
+        "airport_name": "Minute Man Air Field",
+        "city": "Stow",
+        "state": "MA",
+        "iso_region": "US-MA",
+        "slug": "fourth-field-6b6",
+        "airnav_url": "https://www.airnav.com/airport/6B6",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.519031,
+          42.460298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Fly In Cafe",
+        "type": "near-airport",
+        "region": "FL",
+        "source": "2026 freshness pass",
+        "website": "https://flyincafeportorange.com",
+        "substack_post": "",
+        "notes": "Opened September 2023 in the old Downwind Café space, keeping the cozy aviation-themed room and leaning into it on the menu — the Fly-In Omelet, the Spruce Creek Scrambler, and pizzas named The Ranch Runway and The Margherita Maneuver. Full bar, happy hour 3–7PM, live music Fri and Sat nights. Read this before you go: despite the name, 7FL6 is a private residential airpark and the restaurant states plainly that its runway may not be used to visit. You drive in through a guarded gate with a valid license. Breakfast Tue–Sat 8–11AM, Sun 8AM–12PM · Lunch Tue–Sat 11:30AM–4PM, Sun 12–4PM · Dinner Sun and Tue–Thu 4–8PM · Closed Mon.",
+        "airport_ident": "7FL6",
+        "airport_name": "Spruce Creek Fly-In",
+        "city": "Port Orange",
+        "state": "FL",
+        "iso_region": "US-FL",
+        "slug": "fly-in-cafe-7fl6",
+        "airnav_url": "https://www.airnav.com/airport/7FL6",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.04669952392578,
+          29.0802001953125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Cafe Volo",
+        "type": "on-airport",
+        "region": "Northeast",
+        "source": "2026 freshness pass",
+        "website": "https://www.cafevolowhb.com",
+        "substack_post": "",
+        "notes": "Took over the former Apron Cafe space in the fall of 2020, sitting at the base of the tower with a view of traffic working the field. A breakfast-and-lunch operation rather than a dinner house, with a steady local following alongside airport traffic. Hours are not posted publicly and sources disagree — call (631) 998-3573 before you launch. Unrelated to Volo at Oxford, Connecticut, despite the name.",
+        "airport_ident": "KFOK",
+        "airport_name": "Francis S. Gabreski Airport",
+        "city": "Westhampton Beach",
+        "state": "NY",
+        "iso_region": "US-NY",
+        "slug": "cafe-volo-kfok",
+        "airnav_url": "https://www.airnav.com/airport/KFOK",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.6317977905,
+          40.8437004089
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Hangar 28 Kitchen & Events",
+        "type": "on-airport",
+        "region": "SC",
+        "source": "2026 freshness pass",
+        "website": "https://hangar28greenville.com",
+        "substack_post": "",
+        "notes": "Opened July 8, 2026 in the old Runway Café space on the South Ramp, and worth the detour if you have been missing the original. Chef-owner Trish Ballentine runs a scratch kitchen — handcrafted sandwiches, house-roasted meats, shareable plates and rotating weekly specials — with a full bar and house-made mixers. A 16-foot glass hangar door frames the runway, and there is a gated playground for anyone flying with kids. Currently Tue–Sun 11AM–3PM, closed Mon; dinner and weekend breakfast have been announced but are not yet running. The name honors two women born in 1928 and nods to the airport's 2028 centennial.",
+        "airport_ident": "KGMU",
+        "airport_name": "Greenville Downtown Airport",
+        "city": "Greenville",
+        "state": "SC",
+        "iso_region": "US-SC",
+        "slug": "hangar-28-kitchen-events-kgmu",
+        "airnav_url": "https://www.airnav.com/airport/KGMU",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.350217,
+          34.847903
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Tantrums Flightside Cafe",
+        "type": "on-airport",
+        "region": "FL",
+        "source": "2026 freshness pass",
+        "website": "https://tantrumscafe.com",
+        "substack_post": "",
+        "notes": "A family-run operation inside the Bartow terminal building with ramp and runway views, serving Old Florida comfort food. Breakfast runs to the Pilot's Breakfast, chicken and waffles, and shrimp and grits; lunch to the Signature Smash Burger, a Cuban, Shrimp & Grit Cakes and gator bites. Burger Monday, Taco Tuesday and a Friday fish fry rotate through the week, and there is key lime pie waiting at the end of it. Mon–Sat 7AM–2PM · Closed Sun.",
+        "airport_ident": "KBOW",
+        "airport_name": "Bartow Executive Airport",
+        "city": "Bartow",
+        "state": "FL",
+        "iso_region": "US-FL",
+        "slug": "tantrums-flightside-cafe-kbow",
+        "airnav_url": "https://www.airnav.com/airport/KBOW",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.783401,
+          27.943399
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Elevation 89",
+        "type": "on-airport",
+        "region": "FL",
+        "source": "2026 freshness pass",
+        "website": "https://www.elevation89attheocalaairport.com",
+        "substack_post": "",
+        "notes": "The most polished restaurant on this map that still lets you park on the ramp and walk in. Opened 2021 in the center of the Sheltair terminal: floor-to-ceiling windows onto the runway, a bar built from an aircraft wing, taxi-light housings repurposed as table fixtures, and equestrian touches for Marion County horse country. Crab cakes, porcini-dusted scallops, lobster spring rolls, and a serious burger list including the Flying Goat with goat cheese and fig jam. Sun–Thu 11AM–9PM · Fri–Sat 11AM–10PM. Reservations on OpenTable; sunset over the runway is the draw.",
+        "airport_ident": "KOCF",
+        "airport_name": "Ocala Intl (Jim Taylor Field)",
+        "city": "Ocala",
+        "state": "FL",
+        "iso_region": "US-FL",
+        "slug": "elevation-89-kocf",
+        "airnav_url": "https://www.airnav.com/airport/KOCF",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.22419739,
+          29.17259979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Starduster Cafe",
+        "type": "on-airport",
+        "region": "PNW",
+        "source": "2026 freshness pass",
+        "website": "",
+        "substack_post": "",
+        "notes": "About as short a walk as fly-in dining gets — the cafe sits on the east side of the runway, roughly 200 feet from the transient tie-downs. A straightforward family-run diner: eggs, hash browns, corned beef hash, biscuits and gravy, country fried steak, and window seats looking straight out at the pattern. Independence charges no landing or tie-down fees. Plan it as a morning flight — the kitchen closes at 2PM every day. Mon–Sat 6AM–2PM · Sun 7AM–2PM.",
+        "airport_ident": "7S5",
+        "airport_name": "Independence State Airport",
+        "city": "Independence",
+        "state": "OR",
+        "iso_region": "US-OR",
+        "slug": "starduster-cafe-7s5",
+        "airnav_url": "https://www.airnav.com/airport/7S5",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.197998046875,
+          44.867000579833984
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "Buzz Inn Steakhouse",
+        "type": "on-airport",
+        "region": "PNW",
+        "source": "2026 freshness pass",
+        "website": "https://buzzinnsteakhouse.com",
+        "substack_post": "",
+        "notes": "One of the few fly-in options in Puget Sound that will still feed you at 8PM — open seven days from 7AM for breakfast through dinner, which is unusual for an on-field restaurant. Hand-cut Angus steaks aged at least 28 days are the house specialty, with all-day breakfast, a full bar, and indoor and outdoor seating. Harvey Field is shared with skydiving and balloon operations, so brief the parachute activity and expect a busy pattern on good-weather weekends. Sun–Thu 7AM–9PM · Fri–Sat 7AM–10PM. The restaurant's lease has been extended through at least September 2027.",
+        "airport_ident": "S43",
+        "airport_name": "Harvey Field",
+        "city": "Snohomish",
+        "state": "WA",
+        "iso_region": "US-WA",
+        "slug": "buzz-inn-steakhouse-s43",
+        "airnav_url": "https://www.airnav.com/airport/S43",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.105003,
+          47.908199
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "restaurant_name": "The Airplane Restaurant",
+        "type": "near-airport",
+        "region": "Mountain",
+        "source": "2026 freshness pass",
+        "website": "https://theairplanerestaurant.com",
+        "substack_post": "",
+        "notes": "You eat inside a 1953 Boeing KC-97 tanker — 42 of the roughly 275 seats are in the airframe itself, and the cockpit is open to walk through. Diner-plus American: the Reuben von Crashed, the BBQ Bomber Burger, Runway Chicken Wings, Angus steaks. It is outside the airport fence, but the walk is genuinely easy: out the landside door at Cutter Aviation or the Colorado Jet Center and southwest to Newport Road, about half a mile and ten minutes on foot, no ramp crossing and no badging. Sun–Thu 11AM–8PM · Fri–Sat 11AM–9PM.",
+        "airport_ident": "KCOS",
+        "airport_name": "City of Colorado Springs Municipal Airport",
+        "city": "Colorado Springs",
+        "state": "CO",
+        "iso_region": "US-CO",
+        "slug": "the-airplane-restaurant-kcos",
+        "airnav_url": "https://www.airnav.com/airport/KCOS",
+        "status": "",
+        "status_date": "",
+        "status_note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.700996,
+          38.805801
         ]
       }
     }
