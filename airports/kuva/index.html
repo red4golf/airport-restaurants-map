@@ -153,6 +153,10 @@
       border: 1px solid rgba(184,76,42,0.2);
       padding: 4px 10px; border-radius: 2px;
     }
+    .airport-count-none {
+      color: var(--ink-mid); background: rgba(90,79,72,0.06);
+      border-color: rgba(90,79,72,0.25);
+    }
 
     /* ── Mini map ── */
     #mini-map {
@@ -200,6 +204,20 @@
     .badge-reviewed {
       background: rgba(200,130,26,0.1);
       border-color: var(--amber); color: var(--amber);
+    }
+    .badge-closed {
+      background: rgba(90,79,72,0.08);
+      border-color: rgba(90,79,72,0.35); color: var(--ink-mid);
+    }
+    .rest-card-closed {
+      background: rgba(237,229,212,0.5);
+      border-style: dashed;
+    }
+    .rest-card-closed .card-name { color: var(--ink-mid); }
+    .rest-card-closed:hover { box-shadow: none; }
+    .empty-note {
+      font-size: 14px; line-height: 1.7; color: var(--ink-mid);
+      margin-bottom: 18px; max-width: 62ch;
     }
     .card-notes {
       font-size: 14px; line-height: 1.7;
@@ -285,8 +303,6 @@
   <div id="mini-map"></div>
 
   <div class="section-label">Restaurants at this Airport</div>
-
-  
   <article class="rest-card">
     <div class="card-header">
       <h2 class="card-name">Hangar 6 Air Café</h2>
@@ -298,6 +314,7 @@
     <p class="card-notes">On-field café at Garner Field in the Texas Hill Country. Breakfast and lunch with a strong local ranching and hunting crowd. Uvalde is one of the highest-density quail hunting areas in Texas — expect to share the ramp with hunting camp traffic in season.</p>
     
   </article>
+  
 
   <div class="back-section">
     <a href="https://red4golf.github.io/airport-restaurants-map/" class="back-link">← View All Airports on the Map</a>
