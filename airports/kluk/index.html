@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fly-In Dining at Cincinnati Municipal Lunken Airport (KLUK) — Airport Restaurants</title>
-  <meta name="description" content="Find fly-in restaurants at Cincinnati Municipal Lunken Airport (KLUK) in Cincinnati, Ohio. 1 restaurant listed — on-field dining and $100 hamburger destinations for pilots." />
+  <meta name="description" content="There is nothing you can fly in for at Cincinnati Municipal Lunken Airport (KLUK) in Cincinnati, Ohio. We track what closed and when — Sky Galley is listed here with the details." />
   <link rel="canonical" href="https://red4golf.github.io/airport-restaurants-map/airports/kluk/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://red4golf.github.io/airport-restaurants-map/airports/kluk/" />
   <meta property="og:title" content="Fly-In Dining at Cincinnati Municipal Lunken Airport (KLUK) — Airport Restaurants" />
-  <meta property="og:description" content="Find fly-in restaurants at Cincinnati Municipal Lunken Airport (KLUK) in Cincinnati, Ohio. 1 restaurant listed — on-field dining and $100 hamburger destinations for pilots." />
+  <meta property="og:description" content="There is nothing you can fly in for at Cincinnati Municipal Lunken Airport (KLUK) in Cincinnati, Ohio. We track what closed and when — Sky Galley is listed here with the details." />
   <meta property="og:site_name" content="Airport Restaurants" />
   <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -29,33 +29,6 @@
         "latitude": 39.102357,
         "longitude": -84.418945
       }
-    },
-    {
-      "@type": "ItemList",
-      "name": "Fly-In Restaurants at Cincinnati Municipal Lunken Airport",
-      "numberOfItems": 1,
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@type": "FoodEstablishment",
-            "name": "Sky Galley",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Cincinnati",
-              "addressRegion": "OH",
-              "addressCountry": "US"
-            },
-            "containedInPlace": {
-              "@type": "Airport",
-              "name": "Cincinnati Municipal Lunken Airport",
-              "identifier": "KLUK"
-            },
-            "description": "On-field restaurant at Lunken Airport — one of the oldest airports in the country — with art deco terminal views and a classic American menu. Breakfast and lunch. A beloved institution for the Cincinnati aviation community."
-          }
-        }
-      ]
     }
   ]
 }</script>
@@ -153,6 +126,10 @@
       border: 1px solid rgba(184,76,42,0.2);
       padding: 4px 10px; border-radius: 2px;
     }
+    .airport-count-none {
+      color: var(--ink-mid); background: rgba(90,79,72,0.06);
+      border-color: rgba(90,79,72,0.25);
+    }
 
     /* ── Mini map ── */
     #mini-map {
@@ -200,6 +177,20 @@
     .badge-reviewed {
       background: rgba(200,130,26,0.1);
       border-color: var(--amber); color: var(--amber);
+    }
+    .badge-closed {
+      background: rgba(90,79,72,0.08);
+      border-color: rgba(90,79,72,0.35); color: var(--ink-mid);
+    }
+    .rest-card-closed {
+      background: rgba(237,229,212,0.5);
+      border-style: dashed;
+    }
+    .rest-card-closed .card-name { color: var(--ink-mid); }
+    .rest-card-closed:hover { box-shadow: none; }
+    .empty-note {
+      font-size: 14px; line-height: 1.7; color: var(--ink-mid);
+      margin-bottom: 18px; max-width: 62ch;
     }
     .card-notes {
       font-size: 14px; line-height: 1.7;
@@ -279,24 +270,24 @@
       📍 Cincinnati, Ohio
        &nbsp;·&nbsp; <a href="https://www.airnav.com/airport/KLUK" target="_blank" rel="noopener">AirNav ✈</a>
     </p>
-    <span class="airport-count">1 restaurant</span>
+    <span class="airport-count airport-count-none">No fly-in dining</span>
   </div>
 
   <div id="mini-map"></div>
 
-  <div class="section-label">Restaurants at this Airport</div>
-
   
-  <article class="rest-card">
+  
+  <div class="section-label">Nothing Here You Can Fly In For</div>
+  <p class="empty-note">There is nothing here to fly in for at the moment. We keep the record so you know why, and so a stale listing somewhere else doesn't send you on a wasted flight.</p>
+
+  <article class="rest-card rest-card-closed">
     <div class="card-header">
-      <h2 class="card-name">Sky Galley</h2>
+      <h3 class="card-name">Sky Galley</h3>
       <div class="card-badges">
-        <span class="badge">✅ On Field</span>
-        
+        <span class="badge badge-closed">⛔ Closed &middot; 2020-09-20</span>
       </div>
     </div>
-    <p class="card-notes">On-field restaurant at Lunken Airport — one of the oldest airports in the country — with art deco terminal views and a classic American menu. Breakfast and lunch. A beloved institution for the Cincinnati aviation community.</p>
-    
+    <p class="card-notes">Closed September 20, 2020 after decades at Lunken. The terminal restaurant space has been vacant since; a boutique hotel with its own restaurant is under construction as of 2026.</p>
   </article>
 
   <div class="back-section">
@@ -328,7 +319,7 @@
 
   const icon = L.divIcon({
     className: '',
-    html: '<div style="width:32px;height:32px;background:#1a2744;border:2px solid #e8a040;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 2px 8px rgba(0,0,0,0.3);">✈</div>',
+    html: '<div style="width:32px;height:32px;background:#8a8178;border:2px solid #b3aca4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 2px 8px rgba(0,0,0,0.3);">✈</div>',
     iconSize: [32, 32],
     iconAnchor: [16, 16],
     popupAnchor: [0, -18],

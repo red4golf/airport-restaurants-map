@@ -40,7 +40,7 @@
           "position": 1,
           "item": {
             "@type": "FoodEstablishment",
-            "name": "Nancy's Air Field Café",
+            "name": "Fourth &amp; Field",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Stow",
@@ -52,7 +52,8 @@
               "name": "Minute Man Air Field",
               "identifier": "6B6"
             },
-            "description": "Classic New England airport diner at Minute Man Airfield west of Boston. Famous among local pilots for generous breakfasts and friendly service. The airfield has strong ties to the local Civil Air Patrol and EAA community."
+            "description": "A family-run farm-to-table restaurant that took over Nancy's Air Field Café in September 2023, with about 70 seats indoors and a 75-seat patio looking out over the field. The kitchen sources from named local farms and twenty of its own garden beds; brunch is the move — corned beef hash, build-your-own omelettes, steak and cheese on an everything bagel. Wed–Fri lunch 11AM–3PM and dinner from 4PM · Sat brunch 9AM–3PM and dinner from 4PM · Sun brunch 9AM–3PM · Closed Mon–Tue. Note the field itself is on the market as of 2026, though the owners say it is business as usual.",
+            "url": "https://www.fourthandfield.com"
           }
         }
       ]
@@ -153,6 +154,10 @@
       border: 1px solid rgba(184,76,42,0.2);
       padding: 4px 10px; border-radius: 2px;
     }
+    .airport-count-none {
+      color: var(--ink-mid); background: rgba(90,79,72,0.06);
+      border-color: rgba(90,79,72,0.25);
+    }
 
     /* ── Mini map ── */
     #mini-map {
@@ -200,6 +205,20 @@
     .badge-reviewed {
       background: rgba(200,130,26,0.1);
       border-color: var(--amber); color: var(--amber);
+    }
+    .badge-closed {
+      background: rgba(90,79,72,0.08);
+      border-color: rgba(90,79,72,0.35); color: var(--ink-mid);
+    }
+    .rest-card-closed {
+      background: rgba(237,229,212,0.5);
+      border-style: dashed;
+    }
+    .rest-card-closed .card-name { color: var(--ink-mid); }
+    .rest-card-closed:hover { box-shadow: none; }
+    .empty-note {
+      font-size: 14px; line-height: 1.7; color: var(--ink-mid);
+      margin-bottom: 18px; max-width: 62ch;
     }
     .card-notes {
       font-size: 14px; line-height: 1.7;
@@ -285,18 +304,29 @@
   <div id="mini-map"></div>
 
   <div class="section-label">Restaurants at this Airport</div>
-
-  
   <article class="rest-card">
     <div class="card-header">
-      <h2 class="card-name">Nancy's Air Field Café</h2>
+      <h2 class="card-name">Fourth &amp; Field</h2>
       <div class="card-badges">
         <span class="badge">✅ On Field</span>
         
       </div>
     </div>
-    <p class="card-notes">Classic New England airport diner at Minute Man Airfield west of Boston. Famous among local pilots for generous breakfasts and friendly service. The airfield has strong ties to the local Civil Air Patrol and EAA community.</p>
-    
+    <p class="card-notes">A family-run farm-to-table restaurant that took over Nancy's Air Field Café in September 2023, with about 70 seats indoors and a 75-seat patio looking out over the field. The kitchen sources from named local farms and twenty of its own garden beds; brunch is the move — corned beef hash, build-your-own omelettes, steak and cheese on an everything bagel. Wed–Fri lunch 11AM–3PM and dinner from 4PM · Sat brunch 9AM–3PM and dinner from 4PM · Sun brunch 9AM–3PM · Closed Mon–Tue. Note the field itself is on the market as of 2026, though the owners say it is business as usual.</p>
+    <div class="card-links"><a href="https://www.fourthandfield.com" target="_blank" rel="noopener" class="card-link">Website →</a></div>
+  </article>
+  
+  <div class="section-label">Previously at this Airport</div>
+  
+
+  <article class="rest-card rest-card-closed">
+    <div class="card-header">
+      <h3 class="card-name">Nancy's Air Field Café</h3>
+      <div class="card-badges">
+        <span class="badge badge-closed">⛔ Closed &middot; 2023-04</span>
+      </div>
+    </div>
+    <p class="card-notes">Closed in spring 2023 when the owner retired after 27 years. Fourth &amp; Field opened in the space that September.</p>
   </article>
 
   <div class="back-section">

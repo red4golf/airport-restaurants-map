@@ -1,0 +1,21 @@
+# Transfer artifacts — bundles and patches move commits between machines and
+# are not source. They should never be committed.
+*.bundle
+*.patch
+*.diff
+
+# Scratch render/preview pages generated while producing newsletter artwork.
+_cover-render.html
+
+# Staging area for files awaiting manual deletion.
+_to_delete/
+
+# Stale git lock files, if one ever gets copied into the tree.
+*.lock
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

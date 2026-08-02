@@ -67,6 +67,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://red4golf.github.io/airport-restaurants-map/airports/7s5/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://red4golf.github.io/airport-restaurants-map/airports/kack/</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
@@ -104,6 +110,12 @@
   </url>
   <url>
     <loc>https://red4golf.github.io/airport-restaurants-map/airports/kcno/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://red4golf.github.io/airport-restaurants-map/airports/kcos/</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -260,6 +272,18 @@
   </url>
   <url>
     <loc>https://red4golf.github.io/airport-restaurants-map/airports/kwwd/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://red4golf.github.io/airport-restaurants-map/airports/s43/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://red4golf.github.io/airport-restaurants-map/airports/t40/</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
